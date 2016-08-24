@@ -36,9 +36,9 @@ module.exports = function(grunt) {
             templates: {
                 files: [{
                     expand: true,
-                    cwd: 'src/app/',
+                    cwd: 'src/app/templates',
                     src: ['**/*.html'],
-                    dest: 'build/app/'
+                    dest: 'build/app/templates'
                 }]
             }
         },
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
                 options: {
                     sourceMap: true,
                 },
-                src: ['src/app/**/*.module.js', 'src/app/**/*.js'], //NEED TO SPECIFY WHICH MODULE
+                src: ['src/app/js/application/cyclist.module.js', 'src/app/**/*.js'],
                 dest: 'build/app/main.js'
             }
         },
@@ -87,12 +87,12 @@ module.exports = function(grunt) {
                             'node_modules/angular/angular.js',
                             'node_modules/angular-ui-router/release/angular-ui-router.js',
                             'node_modules/angular-mocks/angular-mocks.js',
-                            'src/js/app/*.module.js', //NEED TO SPECIFY WHICH MODULE I'M USING
-                            'src/js/**/*.js',
+                            'src/app/js/application/cyclist.module.js',
+                            'src/app/**/*.js',
                             'test/specs/**/*.js'
                         ],
                         preprocessors: {
-                            'src/js/**/*.js': ['coverage']
+                            'src/app/js/**/*.js': ['coverage']
                         },
                         reporters: ['dots', 'coverage'],
                         coverageReporter: {
