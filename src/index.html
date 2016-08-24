@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='en' ng-app='cyclist'>
     <head>
         <meta charset='utf-8'>
         <title><!-- WHAT IS THE APP NAME? --></title>
@@ -7,6 +7,9 @@
         <meta name='description' content='Bike maintenance app'> <!-- Is this description right? -->
         <meta name='author' content='co-authors: Samina Chhatwal, Alex Shelton!'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' type='text/css'>
+        <link rel='stylesheet' href='css/styles.css' type='text/css'>
     </head>
     <body>
 
@@ -15,15 +18,17 @@
             <p>Slogan</p> <!-- Change when we have one -->
         </header>
 
-        <nav>
-            <ul> <!-- Need better tab names -->
-                <li><a>Home</a></li>
-                <li><a>Bike/Parts Stats</a></li>
-                <li><a>Add Bike Info</a></li>
-                <li><a>Add Daily Ride Info</a></li>
-                <li><a>Login</a></li>
-                <li><a>Create Account</a></li>
-                <li>Logout</li>
+        <nav class=''>
+            <ul class='nav nav-tabs'> <!-- Need better tab names -->
+                <li><a ui-sref='home'>Home</a></li>
+                <li><a ui-sref='about'>About Us</a></li>
+                <li><a ui-sref='profile'>Profile</a></li>
+                <li><a ui-sref='bike-stats'>Bike/Parts Stats</a></li>
+                <li><a ui-sref='bike-form'>Add Bike Info</a></li>
+                <li><a ui-sref='ride-form'>Add Daily Ride Info</a></li>
+                <li><a ui-sref='login'>Login</a></li>
+                <li><a ui-sref='create-account'>Create Account</a></li>
+                <li><a>Logout</a></li>
             </ul>
         </nav>
 
@@ -31,13 +36,13 @@
 
         <footer>
             <ul>
-                <li><a>App Info</a></li> <!-- Link back to visitor homepage -->
-                <li><a>Contact Us</a></li> <!-- Form to contact in case of issue -->
-                <li><a>About Us</a></li> <!-- Section about authors and github account -->
-                <li><a>Strava</a></li>
+                <li><a ui-sref='contact'>Contact Us</a></li> <!-- Form to contact in case of issue -->
+                <li><a ui-sref='about'>About Us</a></li> <!-- Section about authors and github account -->
+                <li><a href='https://www.strava.com/'>Strava</a></li>
             </ul>
-            <p>&copy; 2016 <!-- Change when know what it should be --></p>
+            <p>&copy; 2016 <!-- Change when we know what it should be --></p>
         </footer>
 
+        <script src='app/main.js'></script>
     </body>
 </html>
