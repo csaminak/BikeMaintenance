@@ -1,0 +1,1 @@
+An web application that notifies a cyclist when it is time to get their bike tuned up. Uses data that is either manually inputted into the site or gathered from Strava. Using a cyclist's bike and parts information, along with their daily bike activity, this site is able to know when it is time to notify a cyclist to get their biked checked out.

@@ -1,0 +1,6 @@
+build/
+node_modules/
+.npm
+coverage/
+.sass-cache/
+.DS_Store
