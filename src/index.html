@@ -32,10 +32,10 @@
             </ul>
         </nav>
 
-        <main><!-- The views --></main>
+        <main ui-view></main>
 
-        <footer>
-            <ul>
+        <footer class='navbar-fixed-bottom'>
+            <ul class='nav nav-pills'>
                 <li><a ui-sref='contact'>Contact Us</a></li> <!-- Form to contact in case of issue -->
                 <li><a ui-sref='about'>About Us</a></li> <!-- Section about authors and github account -->
                 <li><a href='https://www.strava.com/'>Strava</a></li>
@@ -43,6 +43,8 @@
             <p>&copy; 2016 <!-- Change when we know what it should be --></p>
         </footer>
 
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js'></script>
         <script src='app/main.js'></script>
     </body>
 </html>
