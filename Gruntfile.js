@@ -40,6 +40,14 @@ module.exports = function(grunt) {
                     src: ['**/*.html'],
                     dest: 'build/app/templates'
                 }]
+            },
+            images: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/',
+                    src: ['images/*.jpg'],
+                    dest: 'build/'
+                }]
             }
         },
 
