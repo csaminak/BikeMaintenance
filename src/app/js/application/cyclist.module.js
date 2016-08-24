@@ -24,37 +24,37 @@
                 controllerAs: ''
             })
             .state('profile', {
-                url: '',
-                templateUrl: '/app/templates/**',
+                url: '/profile',
+                templateUrl: '/app/templates/profile/profile.template.html',
                 controller: '',
                 controllerAs: ''
             })
             .state('bike-stats', {
-                url: '',
+                url: '/bike-stats',
                 templateUrl: '/app/templates/**',
                 controller: '',
                 controllerAs: ''
             })
             .state('bike-form', {
-                url: '',
+                url: '/bike-info',
                 templateUrl: '/app/templates/**',
                 controller: '',
                 controllerAs: ''
             })
             .state('ride-form', {
-                url: '',
+                url: '/ride-info',
                 templateUrl: '/app/templates/**',
                 controller: '',
                 controllerAs: ''
             })
             .state('login', {
-                url: '',
+                url: '/authenticate',
                 templateUrl: '/app/templates/**',
                 controller: '',
                 controllerAs: ''
             })
             .state('create-account', {
-                url: '',
+                url: '/create-account',
                 templateUrl: '/app/templates/**',
                 controller: '',
                 controllerAs: ''
