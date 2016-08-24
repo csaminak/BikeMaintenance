@@ -1,0 +1,22 @@
+{
+  "name": "bike-maintenance",
+  "version": "1.0.0",
+  "description": "A web application that notifies a cyclist when it is time to get their bike tuned up.",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csaminak/BikeMaintenance.git"
+  },
+  "author": "Samina Chhatwal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csaminak/BikeMaintenance/issues"
+  },
+  "homepage": "https://github.com/csaminak/BikeMaintenance#readme"
+}
