@@ -74,6 +74,10 @@ module.exports = function(grunt) {
                 files: ['src/**/*.html'],
                 tasks: ['copy:html', 'copy:templates']
             },
+            images: {
+                files: ['src/images/*.jpg'],
+                tasks: ['copy:images']
+            },
             tests: {
                 files: ['test/**/*.js'],
                 tasks: ['jshint', 'test']
