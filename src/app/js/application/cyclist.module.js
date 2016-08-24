@@ -18,7 +18,7 @@
                 controllerAs: ''
             })
             .state('about', {
-                url: '',
+                url: '/about-us',
                 templateUrl: '/app/templates/general-info/about-us.template.html',
                 controller: '',
                 controllerAs: ''
@@ -60,7 +60,7 @@
                 controllerAs: ''
             })
             .state('contact', {
-                url: '',
+                url: '/contact-us',
                 templateUrl: '/app/templates/general-info/contact.template.html',
                 controller: '',
                 controllerAs: ''
