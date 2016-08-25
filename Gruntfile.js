@@ -71,7 +71,7 @@ module.exports = function(grunt) {
                 tasks: ['jshint', 'concat']
             },
             html: {
-                files: ['src/**/*.html'],
+                files: ['src/index.html', 'src/app/templates/**/*.html'],
                 tasks: ['copy:html', 'copy:templates']
             },
             images: {
