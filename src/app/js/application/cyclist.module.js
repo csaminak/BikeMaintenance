@@ -41,21 +41,9 @@
                 controller: '',
                 controllerAs: ''
             })
-            .state('ride-form', {
-                url: '/ride-info',
-                templateUrl: '/app/templates/ride-info/ride-form.template.html',
-                controller: '',
-                controllerAs: ''
-            })
             .state('login', {
                 url: '/authenticate',
                 templateUrl: '/app/templates/account/login.template.html',
-                controller: '',
-                controllerAs: ''
-            })
-            .state('create-account', {
-                url: '/create-account',
-                templateUrl: '/app/templates/account/create-account.template.html',
                 controller: '',
                 controllerAs: ''
             })
