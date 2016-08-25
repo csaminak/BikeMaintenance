@@ -6,7 +6,7 @@
 
     MaintenanceService.$inject = ['$http'];
 
-    function MaintenanceService($http) {
+    function MaintenanceService(/*$http*/) {
 
         return {
 
