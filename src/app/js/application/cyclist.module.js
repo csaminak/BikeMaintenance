@@ -31,31 +31,31 @@
             })
             .state('bike-stats', {
                 url: '/bike-stats',
-                templateUrl: '/app/templates/**',
+                templateUrl: '/app/templates/bike-stats/bike-stats.template.html',
                 controller: '',
                 controllerAs: ''
             })
             .state('bike-form', {
                 url: '/bike-info',
-                templateUrl: '/app/templates/**',
+                templateUrl: '/app/templates/bike-form/bike-form.template.html',
                 controller: '',
                 controllerAs: ''
             })
             .state('ride-form', {
                 url: '/ride-info',
-                templateUrl: '/app/templates/**',
+                templateUrl: '/app/templates/ride-info/ride-form.template.html',
                 controller: '',
                 controllerAs: ''
             })
             .state('login', {
                 url: '/authenticate',
-                templateUrl: '/app/templates/**',
+                templateUrl: '/app/templates/account/login.template.html',
                 controller: '',
                 controllerAs: ''
             })
             .state('create-account', {
                 url: '/create-account',
-                templateUrl: '/app/templates/**',
+                templateUrl: '/app/templates/account/create-account.template.html',
                 controller: '',
                 controllerAs: ''
             })
