@@ -6,7 +6,7 @@
 
     LoginController.$inject = ['$location', 'maintenance'];
 
-    function LoginController($location, maintenance) {
+    function LoginController($location/*, maintenance*/) {
 
         this.login = authorizeCyclist;
 
