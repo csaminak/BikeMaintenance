@@ -15,7 +15,7 @@
             $location.path('https://www.strava.com/oauth/authorize\
                             ?client_id=13165\
                             &response_type=code\
-                            &redirect_uri=localhost:3000\
+                            &redirect_uri=localhost:8080\
                             &scope=view_private\
                             &state=loggedin\
                             &approval_prompt=auto');
@@ -23,6 +23,7 @@
             //when in that state I will automatically/on load look into the browser
             //for a code and then do the rest of this function...
             //send code to service.then redirect to user's profile with the information returned
+            //send to url localhost:3000 to alex
             var code = $location.path().split('code=')[1];
             return code;
         }
