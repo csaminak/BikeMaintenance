@@ -10,7 +10,8 @@
 
         return {
             sendStravaCode: sendStravaCode,
-            sendParts: sendParts
+            sendParts: sendParts,
+            addBike: addBike
         };
 
 
@@ -51,6 +52,24 @@
                     'part_type': partsData.part_type,
                     'description': partsData.description
                 })
+            })
+            .then(function(xhr) {
+                console.log(xhr);
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+        }
+
+
+        function addBike(bikeData) {
+            return $http({
+                method: 'POST',
+                url: 'localhost:3000/bikes',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: bikeData
             })
             .then(function(xhr) {
                 console.log(xhr);
