@@ -11,6 +11,8 @@
         this.bike = {};
         this.addBike = addBike;
 
+
+
         /**
          * Submits bike information to addBike mehtod from service and then sends
          * user to a part-form view to add parts for their bike.
@@ -21,6 +23,7 @@
             if(!bikeInfo) {
                 return; //TODO Add some kind of error
             }
+            console.log(bikeInfo);
             return maintenance.addBike(bikeInfo)
                 .then(function() {
                     that.bike = {};
