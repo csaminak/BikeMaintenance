@@ -2,7 +2,7 @@
 
     <h2>Tell Me About Your Bike</h2>
 
-    <form>
+    <form ng-submit='bikeFormCtrl.addBike(bikeFormCtrl.bike)'>
         <fieldset>
             <legend>Bike Info</legend>
             <div>
@@ -18,21 +18,24 @@
                 <div>
                     <input
                         id='mountain_bike'
-                        name='bike_type'
+                        name='model'
                         value='mountain_bike'
-                        type='radio'>
+                        type='radio'
+                        ng-model= 'bikeFormCtrl.bike.model'>
                     <label for='mountain'>Mountain Bike</label>
                     <input
                         id='cross_bike'
-                        name='bike_type'
+                        name='model'
                         value='cross_bike'
-                        type='radio'>
+                        type='radio'
+                        ng-model= 'bikeFormCtrl.bike.model'>
                     <label for='cross'>Cross Bike</label>
                     <input
                         id='road_bike'
-                        name='bike_type'
+                        name='model'
                         value='road_bike'
-                        type='radio'>
+                        type='radio'
+                        ng-model= 'bikeFormCtrl.bike.model'>
                     <label for='mountain'>Road Bike</label>
                 </div>
             </div>
@@ -40,25 +43,28 @@
                 <label for='bike_serial'>Bike Serial Number</label>
                 <input
                     id='bike_serial'
-                    name='bike_serial'
+                    name='serial_number'
                     placeholder='Bike Serial Number'
-                    type='text'>
+                    type='text'
+                    ng-model= 'bikeFormCtrl.bike.serial_number'>
             </div>
             <div>
                 <label for='purchase_date'>Purchase Date</label>
                 <input
                     id='purchase_date'
-                    name='purchase_date'
+                    name='bought_on'
                     placeholder='09/13/2016'
-                    type='date'>
+                    type='date'
+                    ng-model= 'bikeFormCtrl.bike.bought_on'>
             </div>
             <div>
                 <label for='bike_name'>Bike Name</label>
                 <input
                     id='bike_name'
-                    name='bike_name'
+                    name='name'
                     placeholder='What is your bike name?'
-                    type='text'>
+                    type='text'
+                    ng-model= 'bikeFormCtrl.bike.name'>
             </div>
         </fieldset>
 
