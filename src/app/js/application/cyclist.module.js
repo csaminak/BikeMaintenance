@@ -38,18 +38,30 @@
             .state('bike-form', {
                 url: '/bike-info',
                 templateUrl: '/app/templates/bike-form/bike-form.template.html',
-                controller: '',
-                controllerAs: ''
+                controller: 'BikeFormController',
+                controllerAs: 'bikeFormCtrl'
+            })
+            .state('parts-form', {
+                url: '/parts-info',
+                templateUrl: '/app/templates/bike-form/parts-form.template.html',
+                controller: 'PartsFormController',
+                controllerAs: 'partsFormCtrl'
             })
             .state('login', {
                 url: '/authenticate',
                 templateUrl: '/app/templates/account/login.template.html',
-                controller: '',
-                controllerAs: ''
+                controller: 'LoginController',
+                controllerAs: 'loginCtrl'
             })
             .state('contact', {
                 url: '/contact-us',
                 templateUrl: '/app/templates/general-info/contact.template.html',
+                controller: '',
+                controllerAs: ''
+            })
+            .state('get-token', {
+                url: '/get-token',
+                templateUrl: '/app/templates/account/token.template.html',
                 controller: '',
                 controllerAs: ''
             })

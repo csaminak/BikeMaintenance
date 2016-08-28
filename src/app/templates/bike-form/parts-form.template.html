@@ -1,0 +1,99 @@
+<section class='parts-form'>
+
+    <h2>Tell Me About Your Bike's Parts</h2>
+
+    <form ng-submit=''>
+        <fieldset>
+            <legend>Parts Info</legend>
+            <div>
+                <label for='bike-name'>Select Bike</label>
+                <select id='bike-name' name='bikeName'>
+                    <option value='' selected>Bike Name</option>
+                    <option value=''></option>
+                </select>
+            </div>
+            <div>
+                <label>Brake Type</label>
+                <div>
+                    <input
+                        ng-model=''
+                        id='brake-pads'
+                        name='brakes'
+                        value='Brake Pads'
+                        type='radio'>
+                    <label for='brake-pads'>Brake Pads</label>
+                    <input
+                        ng-model=''
+                        id='disc-brakes'
+                        name='brakes'
+                        value='Disc Brakes'
+                        type='radio'>
+                    <label for='disc-brakes'>Disc Brakes</label>
+                </div>
+            </div>
+            <div>
+                <label>Derailer</label>
+                <div>
+                    <label for='derailer-brand'>Brand Name</label>
+                    <input
+                        id='derailer-brand'
+                        name='derailer-brand'
+                        placeholder='Brand Name'
+                        type='text'>
+                    <label for='derailer-model'>Model</label>
+                    <input
+                        id='derailer-model'
+                        name='derailer-model'
+                        placeholder='Model'
+                        type='text'>
+                    <label for='derailer-serial'>Serial Number</label>
+                    <input
+                        id='derailer-serial'
+                        name='derailer-serial'
+                        placeholder='Serial Number'
+                        type='text'>
+                </div>
+            </div>
+            <div>
+                <label>Pedals Type</label>
+                <div>
+                    <input
+                        id='clip-pedals'
+                        name='pedals'
+                        value='clip-pedals'
+                        type='radio'>
+                    <label for='clip-pedals'>Clip</label>
+                    <input
+                        id='slide-pedals'
+                        name='pedals'
+                        value='slide-pedals'
+                        type='radio'>
+                    <label for='slide-pedals'>Slide-Into</label>
+                    <input
+                        id='open-pedals'
+                        name='pedals'
+                        value='open-pedals'
+                        type='radio'>
+                    <label for='open-pedals'>Open-Top</label>
+                </div>
+            </div>
+            <div>
+                <label for='inner-tubes'>Inner Tubes</label>
+                <select id='inner-tubes' name='tube'>
+                    <option value='' selected>Diameter x Width</option>
+                    <option value=''></option>
+                </select>
+            </div>
+            <div>
+                <label for='tires'>Tires</label>
+                <select id='tires' name='tires'>
+                    <option value='' selected>Diameter x Width</option>
+                    <option value=''></option>
+                </select>
+            </div>
+        </fieldset>
+
+        <input type='submit' value='Add Parts'>
+    </form>
+
+</section>
