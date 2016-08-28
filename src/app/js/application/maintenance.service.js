@@ -48,7 +48,8 @@
                     'Content-Type': 'application/json'
                 },
                 data: angular.toJSON({
-                    'parts': partsData
+                    'part_type': partsData.part_type,
+                    'description': partsData.description
                 })
             })
             .then(function(xhr) {
