@@ -4,20 +4,23 @@
     angular.module('cyclist')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$window'];
+    LoginController.$inject = [];
 
-    function LoginController($window) {
+    function LoginController() {
 
         this.login = authorizeCyclist;
 
         function authorizeCyclist() {
-            $window.location.path('https://www.strava.com/oauth/authorize\
-                            ?client_id=13165\
-                            &response_type=code\
-                            &redirect_uri=localhost:8080/get-token\
-                            &scope=view_private\
-                            &state=loggedin\
-                            &approval_prompt=auto');
+
+            var clientId = '13165';
+            var redirect = 'http://localhost:8080/#/get-token';
+
+            // $window.location would not redirect properly because '#' was being removed
+            window.location = 'https://www.strava.com/oauth/authorize?client_id=' +
+                        encodeURIComponent(clientId) + '&response_type=code&redirect_uri=' +
+                        encodeURIComponent(redirect) + '&scope=view_private' +
+                        '&state=loggedin&approval_prompt=auto';
+
         }
 
     }
