@@ -10,8 +10,11 @@
 
         this.login = authorizeCyclist;
 
+        /**
+         * Redirects user to authorize their account on Strava.
+         * @return {Void}
+         */
         function authorizeCyclist() {
-
             var clientId = '13165';
             var redirect = 'http://localhost:8080/#/get-token';
 
@@ -20,7 +23,6 @@
                         encodeURIComponent(clientId) + '&response_type=code&redirect_uri=' +
                         encodeURIComponent(redirect) + '&scope=view_private' +
                         '&state=loggedin&approval_prompt=auto';
-
         }
 
     }
