@@ -18,7 +18,7 @@
 
 
         /**
-         * Sends code retrieved from Strava login when redirected back to our app page,
+         * Sends code retrieved from Strava login from redirect back to our app page,
          * Sent to the back-end to then get a token that will be used for all
          * other calls to Strava.
          * A token is expected with user Strava information is expected back.
@@ -28,7 +28,7 @@
         function sendStravaCode(stravaCode) {
             return $http({
                 method: 'POST',
-                url: 'localhost:3000/', //will change later
+                url: 'https://cycling-app.herokuapp.com/',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -45,7 +45,7 @@
         function sendParts(partsData) {
             return $http({
                 method: 'POST',
-                url: 'localhost:3000/parts',
+                url: 'https://cycling-app.herokuapp.com/parts',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -70,7 +70,7 @@
         function addBike(bikeData) {
             return $http({
                 method: 'POST',
-                url: 'http://localhost:3000/bikes',
+                url: 'https://cycling-app.herokuapp.com/bikes',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -93,7 +93,7 @@
             console.log('CORS?');
             return $http({
                 method: 'get',
-                url: 'http://localhost:3000/bikes',
+                url: 'https://cycling-app.herokuapp.com/bikes',
                 headers: {
                     'Content-Type': 'application/json'
                 }
