@@ -23,12 +23,6 @@
                 controller: '',
                 controllerAs: ''
             })
-            .state('profile', {
-                url: '/profile',
-                templateUrl: '/app/templates/profile/profile.template.html',
-                controller: '',
-                controllerAs: ''
-            })
             .state('bike-stats', {
                 url: '/bike-stats',
                 templateUrl: '/app/templates/bike-stats/bike-stats.template.html',
