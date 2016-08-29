@@ -2,7 +2,19 @@
 
     <h2>Tell Me About Your Bike</h2>
 
-    <form ng-submit='bikeFormCtrl.addBike(bikeFormCtrl.bike)'>
+    <section class='errorMsgs'>
+        <p>{{bikeFormCtrl.errorMsg}}</p>
+        <p ng-show='add_bike.name.$touched && add_bike.name.$error.required'>
+            Please name your bike to easily identify it.</p>
+        <p ng-show='add_bike.model.$touched && add_bike.model.$error.required'>
+            Need to know the type of bike.</p>
+    </section>
+
+    <form
+        name='add_bike'
+        ng-submit='add_bike.$valid && bikeFormCtrl.addBike(bikeFormCtrl.bike)'
+        novalidate>
+
         <fieldset>
             <legend>Bike Info</legend>
             <div>
@@ -14,29 +26,14 @@
                     type='text'>
             </div>
             <div>
-                <label>Bike Type</label>
+                <label for='model'>Bike Model/Type</label>
                 <div>
-                    <input
-                        id='mountain_bike'
-                        name='model'
-                        value='mountain_bike'
-                        type='radio'
-                        ng-model= 'bikeFormCtrl.bike.model'>
-                    <label for='mountain'>Mountain Bike</label>
-                    <input
-                        id='cross_bike'
-                        name='model'
-                        value='cross_bike'
-                        type='radio'
-                        ng-model= 'bikeFormCtrl.bike.model'>
-                    <label for='cross'>Cross Bike</label>
-                    <input
-                        id='road_bike'
-                        name='model'
-                        value='road_bike'
-                        type='radio'
-                        ng-model= 'bikeFormCtrl.bike.model'>
-                    <label for='mountain'>Road Bike</label>
+                    <select id='model' name='model' ng-model= 'bikeFormCtrl.bike.model' required>
+                        <option value='' selected>Type of Bike</option>
+                        <option value='mountain'>Mountain Bike</option>
+                        <option value='mountain'>Road Bike</option>
+                        <option value='mountain'>Cross Bike</option>
+                    </select>
                 </div>
             </div>
             <div>
@@ -64,7 +61,8 @@
                     name='name'
                     placeholder='What is your bike name?'
                     type='text'
-                    ng-model= 'bikeFormCtrl.bike.name'>
+                    ng-model= 'bikeFormCtrl.bike.name'
+                    required>
             </div>
         </fieldset>
 
