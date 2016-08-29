@@ -26,13 +26,20 @@
          * @return {XHR Object}              An object that holds promise methods
          */
         function sendStravaCode(stravaCode) {
+            console.log('stravaCode', stravaCode);
             return $http({
                 method: 'POST',
-                url: 'https://cycling-app.herokuapp.com/',
+                url: 'https://cycling-app.herokuapp.com/oauth/strava',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                data: stravaCode
+                data: angular.toJson({'code': stravaCode})
+            })
+            .then(function(response) {
+                console.log('sendStravaCode then', response);
+            })
+            .catch(function(err) {
+                console.log('sendStravaCode err', err);
             });
         }
 
@@ -74,7 +81,7 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                data: bikeData
+                data: bikeData //TODO ANGULAR TO JSON?
             })
             .then(function(xhr) {
                 console.log('then addBike', xhr);
