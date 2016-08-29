@@ -2,28 +2,36 @@
 
     <h2>Tell Me About Your Bike's Parts</h2>
 
-    <form ng_submit=''>
+    <section class='errorMsgs'>
+        <p>{{partsFormCtrl.errorMsg}}</p>
+        <!-- <p ng-show='add_bike.name.$touched && add_bike.name.$error.required'>
+            Please name your bike to easily identify it.</p> -->
+    </section>
+
+    <form
+        ng-show='partsFormCtrl.allBikes'
+        ng-submit=''>
         <fieldset>
             <legend>Parts Info</legend>
             <div>
                 <label for='select_bike'>Select Bike</label>
-                <select id='select_bike' name='select_bike'>
+                <select id='select_bike' name='select_bike' required>
                     <option value='' selected>Bike Name</option>
-                    <option value=''></option>
+                    <option
+                        ng-repeat='bike in partsFormCtrl.allBikes'
+                        value='{{bike.id}}'>{{bike.name}}</option>
                 </select>
             </div>
             <div>
                 <label>Brake Type</label>
                 <div>
                     <input
-                        ng_model=''
                         id='brake_pads'
                         name='brakes'
                         value='Brake Pads'
                         type='radio'>
                     <label for='brake_pads'>Brake Pads</label>
                     <input
-                        ng_model=''
                         id='disc_brakes'
                         name='brakes'
                         value='Disc Brakes'
