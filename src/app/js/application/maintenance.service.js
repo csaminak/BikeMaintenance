@@ -11,7 +11,8 @@
         return {
             sendStravaCode: sendStravaCode,
             sendParts: sendParts,
-            addBike: addBike
+            addBike: addBike,
+            getBikes: getBikes
         };
 
 
@@ -38,7 +39,7 @@
 
         /**
          * Sends an obect with info about parts to database to store.
-         * @param  {Array}   partsData     Cyclist submitted parts info
+         * @param  {Object}   partsData     Cyclist submitted parts info, with specified bike
          * @return {XHR Object}             An object that holds promise methods
          */
         function sendParts(partsData) {
@@ -61,25 +62,50 @@
             });
         }
 
-
+        /**
+         * Sends an obect with info about a user's bike to database to store.
+         * @param  {Object}        bikeData     Cyclist submitted bike
+         * @return {XHR Object}                 An object that holds promise methods
+         */
         function addBike(bikeData) {
             return $http({
                 method: 'POST',
-                url: 'localhost:3000/bikes',
+                url: 'http://localhost:3000/bikes',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 data: bikeData
             })
             .then(function(xhr) {
-                console.log(xhr);
+                console.log('then addBike', xhr);
             })
             .catch(function(err) {
-                console.log(err);
+                console.log('addBike error', err);
             });
         }
 
-
+        /**
+         * Gets all bikes for a specified cyclist
+         * @param  {String}        cyclist     Cyclist id
+         * @return {XHR Object}                An object that holds promise methods
+         */
+        function getBikes() {
+            console.log('CORS?');
+            return $http({
+                method: 'get',
+                url: 'http://localhost:3000/bikes',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(function(xhr) {
+                console.log('getBikes then', xhr);
+                return xhr.data;
+            })
+            .catch(function(err) {
+                console.log('getBikes error: ', err);
+            });
+        }
 
 
     }
