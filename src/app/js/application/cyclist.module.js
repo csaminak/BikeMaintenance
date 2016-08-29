@@ -47,15 +47,15 @@
                 controller: 'LoginController',
                 controllerAs: 'loginCtrl'
             })
-            .state('contact', {
-                url: '/contact-us',
-                templateUrl: '/app/templates/general-info/contact.template.html',
-                controller: '',
-                controllerAs: ''
-            })
             .state('get-token', {
                 url: '/get-token',
                 templateUrl: '/app/templates/account/token.template.html',
+                controller: 'TokenController',
+                controllerAs: 'tokenCtrl'
+            })
+            .state('contact', {
+                url: '/contact-us',
+                templateUrl: '/app/templates/general-info/contact.template.html',
                 controller: '',
                 controllerAs: ''
             })
