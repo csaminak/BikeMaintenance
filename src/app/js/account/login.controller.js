@@ -4,17 +4,17 @@
     angular.module('cyclist')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location'];
+    LoginController.$inject = ['$window'];
 
-    function LoginController($location) {
+    function LoginController($window) {
 
         this.login = authorizeCyclist;
 
         function authorizeCyclist() {
-            $location.path('https://www.strava.com/oauth/authorize\
+            $window.location.path('https://www.strava.com/oauth/authorize\
                             ?client_id=13165\
                             &response_type=code\
-                            &redirect_uri=https://cycling-app.herokuapp.com/get-token\
+                            &redirect_uri=localhost:8080/get-token\
                             &scope=view_private\
                             &state=loggedin\
                             &approval_prompt=auto');
