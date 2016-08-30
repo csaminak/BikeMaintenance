@@ -14,6 +14,7 @@
 
         return {
             login: login,
+            isLoggedIn: isLoggedIn,
             addBike: addBike,
             sendParts: sendParts,
             getBikes: getBikes
@@ -50,6 +51,16 @@
                 console.log('sendStravaCode err', err);
                 return err.data.errors;
             });
+        }
+
+        /**
+         * Returns a boolean determining whether a token for a user exists,
+         * if true, cyclists is logged in, if false, cyclist is not logged in
+         * and therefore will need to login.
+         * @return {Boolean}   Token     Determines the existence of a token
+         */
+        function isLoggedIn() {
+            return !!token;
         }
 
         /**
