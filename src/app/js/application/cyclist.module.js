@@ -27,25 +27,31 @@
                 url: '/bike-stats',
                 templateUrl: '/app/templates/bike-stats/bike-stats.template.html',
                 controller: '',
-                controllerAs: ''
+                controllerAs: '',
+                secure: true
             })
             .state('bike-form', {
                 url: '/bike-info',
                 templateUrl: '/app/templates/bike-form/bike-form.template.html',
                 controller: 'BikeFormController',
-                controllerAs: 'bikeFormCtrl'
+                controllerAs: 'bikeFormCtrl',
+                secure: true
             })
             .state('parts-form', {
                 url: '/parts-info',
                 templateUrl: '/app/templates/bike-form/parts-form.template.html',
                 controller: 'PartsFormController',
-                controllerAs: 'partsFormCtrl'
+                controllerAs: 'partsFormCtrl',
+                secure: true
             })
             .state('login', {
                 url: '/authenticate',
                 templateUrl: '/app/templates/account/login.template.html',
                 controller: 'LoginController',
-                controllerAs: 'loginCtrl'
+                controllerAs: 'loginCtrl',
+                params: {
+                    message: null
+                }
             })
             .state('get-token', {
                 url: '/get-token',
@@ -65,9 +71,22 @@
                 controller: '',
                 controllerAs: ''
             });
-
     }
 
+    cyclistStartup.$inject = ['$rootScope', '$state', 'maintenance'];
+
+    function cyclistStartup($rootScope, $state, maintenance) {
+        $rootScope.on('$stateChangeStart', function(e, toState) {
+            if(toState.secure && !maintenance.isLoggedIn()) {
+                e.preventDefault();
+                console.log('user is not logged in');
+
+                $state.go('login', {
+                    message: 'Please login first.'
+                });
+            }
+        });
+    }
 
 
 
