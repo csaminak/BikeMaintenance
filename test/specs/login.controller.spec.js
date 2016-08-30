@@ -5,33 +5,22 @@
 
     suite('login controller', function() {
 
-        var loginCtrl, $rootScope, $httpBackend;
+        var loginCtrl;
         var mockMaintenanceService = {};
-        var mockState = {};
 
         setup(module('cyclist'));
 
         setup(module(function($provide) {
-            $provide.value('$state', mockState);
             $provide.value('maintenance', mockMaintenanceService);
         }));
 
-        setup(inject(function($controller, $q, _$rootScope_, _$httpBackend_) {
-            $rootScope = _$rootScope_;
-            $httpBackend = _$httpBackend_;
-
-            $httpBackend
-                .whenGET('/app/templates/general-info/home.template.html')
-                .respond('<h2>Home Page for Cycling App</h2>');
-
+        setup(inject(function($controller) {
             loginCtrl = $controller('LoginController');
         }));
 
         test('authorizeCyclist fn redirects user', function() {
-            assert.isFunction(loginCtrl.authorizeCyclist, 'authorizeCyclist is a fn');
+            assert.isFunction(loginCtrl.login, 'authorizeCyclist is a fn');
         });
-
-
 
     });
 
