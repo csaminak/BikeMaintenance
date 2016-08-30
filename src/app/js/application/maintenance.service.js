@@ -4,29 +4,34 @@
     angular.module('cyclist')
         .factory('maintenance', MaintenanceService);
 
-    MaintenanceService.$inject = ['$http'];
+    MaintenanceService.$inject = ['$http', '$q'];
 
-    function MaintenanceService($http) {
+    function MaintenanceService($http, $q) {
+
+        var token;
+        var stravaUser;
+        var cyclist;
 
         return {
-            sendStravaCode: sendStravaCode,
-            sendParts: sendParts,
+            login: login,
             addBike: addBike,
+            sendParts: sendParts,
             getBikes: getBikes
         };
 
 
-
         /**
-         * Sends code retrieved from Strava login from redirect back to our app page,
-         * Sent to the back-end to then get a token that will be used for all
-         * other calls to Strava.
-         * A token is expected with user Strava information is expected back.
+         * Sends the code retrieved from Strava login, which is retrieved from the
+         * redirect back to our app page. A token and user Strava information is
+         * expected back.
          * @param  {String}     stravaCode   The code used to get a token
          * @return {XHR Object}              An object that holds promise methods
          */
-        function sendStravaCode(stravaCode) {
-            console.log('stravaCode', stravaCode);
+        function login(stravaCode) {
+            console.log('stravaCode', stravaCode); //TODO DELETE
+            if(!stravaCode) {
+                return $q.reject(new Error('no code obtained to send.'));
+            }
             return $http({
                 method: 'POST',
                 url: 'https://cycling-app.herokuapp.com/oauth/strava',
@@ -36,14 +41,47 @@
                 data: angular.toJson({'code': stravaCode})
             })
             .then(function(response) {
-                console.log('sendStravaCode then', response);
+                token = response.data.token;
+                stravaUser = response.data.athlete;
+                cyclist = response.data.client;
                 return response.data;
             })
             .catch(function(err) {
                 console.log('sendStravaCode err', err);
+                return err.data.errors;
             });
         }
 
+        /**
+         * Sends an obect with info about a user's bike to database to store.
+         * @param  {Object}        bikeData     Cyclist submitted bike
+         * @return {XHR Object}                 An object that holds promise methods
+         */
+        function addBike(bikeData) {
+            if(!bikeData) {
+                return $q.reject(new Error('No bike info was sent.'));
+            }
+            if(!bikeData.name) {
+                return $q.reject(new Error('Need a name for bike to identify bike.'));
+            }
+            if(!bikeData.model) {
+                return $q.reject(new Error('Need a model/type of bike to save.'));
+            }
+            return $http({
+                method: 'POST',
+                url: 'https://cycling-app.herokuapp.com/bikes',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: bikeData //TODO ANGULAR TO JSON?
+            })
+            .then(function(response) {
+                console.log('then addBike', response);
+            })
+            .catch(function(err) {
+                console.log('addBike error', err);
+            });
+        }
 
         /**
          * Sends an obect with info about parts to database to store.
@@ -51,6 +89,15 @@
          * @return {XHR Object}             An object that holds promise methods
          */
         function sendParts(partsData) {
+            if(!partsData) {
+                return $q.reject(new Error('No parts to add.'));
+            }
+            if(!partsData.part_type) {
+                return $q.reject(new Error('Need the type of part to save part.'));
+            }
+            if(!partsData.description) {
+                return $q.reject(new Error('Need the specfic description for selected part.'));
+            }
             return $http({
                 method: 'POST',
                 url: 'https://cycling-app.herokuapp.com/parts',
@@ -62,35 +109,14 @@
                     'description': partsData.description
                 })
             })
-            .then(function(xhr) {
-                console.log(xhr);
+            .then(function(response) {
+                console.log(response);
             })
             .catch(function(err) {
                 console.log(err);
             });
         }
 
-        /**
-         * Sends an obect with info about a user's bike to database to store.
-         * @param  {Object}        bikeData     Cyclist submitted bike
-         * @return {XHR Object}                 An object that holds promise methods
-         */
-        function addBike(bikeData) {
-            return $http({
-                method: 'POST',
-                url: 'https://cycling-app.herokuapp.com/bikes',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                data: bikeData //TODO ANGULAR TO JSON?
-            })
-            .then(function(xhr) {
-                console.log('then addBike', xhr);
-            })
-            .catch(function(err) {
-                console.log('addBike error', err);
-            });
-        }
 
         /**
          * Gets all bikes for a specified cyclist
@@ -116,7 +142,7 @@
         }
 
 
-    }
 
+    }
 
 })();
