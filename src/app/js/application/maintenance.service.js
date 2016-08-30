@@ -15,6 +15,7 @@
         return {
             login: login,
             isLoggedIn: isLoggedIn,
+            logout: logout,
             addBike: addBike,
             sendParts: sendParts,
             getBikes: getBikes
@@ -42,7 +43,7 @@
                 data: angular.toJson({'code': stravaCode})
             })
             .then(function(response) {
-                token = response.data.token;
+                token = response.data.access_token;
                 stravaUser = response.data.athlete;
                 cyclist = response.data.client;
                 return response.data;
@@ -61,6 +62,15 @@
          */
         function isLoggedIn() {
             return !!token;
+        }
+
+        /**
+         * Logs cyclist out.
+         * @return {Void} [description]
+         */
+        function logout() {
+            token = null;
+            return;
         }
 
         /**
