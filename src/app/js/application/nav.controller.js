@@ -8,11 +8,13 @@
 
     function NavController($state, maintenance) {
         this.isLoggedIn = maintenance.isLoggedIn;
+        this.logout = logout;
 
-        this.logout = function logout() {
+
+        function logout() { //TODO will know what to do when function is complete
             maintenance.logout();
             $state.go('home');
-        };
+        }
 
     }
 
