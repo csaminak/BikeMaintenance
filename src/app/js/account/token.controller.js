@@ -9,7 +9,7 @@
     function TokenController($state, maintenance) {
         this.code = window.location.hash.split('code=')[1];
 
-        maintenance.sendStravaCode(this.code)
+        maintenance.login(this.code)
                 .then(function(response) {
                     console.log(response); //TODO anything else with response?
                     $state.go('bike-form');

@@ -37,6 +37,7 @@
             })
             .then(function(response) {
                 console.log('sendStravaCode then', response);
+                return response.data;
             })
             .catch(function(err) {
                 console.log('sendStravaCode err', err);
