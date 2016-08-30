@@ -4,21 +4,18 @@
     angular.module('cyclist')
         .controller('TokenController', TokenController);
 
-    TokenController.$inject = ['maintenance'];
+    TokenController.$inject = ['$state', 'maintenance'];
 
-    function TokenController(maintenance) {
+    function TokenController($state, maintenance) {
         this.code = window.location.hash.split('code=')[1];
-        console.log(this.code); //TODO DELETE
 
         maintenance.sendStravaCode(this.code)
                 .then(function(response) {
-                    console.log(response);
-                    //change state in then to user to addBike;
-                    //send code to service.then redirect to user's profile with
-                    //the information returned
+                    console.log(response); //TODO anything else with response?
+                    $state.go('bike-form');
                 })
                 .catch(function(err) {
-                    console.log(err);
+                    console.log(err); //TODO what kind of error can occur?
                 });
 
 
