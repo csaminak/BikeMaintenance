@@ -4,11 +4,12 @@
     angular.module('cyclist')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$window'];
+    LoginController.$inject = ['$window', '$stateParams'];
 
-    function LoginController($window) {
+    function LoginController($window, $stateParams) {
 
         this.login = authorizeCyclist;
+        this.message = $stateParams.message;
 
         /**
          * Redirects user to authorize their account on Strava.
