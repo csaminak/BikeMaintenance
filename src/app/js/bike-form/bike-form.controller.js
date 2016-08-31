@@ -19,6 +19,9 @@
          * @return  {Promise Object}
          */
         function addBike(bikeInfo) {
+            if(!bikeInfo) {
+                that.errorMsg = 'No information about bike to submit.';
+            }
             if(!bikeInfo.name) {
                 that.errorMsg = 'Please name your bike to easily identify it.';
                 return;
