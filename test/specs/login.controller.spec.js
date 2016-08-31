@@ -6,20 +6,23 @@
     suite('login controller', function() {
 
         var loginCtrl;
-        var mockMaintenanceService = {};
+        var mockWindow = {};
 
         setup(module('cyclist'));
 
         setup(module(function($provide) {
-            $provide.value('maintenance', mockMaintenanceService);
+            $provide.value('$window', mockWindow);
         }));
 
         setup(inject(function($controller) {
             loginCtrl = $controller('LoginController');
+            mockWindow.location = 'some-site';
         }));
 
-        test('authorizeCyclist fn redirects user', function() {
-            assert.isFunction(loginCtrl.login, 'authorizeCyclist is a fn');
+        test('login function redirects user', function() {
+            assert.isFunction(loginCtrl.login, 'login is a fn');
+            // loginCtrl.login();
+            // assert.strictEqual(mockWindow.location, 'some-site');
         });
 
     });
