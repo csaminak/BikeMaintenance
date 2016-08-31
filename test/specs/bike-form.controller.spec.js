@@ -25,11 +25,17 @@
                 .respond('<h2>Home Page for Cycling App</h2>');
 
             mockMaintenanceService.addBike = function(bikeData) {
-                if(bikeData.name && bikeData.model) {
-                    return $q.resolve({data: {}});
-                } else {
-                    return $q.reject('either name or model of bike is missing');
+                if(!bikeData) {
+                    return $q.reject('no data for bike to add');
                 }
+                if(!bikeData.name) {
+                    return $q.reject('name of bike is missing');
+                }
+                if(!bikeData.model) {
+                    return $q.reject('model of bike is missing');
+                }
+
+                return $q.resolve({data: {}});
             };
 
             bfCtrl = $controller('BikeFormController');
@@ -37,7 +43,7 @@
         }));
 
         test('addBike is a function', function() {
-            assert.isFunction(bfCtrl.addbike, 'addBike is a function');
+            assert.isFunction(bfCtrl.addBike, 'addBike is a function');
         });
 
         // test('addBike is not called when no data', function(done) {
