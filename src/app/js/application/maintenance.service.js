@@ -64,7 +64,14 @@
             .then(function(response) {
                 stravaToken = response.data.access_token;
                 stravaUser = response.data.athlete;
-                currentCyclist = response.data.client;
+                currentCyclist = {
+                    id: response.data.client.id,
+                    name: {
+                        first: response.data.client.first_name,
+                        last: response.data.client.last_name,
+                    },
+                    email: response.data.client.email,
+                };
                 localStorage.setItem('currentCyclist', angular.toJson({
                     token: stravaToken,
                     id: currentCyclist.id
