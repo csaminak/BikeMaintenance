@@ -21,17 +21,12 @@
                     code: '32twehdtu8'
                 })
                 .respond({
-                    data: {
-                        token: '45etycfghvgyhiuop54678',
-                        athlete: {
-                            firstname: 'Jane',
-                            lastname: 'Doe',
-                            email: 'email@email.com'
-                        },
-                        client: {
-                            id: 5
-                        }
-                    }
+                    client: {
+                        token: 'd4756ruytgt678oygy',
+                        id: 5
+                    },
+                    athlete: {},
+                    access_token: '54657o8iyugi'
                 });
 
             $httpBackend
@@ -60,11 +55,10 @@
             assert.isFunction(result.then);
             assert.isFunction(result.catch);
             result
-                .then(function(response) {
-                    assert.isObject(response.data);
-                    assert.strictEqual(response.data.token, '45etycfghvgyhiuop54678');
-                    assert.isObject(response.data.athlete);
-                    assert.isObject(response.data.client);
+                .then(function(client) {
+                    assert.isObject(client);
+                    assert.isString(client.id);
+                    assert.isString(client.token);
                     done();
                 })
                 .catch(function(err) {
@@ -72,6 +66,7 @@
                     assert.fail('should not be in catch if all info is submitting');
                     done();
                 });
+            done();
             $httpBackend.flush();
         });
 
