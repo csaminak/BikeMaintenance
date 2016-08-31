@@ -98,6 +98,7 @@
             })
             .then(function(response) {
                 console.log('then addBike', response);
+                return response.data;
             })
             .catch(function(err) {
                 console.log('addBike error', err);
