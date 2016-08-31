@@ -2,7 +2,8 @@
     'use strict';
 
     angular.module('cyclist', ['ui.router'])
-        .config(cyclistConfig);
+        .config(cyclistConfig)
+        .run(cyclistStartup);
 
     cyclistConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
@@ -76,10 +77,9 @@
     cyclistStartup.$inject = ['$rootScope', '$state', 'maintenance'];
 
     function cyclistStartup($rootScope, $state, maintenance) {
-        $rootScope.on('$stateChangeStart', function(e, toState) {
+        $rootScope.$on('$stateChangeStart', function(e, toState) {
             if(toState.secure && !maintenance.isLoggedIn()) {
                 e.preventDefault();
-                console.log('user is not logged in');
 
                 $state.go('login', {
                     message: 'Please login first.'

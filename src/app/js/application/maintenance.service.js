@@ -8,9 +8,11 @@
 
     function MaintenanceService($http, $q) {
 
-        var token;
+        var stravaToken;
         var stravaUser;
-        var cyclist;
+        var currentCyclist;
+
+        init();
 
         return {
             login: login,
@@ -21,6 +23,23 @@
             getBikes: getBikes
         };
 
+        /**
+         * If a cyclist has logged in previously, this function will retrieve
+         * their info from local storage, so they won't have to login again.
+         * @return {Void}
+         */
+        function init() {
+            try {
+                currentCyclist = JSON.parse(localStorage.getItem('currentCyclist'));
+            } catch(err) {
+                //does not matter if loggedInUser does not exist or is invalid
+                //because user will just log in with form
+            }
+
+            if (currentCyclist) {
+                stravaToken = currentCyclist.token;
+            }
+        }
 
         /**
          * Sends the code retrieved from Strava login, which is retrieved from the
@@ -43,10 +62,14 @@
                 data: angular.toJson({'code': stravaCode})
             })
             .then(function(response) {
-                token = response.data.access_token;
+                stravaToken = response.data.access_token;
                 stravaUser = response.data.athlete;
-                cyclist = response.data.client;
-                return response.data;
+                currentCyclist = response.data.client;
+                localStorage.setItem('currentCyclist', angular.toJson({
+                    token: stravaToken,
+                    id: currentCyclist.id
+                }));
+                return currentCyclist;
             })
             .catch(function(err) {
                 console.log('sendStravaCode err', err);
@@ -61,7 +84,7 @@
          * @return {Boolean}   Token     Determines the existence of a token
          */
         function isLoggedIn() {
-            return !!token;
+            return !!stravaToken;
         }
 
         /**
@@ -69,8 +92,10 @@
          * @return {Void} [description]
          */
         function logout() {
-            token = null;
-            return;
+            stravaToken = null;
+            currentCyclist = null;
+            stravaUser = null;
+            localStorage.removeItem('currentCyclist');
         }
 
         /**
@@ -146,7 +171,6 @@
          * @return {XHR Object}                An object that holds promise methods
          */
         function getBikes() {
-            console.log('CORS?');
             return $http({
                 method: 'get',
                 url: 'https://cycling-app.herokuapp.com/bikes',
