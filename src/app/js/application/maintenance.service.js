@@ -18,6 +18,7 @@
             login: login,
             isLoggedIn: isLoggedIn,
             logout: logout,
+            user: user,
             addBike: addBike,
             sendParts: sendParts,
             getBikes: getBikes
@@ -57,7 +58,8 @@
                 method: 'POST',
                 url: 'https://cycling-app.herokuapp.com/oauth/strava',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'accept': 'json'
                 },
                 data: angular.toJson({'code': stravaCode})
             })
@@ -106,6 +108,14 @@
         }
 
         /**
+         * Returns the current logged in cyclist info.
+         * @return      {Object}     Includes id, name, email of cyclist
+         */
+        function user() {
+            return currentCyclist;
+        }
+
+        /**
          * Sends an obect with info about a user's bike to database to store.
          * @param  {Object}        bikeData     Cyclist submitted bike
          * @return {XHR Object}                 An object that holds promise methods
@@ -120,13 +130,24 @@
             if(!bikeData.model) {
                 return $q.reject(new Error('Need a model/type of bike to save.'));
             }
+            if(!bikeData.client_id) {
+                return $q.reject(new Error('Need user to store bike to.'));
+            }
             return $http({
                 method: 'POST',
-                url: 'https://cycling-app.herokuapp.com/bikes',
+                url: 'https://cycling-app.herokuapp.com/bikes.json',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'accept': 'json'
                 },
-                data: bikeData //TODO ANGULAR TO JSON?
+                data: angular.toJson({
+                    'brand': bikeData.bike_brand,
+                    'model': bikeData.model,
+                    'serial_number': bikeData.serial_number,
+                    'bought_on': bikeData.bought_on,
+                    'name': bikeData.name,
+                    'client_id': bikeData.client_id
+                })
             })
             .then(function(response) {
                 console.log('then addBike', response);
@@ -156,7 +177,8 @@
                 method: 'POST',
                 url: 'https://cycling-app.herokuapp.com/parts',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'accept': 'json'
                 },
                 data: angular.toJSON({
                     'part_type': partsData.part_type,
@@ -182,7 +204,8 @@
                 method: 'get',
                 url: 'https://cycling-app.herokuapp.com/bikes',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'accept': 'json'
                 }
             })
             .then(function(xhr) {

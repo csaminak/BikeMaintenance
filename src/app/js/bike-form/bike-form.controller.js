@@ -11,6 +11,7 @@
         this.bike = {};
         this.addBike = addBike;
         this.errorMsg = '';
+        this.user = maintenance.user();
 
         /**
          * Submits bike information to addBike mehtod from service and then sends
@@ -30,6 +31,7 @@
                 that.errorMsg = 'Need to know the type of bike.';
                 return;
             }
+            bikeInfo.client_id = that.user.id;
             console.log(bikeInfo);
             return maintenance.addBike(bikeInfo)
                 .then(function() {
