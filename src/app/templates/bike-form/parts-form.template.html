@@ -22,7 +22,8 @@
 
         <div>
             <label for='part_type'>What type of part would you like to add?</label>
-            <select id='part_type' name='part_type' ng-model='partsFormCtrl.part.part_type'required>
+            <select
+                id='part_type' name='part_type' ng-model='partsFormCtrl.part.part_type' required>
                 <option value='' selected>Part Type</option>
                 <option value='brake'>Brakes</option>
                 <option value='derailer'>Derailer</option>
@@ -32,7 +33,7 @@
             </select>
         </div>
 
-        <div>
+        <div ng-show='partsFormCtrl.part.part_type === "brake"'>
             <label>Brake Type</label>
             <div>
                 <input
@@ -52,7 +53,7 @@
             </div>
         </div>
 
-        <div>
+        <div ng-show='partsFormCtrl.part.part_type === "derailer"'>
             <label>Derailer</label>
             <div>
                 <label for='derailer_brand'>Brand Name</label>
@@ -76,7 +77,7 @@
             </div>
         </div>
 
-        <div>
+        <div ng-show='partsFormCtrl.part.part_type === "pedal"'>
             <label>Pedals Type</label>
             <div>
                 <input
@@ -103,7 +104,7 @@
             </div>
         </div>
 
-        <div>
+        <div ng-show='partsFormCtrl.part.part_type === "innertube"'>
             <label for='inner_tubes'>Inner Tubes</label>
             <select id='inner_tubes' name='tube' ng-model='partsFormCtrl.part.description'>
                 <option value='' selected>Diameter x Width (inches)</option>
@@ -126,7 +127,7 @@
             </select>
         </div>
 
-        <div>
+        <div ng-show='partsFormCtrl.part.part_type === "tire"'>
             <label for='tires'>Tires</label>
             <select id='tires' name='tires' ng-model='partsFormCtrl.part.description'>
                 <option value='' selected>Diameter x Width (inches)</option>
@@ -150,8 +151,7 @@
         </div>
 
         <div>
-            <label>Mounted On Date</label>
-            <label for='part_mounted_date'>Purchase Date</label>
+            <label for='part_mounted_date'>Mounted On Date</label>
             <input
                 id='part_mounted_date'
                 name='mounted_on'
