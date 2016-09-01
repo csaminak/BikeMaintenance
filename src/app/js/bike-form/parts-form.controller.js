@@ -10,7 +10,8 @@
         var that = this;
         this.allBikes = [];
         this.errorMsg = '';
-
+        this.part = {};
+        this.sendPart = sendPart;
 
 
 
@@ -31,6 +32,14 @@
             .catch(function(err) {
                 console.log(err);
             });
+
+        function sendPart(part) {
+            if(!part) {
+                that.errorMsg = 'Sorry, you have not selected any parts to add.';
+            }
+
+        }
+
 
     }
 
