@@ -33,11 +33,26 @@
                 console.log(err);
             });
 
+        /**
+         * [sendPart description]
+         * @param  {[type]} part [description]
+         * @return {[type]}      [description]
+         */
         function sendPart(part) {
             if(!part) {
                 that.errorMsg = 'Sorry, you have not selected any parts to add.';
+                return;
             }
-
+            if(!part.part_type) {
+                that.errorMsg = 'Sorry, must select a part-type to add.';
+                return;
+            }
+            if(!part.description) {
+                that.errorMsg = 'Sorry, what is the name of this part?';
+                return;
+            }
+            console.log(part);
+            that.part = {};
         }
 
 
