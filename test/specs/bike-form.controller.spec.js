@@ -38,6 +38,10 @@
                 return $q.resolve({data: {}});
             };
 
+            mockMaintenanceService.user = function() {
+                return {id: 5, email: 'email@email.com', name: {}};
+            };
+
             bfCtrl = $controller('BikeFormController');
 
         }));
