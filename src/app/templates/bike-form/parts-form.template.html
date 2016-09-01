@@ -1,135 +1,175 @@
 <section class='parts_form'>
 
-    <h2>Tell Me About Your Bike's Parts</h2>
+    <h2>Let's Attach Some Parts to Your Bike!</h2>
 
     <section class='errorMsgs'>
         <p>{{partsFormCtrl.errorMsg}}</p>
-        <!-- <p ng-show='add_bike.name.$touched && add_bike.name.$error.required'>
-            Please name your bike to easily identify it.</p> -->
     </section>
 
-    <form
-        ng-show='partsFormCtrl.allBikes'
-        ng-submit=''>
-        <fieldset>
-            <legend>Parts Info</legend>
+    <form ng-show='partsFormCtrl.allBikes' ng-submit='partsFormCtrl.sendPart(partsFormCtrl.part)'>
+
+        <div>
+            <label for='select_bike'>Select Bike</label>
+            <select id='select_bike' name='select_bike' required>
+                <option value='' selected>Bike Name</option>
+                <option
+                    ng-repeat='bike in partsFormCtrl.allBikes'
+                    value='{{bike.id}}'
+                    ng-model='partsFormCtrl.part.bike_id'>{{bike.name}}
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <label for='part_type'>What type of part would you like to add?</label>
+            <select id='part_type' name='part_type' ng-model='partsFormCtrl.part.part_type'required>
+                <option value='' selected>Part Type</option>
+                <option value='brake'>Brakes</option>
+                <option value='derailer'>Derailer</option>
+                <option value='pedal'>Pedals</option>
+                <option value='innertube'>Inner-Tube</option>
+                <option value='tire'>Tires</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Brake Type</label>
             <div>
-                <label for='select_bike'>Select Bike</label>
-                <select id='select_bike' name='select_bike' required>
-                    <option value='' selected>Bike Name</option>
-                    <option
-                        ng-repeat='bike in partsFormCtrl.allBikes'
-                        value='{{bike.id}}'>{{bike.name}}</option>
-                </select>
+                <input
+                    id='brake_pads'
+                    name='brakes'
+                    value='Brake Pads'
+                    type='radio'
+                    ng-model='partsFormCtrl.part.description'>
+                <label for='brake_pads'>Brake Pads</label>
+                <input
+                    id='disc_brakes'
+                    name='brakes'
+                    value='Disc Brakes'
+                    type='radio'
+                    ng-model='partsFormCtrl.part.description'>
+                <label for='disc_brakes'>Disc Brakes</label>
             </div>
+        </div>
+
+        <div>
+            <label>Derailer</label>
             <div>
-                <label>Brake Type</label>
-                <div>
-                    <input
-                        id='brake_pads'
-                        name='brakes'
-                        value='Brake Pads'
-                        type='radio'>
-                    <label for='brake_pads'>Brake Pads</label>
-                    <input
-                        id='disc_brakes'
-                        name='brakes'
-                        value='Disc Brakes'
-                        type='radio'>
-                    <label for='disc_brakes'>Disc Brakes</label>
-                </div>
+                <label for='derailer_brand'>Brand Name</label>
+                <input
+                    id='derailer_brand'
+                    name='derailer_brand'
+                    placeholder='Brand Name'
+                    type='text'>
+                <label for='derailer_model'>Model</label>
+                <input
+                    id='derailer_model'
+                    name='derailer_model'
+                    placeholder='Model'
+                    type='text'>
+                <label for='derailer_serial'>Serial Number</label>
+                <input
+                    id='derailer_serial'
+                    name='derailer_serial'
+                    placeholder='Serial Number'
+                    type='text'>
             </div>
+        </div>
+
+        <div>
+            <label>Pedals Type</label>
             <div>
-                <label>Derailer</label>
-                <div>
-                    <label for='derailer_brand'>Brand Name</label>
-                    <input
-                        id='derailer_brand'
-                        name='derailer_brand'
-                        placeholder='Brand Name'
-                        type='text'>
-                    <label for='derailer_model'>Model</label>
-                    <input
-                        id='derailer_model'
-                        name='derailer_model'
-                        placeholder='Model'
-                        type='text'>
-                    <label for='derailer_serial'>Serial Number</label>
-                    <input
-                        id='derailer_serial'
-                        name='derailer_serial'
-                        placeholder='Serial Number'
-                        type='text'>
-                </div>
+                <input
+                    id='clip_pedals'
+                    name='pedals'
+                    value='Clip'
+                    type='radio'
+                    ng-model='partsFormCtrl.part.description'>
+                <label for='clip_pedals'>Clip</label>
+                <input
+                    id='slide_pedals'
+                    name='pedals'
+                    value='Slide-Into'
+                    type='radio'
+                    ng-model='partsFormCtrl.part.description'>
+                <label for='slide_pedals'>Slide_Into</label>
+                <input
+                    id='open_pedals'
+                    name='pedals'
+                    value='Open'
+                    type='radio'
+                    ng-model='partsFormCtrl.part.description'>
+                <label for='open_pedals'>Open_Top</label>
             </div>
-            <div>
-                <label>Pedals Type</label>
-                <div>
-                    <input
-                        id='clip_pedals'
-                        name='pedals'
-                        value='clip_pedals'
-                        type='radio'>
-                    <label for='clip_pedals'>Clip</label>
-                    <input
-                        id='slide_pedals'
-                        name='pedals'
-                        value='slide_pedals'
-                        type='radio'>
-                    <label for='slide_pedals'>Slide_Into</label>
-                    <input
-                        id='open_pedals'
-                        name='pedals'
-                        value='open_pedals'
-                        type='radio'>
-                    <label for='open_pedals'>Open_Top</label>
-                </div>
-            </div>
-            <div>
-                <label for='inner_tubes'>Inner Tubes</label>
-                <select id='inner_tubes' name='tube'>
-                    <option value='' selected>Diameter x Width (inches)</option>
-                    <option value='20 x 1 3/4'>20 x 1 3/4</option>
-                    <option value='20 x 1 1/8'>20 x 1 1/8</option>
-                    <option value='20 x 1 1/4'>20 x 1 1/4</option>
-                    <option value='20 x 1 3/8'>20 x 1 3/8</option>
-                    <option value='24 x 1 3/8'>24 x 1 3/8</option>
-                    <option value='24 x 1 1/4'>24 x 1 1/4</option>
-                    <option value='24 x 1 1/8'>24 x 1 1/8</option>
-                    <option value='24 x 1'>24 x 1</option>
-                    <option value='26 x 1'>26 x 1</option>
-                    <option value='26 x 1 1/8'>26 x 1 1/8</option>
-                    <option value='26 x 1 3/4'>26 x 1 3/4</option>
-                    <option value='26 x 1 1/2'>26 x 1 1/2</option>
-                    <option value='26 x 1 3/8'>26 x 1 3/8</option>
-                    <option value='26 x 1 1/4'>26 x 1 1/4</option>
-                    <option value='28 x 1 1/2'>28 x 1 1/2</option>
-                    <option value='29'>29</option>
-                </select>
-            </div>
-            <div>
-                <label for='tires'>Tires</label>
-                <select id='tires' name='tires'>
-                    <option value='' selected>Diameter x Width (inches)</option>
-                    <option value='20 x 1 3/4'>20 x 1 3/4</option>
-                    <option value='20 x 1 1/8'>20 x 1 1/8</option>
-                    <option value='20 x 1 1/4'>20 x 1 1/4</option>
-                    <option value='20 x 1 3/8'>20 x 1 3/8</option>
-                    <option value='24 x 1 3/8'>24 x 1 3/8</option>
-                    <option value='24 x 1 1/4'>24 x 1 1/4</option>
-                    <option value='24 x 1 1/8'>24 x 1 1/8</option>
-                    <option value='24 x 1'>24 x 1</option>
-                    <option value='26 x 1'>26 x 1</option>
-                    <option value='26 x 1 1/8'>26 x 1 1/8</option>
-                    <option value='26 x 1 3/4'>26 x 1 3/4</option>
-                    <option value='26 x 1 1/2'>26 x 1 1/2</option>
-                    <option value='26 x 1 3/8'>26 x 1 3/8</option>
-                    <option value='26 x 1 1/4'>26 x 1 1/4</option>
-                    <option value='28 x 1 1/2'>28 x 1 1/2</option>
-                    <option value='29'>29</option>
-                </select>
-            </div>
-        </fieldset>
+        </div>
+
+        <div>
+            <label for='inner_tubes'>Inner Tubes</label>
+            <select id='inner_tubes' name='tube' ng-model='partsFormCtrl.part.description'>
+                <option value='' selected>Diameter x Width (inches)</option>
+                <option value='20 x 1 3/4'>20" x 1 3/4"</option>
+                <option value='20 x 1 1/8'>20" x 1 1/8"</option>
+                <option value='20 x 1 1/4'>20" x 1 1/4"</option>
+                <option value='20 x 1 3/8'>20" x 1 3/8"</option>
+                <option value='24 x 1 3/8'>24" x 1 3/8"</option>
+                <option value='24 x 1 1/4'>24" x 1 1/4"</option>
+                <option value='24 x 1 1/8'>24" x 1 1/8"</option>
+                <option value='24 x 1'>24" x 1"</option>
+                <option value='26 x 1'>26" x 1"</option>
+                <option value='26 x 1 1/8'>26" x 1 1/8"</option>
+                <option value='26 x 1 3/4'>26" x 1 3/4"</option>
+                <option value='26 x 1 1/2'>26" x 1 1/2"</option>
+                <option value='26 x 1 3/8'>26" x 1 3/8"</option>
+                <option value='26 x 1 1/4'>26" x 1 1/4"</option>
+                <option value='28 x 1 1/2'>28" x 1 1/2"</option>
+                <option value='29'>29"</option>
+            </select>
+        </div>
+
+        <div>
+            <label for='tires'>Tires</label>
+            <select id='tires' name='tires' ng-model='partsFormCtrl.part.description'>
+                <option value='' selected>Diameter x Width (inches)</option>
+                <option value='20 x 1 3/4'>20" x 1 3/4"</option>
+                <option value='20 x 1 1/8'>20" x 1 1/8"</option>
+                <option value='20 x 1 1/4'>20" x 1 1/4"</option>
+                <option value='20 x 1 3/8'>20" x 1 3/8"</option>
+                <option value='24 x 1 3/8'>24" x 1 3/8"</option>
+                <option value='24 x 1 1/4'>24" x 1 1/4"</option>
+                <option value='24 x 1 1/8'>24" x 1 1/8"</option>
+                <option value='24 x 1'>24" x 1"</option>
+                <option value='26 x 1'>26" x 1"</option>
+                <option value='26 x 1 1/8'>26" x 1 1/8"</option>
+                <option value='26 x 1 3/4'>26" x 1 3/4"</option>
+                <option value='26 x 1 1/2'>26" x 1 1/2"</option>
+                <option value='26 x 1 3/8'>26" x 1 3/8"</option>
+                <option value='26 x 1 1/4'>26" x 1 1/4"</option>
+                <option value='28 x 1 1/2'>28" x 1 1/2"</option>
+                <option value='29'>29"</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Mounted On Date</label>
+            <label for='part_mounted_date'>Purchase Date</label>
+            <input
+                id='part_mounted_date'
+                name='mounted_on'
+                placeholder='09/13/2016'
+                type='date'
+                ng-model='partsFormCtrl.part.mounted_on'
+                required>
+        </div>
+
+        <div>
+            <label for='part_purchased_date'>Purchase Date</label>
+            <input
+                id='part_purchased_date'
+                name='purchased_on'
+                placeholder='09/13/2016'
+                type='date'
+                ng-model='partsFormCtrl.part.purchased_on'>
+        </div>
 
         <input type='submit' value='Add Parts'>
     </form>
