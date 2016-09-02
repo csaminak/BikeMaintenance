@@ -29,21 +29,21 @@
                 templateUrl: '/app/templates/bike-stats/bike-stats.template.html',
                 controller: '',
                 controllerAs: '',
-                secure: true
+                // secure: true
             })
             .state('bike-form', {
                 url: '/bike-info',
                 templateUrl: '/app/templates/bike-form/bike-form.template.html',
                 controller: 'BikeFormController',
                 controllerAs: 'bikeFormCtrl',
-                secure: true
+                // secure: true
             })
             .state('parts-form', {
                 url: '/parts-info',
                 templateUrl: '/app/templates/bike-form/parts-form.template.html',
                 controller: 'PartsFormController',
                 controllerAs: 'partsFormCtrl',
-                secure: true
+                // secure: true
             })
             .state('login', {
                 url: '/authenticate',
