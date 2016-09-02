@@ -27,8 +27,8 @@
             .state('bike-stats', {
                 url: '/bike-stats',
                 templateUrl: '/app/templates/bike-stats/bike-stats.template.html',
-                controller: '',
-                controllerAs: '',
+                controller: 'BikeStatsController',
+                controllerAs: 'bsCtrl',
                 // secure: true
             })
             .state('bike-form', {
