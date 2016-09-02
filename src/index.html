@@ -21,12 +21,12 @@
         <nav ng-controller='NavController as nav'>
             <ul class='nav nav-tabs'> <!-- Need better tab names -->
                 <li><a ui-sref='home'>Home</a></li>
-                <li ><a ui-sref='about'>About Us</a></li> <!--ng-hide='nav.isLoggedIn()'-->
-                <li ><a ui-sref='bike-stats'>Bike/Parts Stats</a></li> <!-- ng-show='nav.isLoggedIn()' -->
-                <li ><a ui-sref='bike-form'>Add Bike Info</a></li> <!-- ng-show='nav.isLoggedIn()' -->
-                <li ><a ui-sref='parts-form'>Add Parts Info</a></li> <!-- ng-show='nav.isLoggedIn()' -->
-                <li ><a ui-sref='login'>Login</a></li> <!-- ng-hide='nav.isLoggedIn()' -->
-                <li ><a>Logout</a></li> <!-- ng-show='nav.isLoggedIn()' ng-click='nav.logout()' -->
+                <li ng-hide='nav.isLoggedIn()'><a ui-sref='about'>About Us</a></li> <!---->
+                <li ng-show='nav.isLoggedIn()'><a ui-sref='bike-stats'>Bike/Parts Stats</a></li> <!--  -->
+                <li ng-show='nav.isLoggedIn()'><a ui-sref='bike-form'>Add Bike Info</a></li> <!--  -->
+                <li ng-show='nav.isLoggedIn()'><a ui-sref='parts-form'>Add Parts Info</a></li> <!--  -->
+                <li ng-hide='nav.isLoggedIn()'><a ui-sref='login'>Login</a></li> <!--  -->
+                <li ng-show='nav.isLoggedIn()' ng-click='nav.logout()'><a>Logout</a></li> <!--  -->
             </ul>
         </nav>
 
