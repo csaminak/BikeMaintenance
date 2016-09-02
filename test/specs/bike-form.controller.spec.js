@@ -5,7 +5,7 @@
 
     suite('bike-form controller', function() {
 
-        var bfCtrl, $rootScope,$httpBackend;
+        var bfCtrl, $rootScope;
         var mockMaintenanceService = {};
         var mockState = {};
 
@@ -16,13 +16,8 @@
             $provide.value('maintenance', mockMaintenanceService);
         }));
 
-        setup(inject(function($controller, $q, _$rootScope_, _$httpBackend_) {
+        setup(inject(function($controller, $q, _$rootScope_) {
             $rootScope = _$rootScope_;
-            $httpBackend = _$httpBackend_;
-
-            $httpBackend
-                .whenGET('/app/templates/general-info/home.template.html')
-                .respond('<h2>Home Page for Cycling App</h2>');
 
             mockMaintenanceService.addBike = function(bikeData) {
                 if(!bikeData) {
@@ -50,21 +45,21 @@
             assert.isFunction(bfCtrl.addBike, 'addBike is a function');
         });
 
-        // test('addBike is not called when no data', function(done) {
-        //     var result = bfCtrl.addBike();
-        //     result
-        //         .then(function() {
-        //             assert.fail('should not be in then if no params are given');
-        //             done();
-        //         })
-        //         .catch(function() {
-        //             assert.strictEqual('either name or model of bike is missing');
-        //             done();
-        //         });
-        //
-        // $httpBackend.flush();
-        //
-        // });
+        test('addBike is not called when there is no data', function(done) {
+            var result = bfCtrl.addBike();
+            result
+                .then(function() {
+                    assert.fail('should not be in then if no params are given');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err should be a type of Error');
+                    done();
+                });
+
+            //Needed because i'm returning a promise
+            $rootScope.$digest();
+        });
 
 
     });
