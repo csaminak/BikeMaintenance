@@ -21,7 +21,8 @@
             user: user,
             addBike: addBike,
             sendParts: sendParts,
-            getBikes: getBikes
+            getBikes: getBikes,
+            getABike: getABike
         };
 
         /**
@@ -207,8 +208,11 @@
          * @return {XHR Object}              An object that holds promise methods
          */
         function getBikes(cyclistId) {
+            if(!cyclistId) {
+                return $q.reject(new Error('no cyclist Id provided'));
+            }
             return $http({
-                method: 'get',
+                method: 'GET',
                 url: 'https://cycling-app.herokuapp.com/bikes.json',
                 headers: {
                     'Content-Type': 'application/json',
@@ -228,7 +232,32 @@
             });
         }
 
-
+        /**
+         * Gets the data for a specific bike.
+         * @param  {String}     bikeId      Passed in bike Id
+         * @return {XHR Object}             An object that holds promise methods
+         */
+        function getABike(bikeId) {
+            if(!bikeId) {
+                return $q.reject(new Error('no bike id provided'));
+            }
+            return $http({
+                method: 'GET',
+                url: 'https://cycling-app.herokuapp.com/bikes/' + bikeId,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'accept': 'json'
+                }
+            })
+            .then(function(response) {
+                console.log(response);
+                return response.data;
+            })
+            .catch(function(err) {
+                console.log(err);
+                return err;
+            });
+        }
 
     }
 
