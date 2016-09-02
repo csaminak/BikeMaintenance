@@ -10,12 +10,11 @@
 
         <div>
             <label for='select_bike'>Select Bike</label>
-            <select id='select_bike' name='select_bike' required>
+            <select id='select_bike' name='select_bike' ng-model='partsFormCtrl.part.bike_id' required>
                 <option value='' selected>Bike Name</option>
                 <option
                     ng-repeat='bike in partsFormCtrl.allBikes'
-                    value='{{bike.id}}'
-                    ng-model='partsFormCtrl.part.bike_id'>{{bike.name}}
+                    value='{{bike.id}}'>{{bike.name}}
                 </option>
             </select>
         </div>
