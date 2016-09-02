@@ -32,7 +32,7 @@
                 console.log(err);
             });
 
-        /**
+        /** //TODO WHAT SHOULD THE BLOCK BE?
          * [sendPart description]
          * @param  {[type]} part [description]
          * @return {[type]}      [description]
@@ -51,14 +51,13 @@
                 return;
             }
             console.log(part);
-            maintenance.sendParts(part)
+            return maintenance.sendParts(part)
                 .then(function() {
-
+                    that.part = {};
                 })
                 .catch(function() {
 
                 });
-            that.part = {};
         }
 
 
