@@ -21,6 +21,7 @@
             user: user,
             addBike: addBike,
             sendParts: sendParts,
+            getParts: getParts,
             getBikes: getBikes,
             getABike: getABike
         };
@@ -194,6 +195,39 @@
             .then(function(response) {
                 console.log('part added: ', response.data);
                 return response.data;
+            })
+            .catch(function(err) {
+                console.log(err);
+                return err;
+            });
+        }
+
+        /**
+         * Gets an array of parts for a specified bike.
+         * @param  {String}     bikeId      Passed in bike Id
+         * @return {XHR Object}             An object that holds promise methods
+         */
+        function getParts(bikeId) {
+            if(!bikeId) {
+                return $q.reject(new Error('no bike id provided'));
+            }
+            return $http({
+                method: 'GET',
+                url: 'https://cycling-app.herokuapp.com/parts',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'accept': 'json'
+                }
+            })
+            .then(function(response) {
+                console.log(response);
+                var parts = [];
+                response.data.forEach(function(part) {
+                    if(part.bike_id === parseInt(bikeId)) {
+                        parts.push(part);
+                    }
+                });
+                return parts;
             })
             .catch(function(err) {
                 console.log(err);
