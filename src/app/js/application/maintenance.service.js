@@ -203,24 +203,28 @@
 
         /**
          * Gets all bikes for a specified cyclist
-         * @param  {String}        cyclist     Cyclist id
-         * @return {XHR Object}                An object that holds promise methods
+         * @param  {String}    cyclistId     Cyclist id
+         * @return {XHR Object}              An object that holds promise methods
          */
-        function getBikes() {
+        function getBikes(cyclistId) {
             return $http({
                 method: 'get',
-                url: 'https://cycling-app.herokuapp.com/bikes',
+                url: 'https://cycling-app.herokuapp.com/bikes.json',
                 headers: {
                     'Content-Type': 'application/json',
                     'accept': 'json'
+                },
+                data: {
+                    'client_id': cyclistId
                 }
             })
-            .then(function(xhr) {
-                console.log('getBikes then', xhr);
-                return xhr.data;
+            .then(function(response) {
+                console.log('Retrieve all Bikes call: ', response);
+                return response.data;
             })
             .catch(function(err) {
                 console.log('getBikes error: ', err);
+                return err;
             });
         }
 
