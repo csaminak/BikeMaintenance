@@ -9,15 +9,16 @@
     function PartsFormController(maintenance) {
         var that = this;
         this.allBikes = [];
-        this.errorMsg = '';
         this.part = {};
+        this.errorMsg = '';
+        this.user = maintenance.user();
         this.sendPart = sendPart;
 
         /**
          * Gets all the bikes for a user.
          * @return {VOID}
          */
-        maintenance.getBikes()
+        maintenance.getBikes(this.user.id)
             .then(function(bikes) {
                 if(bikes.length < 1) {
                     that.errorMsg = 'Sorry, you don\'t have any bikes.\
