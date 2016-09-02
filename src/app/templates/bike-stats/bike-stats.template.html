@@ -2,49 +2,34 @@
 
     <h2>Current Bike and Parts Info</h2>
 
-    <table>
-        <tr>
-            <th>Parts</th>
-            <th>Distance Traveled</th>
-            <th>Travel Limit</th>
-            <th>Time Traveled</th>
-            <th>Travel Limit</th>
-        </tr>
-        <tr>
-            <td>Brakes</td>
-            <td>{{}} km</td>
-            <td># km</td>
-            <td>{{}} days</td>
-            <td># days</td>
-        </tr>
-        <tr>
-            <td>Derailer</td>
-            <td>{{}} km</td>
-            <td># km</td>
-            <td>{{}} days</td>
-            <td># days</td>
-        </tr>
-        <tr>
-            <td>Pedals</td>
-            <td>{{}} km</td>
-            <td># km</td>
-            <td>{{}} days</td>
-            <td># days</td>
-        </tr>
-        <tr>
-            <td>Inner-Tubes</td>
-            <td>{{}} km</td>
-            <td># km</td>
-            <td>{{}} days</td>
-            <td># days</td>
-        </tr>
-        <tr>
-            <td>Tires</td>
-            <td>{{}} km</td>
-            <td># km</td>
-            <td>{{}} days</td>
-            <td># days</td>
-        </tr>
-    </table>
+    <form ng-submit='bsCtrl.getParts(bsCtrl.bikeId)'>
+        <label for='select_bike'>Select a Bike to View it's Parts</label>
+        <select id='select_bike' name='select_bike' ng-model='bsCtrl.bikeId' required>
+            <option value='' selected>Bike Name</option>
+            <option
+                ng-repeat='bike in bsCtrl.allBikes'
+                value='{{bike.id}}'>{{bike.name}}
+            </option>
+        </select>
+        <input type='submit' value='Get Parts'>
+    </form>
+
+    <section>
+        <h3>Part for Bike " Insert Name "</h3>
+        <table>
+            <tr>
+                <th>Part</th>
+                <th>Part Type</th>
+                <th>Distance Traveled (km)</th>
+                <th>Lifetime Limit (km)</th>
+            </tr>
+            <tr ng-repeat='part in bsCtrl.allParts'>
+                <td>{{part.part_type}}</td>
+                <td>{{part.description}}</td>
+                <td>{{part.distance_in_km}} km</td>
+                <td>{{part.expected_lifetime_in_km}} km</td>
+            </tr>
+        </table>
+    </section>
 
 </section>
