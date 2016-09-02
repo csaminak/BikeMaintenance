@@ -84,7 +84,7 @@
             .catch(function(err) {
                 console.log(stravaCode);
                 console.log('sendStravaCode err', err);
-                return err.data.errors;
+                return err;
             });
         }
 
