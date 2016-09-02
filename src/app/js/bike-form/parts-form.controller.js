@@ -13,8 +13,6 @@
         this.part = {};
         this.sendPart = sendPart;
 
-
-
         /**
          * Gets all the bikes for a user.
          * @return {VOID}
@@ -52,6 +50,13 @@
                 return;
             }
             console.log(part);
+            maintenance.sendParts(part)
+                .then(function() {
+
+                })
+                .catch(function() {
+
+                });
             that.part = {};
         }
 
