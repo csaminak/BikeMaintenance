@@ -10,8 +10,9 @@
         var that = this;
         this.bikeId = null;
         this.allBikes = [];
+        this.allParts = null;
         this.user = maintenance.user();
-        this.getBike = getBike;
+        this.getParts = getParts;
 
 
         maintenance.getBikes(this.user.id)
@@ -23,14 +24,20 @@
                 console.log(err);
             });
 
-
-        function getBike(bikeId) {
+        /** //TODO DEFINE MY DOT BLOCK
+         * Get's all parts for a specific bike.
+         * @param  {String}    bikeId   bikeId to get parts
+         * @return {[type]}             [description]
+         */
+        function getParts(bikeId) {
             if(!bikeId) {
                 return $q.reject(new Error('no bike id provided'));
             }
-            maintenance.getABike(bikeId)
-                .then(function(bike) {
-                    console.log(bike);
+            console.log(bikeId);
+            return maintenance.getParts(bikeId)
+                .then(function(parts) {
+                    console.log(parts);
+                    that.allParts = parts;
                 })
                 .catch(function(err) {
                     console.log(err);
