@@ -152,11 +152,12 @@
                 })
             })
             .then(function(response) {
-                console.log('then addBike', response);
+                console.log('Bike added": ', response);
                 return response.data;
             })
             .catch(function(err) {
                 console.log('addBike error', err);
+                return err;
             });
         }
 
@@ -184,14 +185,18 @@
                 },
                 data: angular.toJson({
                     'part_type': partsData.part_type,
-                    'description': partsData.description
+                    'description': partsData.description,
+                    'bike_id': partsData.bike_id,
+                    'mounted_on': partsData.mounted_on
                 })
             })
             .then(function(response) {
-                console.log(response);
+                console.log('part added: ', response.data);
+                return response.data;
             })
             .catch(function(err) {
                 console.log(err);
+                return err;
             });
         }
 
