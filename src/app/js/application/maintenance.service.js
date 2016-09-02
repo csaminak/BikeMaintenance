@@ -64,6 +64,7 @@
                 data: angular.toJson({'code': stravaCode})
             })
             .then(function(response) {
+                console.log(stravaCode);
                 stravaToken = response.data.access_token;
                 stravaUser = response.data.athlete;
                 currentCyclist = {
@@ -81,6 +82,7 @@
                 return currentCyclist;
             })
             .catch(function(err) {
+                console.log(stravaCode);
                 console.log('sendStravaCode err', err);
                 return err.data.errors;
             });
@@ -175,12 +177,12 @@
             }
             return $http({
                 method: 'POST',
-                url: 'https://cycling-app.herokuapp.com/parts',
+                url: 'https://cycling-app.herokuapp.com/parts.json',
                 headers: {
                     'Content-Type': 'application/json',
                     'accept': 'json'
                 },
-                data: angular.toJSON({
+                data: angular.toJson({
                     'part_type': partsData.part_type,
                     'description': partsData.description
                 })
