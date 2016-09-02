@@ -4,9 +4,9 @@
     angular.module('cyclist')
         .controller('BikeFormController', BikeFormController);
 
-    BikeFormController.$inject = ['$state', 'maintenance'];
+    BikeFormController.$inject = ['$state', '$q', 'maintenance'];
 
-    function BikeFormController($state, maintenance) {
+    function BikeFormController($state, $q, maintenance) {
         var that = this;
         this.bike = {};
         this.addBike = addBike;
@@ -22,14 +22,15 @@
         function addBike(bikeInfo) {
             if(!bikeInfo) {
                 that.errorMsg = 'No information about bike to submit.';
+                return $q.reject(new Error(that.errorMsg));
             }
             if(!bikeInfo.name) {
                 that.errorMsg = 'Please name your bike to easily identify it.';
-                return;
+                return $q.reject(new Error(that.errorMsg));
             }
             if(!bikeInfo.model) {
                 that.errorMsg = 'Need to know the type of bike.';
-                return;
+                return $q.reject(new Error(that.errorMsg));
             }
             bikeInfo.client_id = that.user.id;
             console.log(bikeInfo);
