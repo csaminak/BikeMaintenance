@@ -3,10 +3,10 @@
     <h2 class='viewTitle'>Tell Me About Your Bike</h2>
 
     <section class='errorMsgs'>
-        <p>{{bikeFormCtrl.errorMsg}}</p>
-        <p ng-show='add_bike.name.$touched && add_bike.name.$error.required'>
+        <p class='errorMsg alert alert-danger'>{{bikeFormCtrl.errorMsg}}</p>
+        <p class='errorMsg alert alert-danger' ng-show='add_bike.name.$touched && add_bike.name.$error.required'>
             Please name your bike to easily identify it.</p>
-        <p ng-show='add_bike.model.$touched && add_bike.model.$error.required'>
+        <p class='errorMsg alert alert-danger' ng-show='add_bike.model.$touched && add_bike.model.$error.required'>
             Need to know the type of bike.</p>
     </section>
 

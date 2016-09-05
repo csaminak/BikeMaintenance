@@ -1,11 +1,11 @@
 <section class='login'>
 
-    <h2 class='viewTitle'>Let's Get You Logged In</h2>
+    <h2 class='viewTitle'>Log In</h2>
 
     <form>
-        <p ng-show='loginCtrl.message'>{{loginCtrl.message}}</p>
+        <p class='errorMsg alert alert-danger' ng-show='loginCtrl.message'>{{loginCtrl.message}}</p>
         <a ng-click='loginCtrl.login()'>
-            <img class'strava-button' src='/images/LogInWithStrava.png'>
+            <img class='stravaButton' src='/images/LogInWithStrava.png'>
         </a>
     </form>
 

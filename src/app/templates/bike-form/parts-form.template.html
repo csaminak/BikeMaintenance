@@ -3,7 +3,7 @@
     <h2 class='viewTitle'>Let's Attach Some Parts to Your Bike!</h2>
 
     <section class='errorMsgs'>
-        <p>{{partsFormCtrl.errorMsg}}</p>
+        <p class='errorMsg alert alert-danger'>{{partsFormCtrl.errorMsg}}</p>
     </section>
 
     <form ng-show='partsFormCtrl.allBikes' ng-submit='partsFormCtrl.sendPart(partsFormCtrl.part)'>
