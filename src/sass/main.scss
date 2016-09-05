@@ -1,3 +1,4 @@
+@import 'https://fonts.googleapis.com/css?family=Abel|Lato';
 @import 'variables';
 @import 'mixins';
 @import 'header';
@@ -6,5 +7,8 @@
 @import 'structure';
 @import 'about';
 @import 'login';
-@import 'contact';
-@import 'notFound';
+@import 'notFoundAndHome';
+@import 'bikeStats';
+
+// font-family: 'Abel', sans-serif;
+// font-family: 'Lato', sans-serif;
