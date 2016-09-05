@@ -15,59 +15,56 @@
         ng-submit='add_bike.$valid && bikeFormCtrl.addBike(bikeFormCtrl.bike)'
         novalidate>
 
-        <fieldset>
-            <legend>Bike Info</legend>
+        <div>
+            <label for='bike_brand'>Brand</label>
+            <input
+                id='bike_brand'
+                name='bike_brand'
+                placeholder='Brand Name of Bike'
+                type='text'
+                ng-model= 'bikeFormCtrl.bike.brand'>
+        </div>
+        <div>
+            <label for='model'>Bike Model/Type</label>
             <div>
-                <label for='bike_brand'>Brand</label>
-                <input
-                    id='bike_brand'
-                    name='bike_brand'
-                    placeholder='Brand Name of Bike'
-                    type='text'
-                    ng-model= 'bikeFormCtrl.bike.brand'>
+                <select id='model' name='model' ng-model= 'bikeFormCtrl.bike.model' required>
+                    <option value='' selected>Type of Bike</option>
+                    <option value='mountain'>Mountain Bike</option>
+                    <option value='road'>Road Bike</option>
+                    <option value='cross'>Cross Bike</option>
+                </select>
             </div>
-            <div>
-                <label for='model'>Bike Model/Type</label>
-                <div>
-                    <select id='model' name='model' ng-model= 'bikeFormCtrl.bike.model' required>
-                        <option value='' selected>Type of Bike</option>
-                        <option value='mountain'>Mountain Bike</option>
-                        <option value='road'>Road Bike</option>
-                        <option value='cross'>Cross Bike</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <label for='bike_serial'>Bike Serial Number</label>
-                <input
-                    id='bike_serial'
-                    name='serial_number'
-                    placeholder='Bike Serial Number'
-                    type='text'
-                    ng-model= 'bikeFormCtrl.bike.serial_number'>
-            </div>
-            <div>
-                <label for='purchase_date'>Purchase Date</label>
-                <input
-                    id='purchase_date'
-                    name='bought_on'
-                    placeholder='09/13/2016'
-                    type='date'
-                    ng-model= 'bikeFormCtrl.bike.bought_on'>
-            </div>
-            <div>
-                <label for='bike_name'>Bike Name</label>
-                <input
-                    id='bike_name'
-                    name='name'
-                    placeholder='What is your bike name?'
-                    type='text'
-                    ng-model= 'bikeFormCtrl.bike.name'
-                    required>
-            </div>
-        </fieldset>
+        </div>
+        <div>
+            <label for='bike_serial'>Bike Serial Number</label>
+            <input
+                id='bike_serial'
+                name='serial_number'
+                placeholder='Bike Serial Number'
+                type='text'
+                ng-model= 'bikeFormCtrl.bike.serial_number'>
+        </div>
+        <div>
+            <label for='purchase_date'>Purchase Date</label>
+            <input
+                id='purchase_date'
+                name='bought_on'
+                placeholder='09/13/2016'
+                type='date'
+                ng-model= 'bikeFormCtrl.bike.bought_on'>
+        </div>
+        <div>
+            <label for='bike_name'>Bike Name</label>
+            <input
+                id='bike_name'
+                name='name'
+                placeholder='What is your bike name?'
+                type='text'
+                ng-model= 'bikeFormCtrl.bike.name'
+                required>
+        </div>
 
-        <input type='submit' value='Add Bike'>
+        <input class='sendButton' type='submit' value='Add Bike'>
     </form>
 
 </section>
