@@ -1,3 +1,7 @@
 @mixin viewMargin($side) {
-    margin: 0 $side;
+    margin: 0 $side $viewMarginBottom;
+}
+
+@mixin headerShadow($x:1px, $y:1px, $blur:3px) {
+    text-shadow: $x $y $blur $themeColorTeal;
 }
