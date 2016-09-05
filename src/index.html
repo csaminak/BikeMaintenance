@@ -13,32 +13,34 @@
     </head>
     <body>
 
-        <header>
+        <header class='siteHeader'>
             <h1>Cycling App</h1> <!-- Change when we have one -->
             <p>Slogan</p> <!-- Change when we have one -->
         </header>
 
-        <nav ng-controller='NavController as nav'>
-            <ul class='nav nav-tabs'> <!-- Need better tab names -->
-                <li><a ui-sref='home'>Home</a></li>
-                <li ng-hide='nav.isLoggedIn()'><a ui-sref='about'>About Us</a></li> <!---->
-                <li ng-show='nav.isLoggedIn()'><a ui-sref='bike-stats'>Bike/Parts Stats</a></li> <!--  -->
-                <li ng-show='nav.isLoggedIn()'><a ui-sref='bike-form'>Add Bike Info</a></li> <!--  -->
-                <li ng-show='nav.isLoggedIn()'><a ui-sref='parts-form'>Add Parts Info</a></li> <!--  -->
-                <li ng-hide='nav.isLoggedIn()'><a ui-sref='login'>Login</a></li> <!--  -->
-                <li ng-show='nav.isLoggedIn()' ng-click='nav.logout()'><a>Logout</a></li> <!--  -->
-            </ul>
-        </nav>
+        <section>
+            <nav class='navMenu' ng-controller='NavController as nav'>
+                <ul class='nav nav-tabs'> <!-- Need better tab names -->
+                    <li><a ui-sref='home'>Home</a></li>
+                    <li ng-hide='nav.isLoggedIn()'><a ui-sref='about'>About Us</a></li> <!---->
+                    <li ng-show='nav.isLoggedIn()'><a ui-sref='bike-stats'>Bike/Parts Stats</a></li> <!--  -->
+                    <li ng-show='nav.isLoggedIn()'><a ui-sref='bike-form'>Add Bike Info</a></li> <!--  -->
+                    <li ng-show='nav.isLoggedIn()'><a ui-sref='parts-form'>Add Parts Info</a></li> <!--  -->
+                    <li ng-hide='nav.isLoggedIn()'><a ui-sref='login'>Login</a></li> <!--  -->
+                    <li ng-show='nav.isLoggedIn()' ng-click='nav.logout()'><a>Logout</a></li> <!--  -->
+                </ul>
+            </nav>
+        </section>
 
-        <main ui-view></main>
+        <main class='view' ui-view></main>
 
-        <footer class='navbar-fixed-bottom'>
+        <footer class='navbar-fixed-bottom siteFooter'>
             <ul class='nav nav-pills'>
-                <li><a ui-sref='contact'>Contact Us</a></li> <!-- Form to contact in case of issue -->
-                <li><a ui-sref='about'>About Us</a></li> <!-- Section about authors and github account -->
-                <li><a href='https://www.strava.com/'>Strava</a></li>
+                <li class='footerItem'><a ui-sref='contact'>Contact Us</a></li> <!-- Form to contact in case of issue -->
+                <li class='footerItem'><a ui-sref='about'>About Us</a></li> <!-- Section about authors and github account -->
+                <li class='footerItem'><a href='https://www.strava.com/'>Strava</a></li>
             </ul>
-            <p>&copy; 2016 <!-- Change when we know what it should be --></p>
+            <p>&copy; 2016 Cycling App.</p>
         </footer>
 
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
