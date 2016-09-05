@@ -10,26 +10,28 @@ input, select {
     border: none;
     @include inputBorder();
     font-style: italic;
-    color: $themeColorDarkGreen;
+    font-size: 1em;
+    color: $themeColorShadow;
     display: block;
     width: 100%;
+    margin-bottom: 5%;
 }
 
 
 [placeholder] {
-    color: $themeColorDarkGreen;
+    color: $themeColorShadow;
 }
 ::-webkit-input-placeholder {
-   color: $themeColorDarkGreen;
+   color: $themeColorShadow;
 }
 :-moz-placeholder {
-   color: $themeColorDarkGreen;
+   color: $themeColorShadow;
 }
 ::-moz-placeholder {
-   color: $themeColorDarkGreen;
+   color: $themeColorShadow;
 }
 :-ms-input-placeholder {
-   color: $themeColorDarkGreen;
+   color: $themeColorShadow;
 }
 
 .sendButton {
