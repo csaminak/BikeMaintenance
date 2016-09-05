@@ -12,6 +12,9 @@
         @include viewMargin(10%, 20%);
     }
 
+    .viewTitle {
+        @include viewTitleMargin(5%, 10%);
+    }
 
 }
 
@@ -20,6 +23,10 @@
 
     .view {
         @include viewMargin(5%, 10%);
+    }
+
+    .viewTitle {
+        @include viewTitleMargin(5%, 5%);
     }
 }
 
