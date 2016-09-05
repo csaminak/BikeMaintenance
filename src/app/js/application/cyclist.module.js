@@ -60,12 +60,6 @@
                 controller: 'TokenController',
                 controllerAs: 'tokenCtrl'
             })
-            .state('contact', {
-                url: '/contact-us',
-                templateUrl: '/app/templates/general-info/contact.template.html',
-                controller: '',
-                controllerAs: ''
-            })
             .state('404', {
                 url: '/not-found',
                 templateUrl: '/app/templates/application/404.template.html',
