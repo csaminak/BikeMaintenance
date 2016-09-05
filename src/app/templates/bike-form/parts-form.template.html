@@ -4,13 +4,24 @@
 
     <section class='errorMsgs'>
         <p>{{partsFormCtrl.errorMsg}}</p>
+        <p ng-show='addParts.selectBike.$touched && addParts.selectBike.$error.required'>
+            Must select a bike to add parts.</p>
+        <p ng-show='addParts.partType.$touched && addParts.partType.$error.required'>
+            Must select a type of part to add.</p>
+        <p ng-show='addParts.mountedOn.$touched && addParts.mountedOn.$error.required'>
+            Need to know when the part was mounted to know when to change it.</p>
     </section>
 
-    <form ng-show='partsFormCtrl.allBikes' ng-submit='partsFormCtrl.sendPart(partsFormCtrl.part)'>
+
+    <form
+        name='addParts'
+        ng-show='partsFormCtrl.allBikes'
+        ng-submit='partsFormCtrl.sendPart(partsFormCtrl.part)'
+        novalidate>
 
         <div>
-            <label for='select_bike'>Select Bike</label>
-            <select id='select_bike' name='select_bike' ng-model='partsFormCtrl.part.bike_id' required>
+            <label for='selectBike'>Select Bike</label>
+            <select id='selectBike' name='selectBike' ng-model='partsFormCtrl.part.bike_id' required>
                 <option value='' selected>Bike Name</option>
                 <option
                     ng-repeat='bike in partsFormCtrl.allBikes'
@@ -20,19 +31,19 @@
         </div>
 
         <div>
-            <label for='part_type'>What type of part would you like to add?</label>
+            <label for='partType'>What type of part would you like to add?</label>
             <select
-                id='part_type' name='part_type' ng-model='partsFormCtrl.part.part_type' required>
+                id='partType' name='partType' ng-model='partsFormCtrl.part.part_type' required>
                 <option value='' selected>Part Type</option>
-                <option value='brake'>Brakes</option>
-                <option value='derailer'>Derailer</option>
-                <option value='pedal'>Pedals</option>
-                <option value='innertube'>Inner-Tube</option>
-                <option value='tire'>Tires</option>
+                <option value='Brake'>Brakes</option>
+                <option value='Derailer'>Derailer</option>
+                <option value='Pedal'>Pedals</option>
+                <option value='Innertube'>Inner-Tube</option>
+                <option value='Tire'>Tires</option>
             </select>
         </div>
 
-        <div ng-show='partsFormCtrl.part.part_type === "brake"'>
+        <div ng-show='partsFormCtrl.part.part_type === "Brake"'>
             <label>Brake Type</label>
             <div>
                 <input
@@ -52,7 +63,7 @@
             </div>
         </div>
 
-        <div ng-show='partsFormCtrl.part.part_type === "derailer"'>
+        <div ng-show='partsFormCtrl.part.part_type === "Derailer"'>
             <label>Derailer</label>
             <div>
                 <label for='derailer_brand'>Brand Name</label>
@@ -78,7 +89,7 @@
             </div>
         </div>
 
-        <div ng-show='partsFormCtrl.part.part_type === "pedal"'>
+        <div ng-show='partsFormCtrl.part.part_type === "Pedal"'>
             <label>Pedals Type</label>
             <div>
                 <input
@@ -105,7 +116,7 @@
             </div>
         </div>
 
-        <div ng-show='partsFormCtrl.part.part_type === "innertube"'>
+        <div ng-show='partsFormCtrl.part.part_type === "Innertube"'>
             <label for='inner_tubes'>Inner Tubes</label>
             <select id='inner_tubes' name='tube' ng-model='partsFormCtrl.part.description'>
                 <option value='' selected>Diameter x Width (inches)</option>
@@ -128,7 +139,7 @@
             </select>
         </div>
 
-        <div ng-show='partsFormCtrl.part.part_type === "tire"'>
+        <div ng-show='partsFormCtrl.part.part_type === "Tire"'>
             <label for='tires'>Tires</label>
             <select id='tires' name='tires' ng-model='partsFormCtrl.part.description'>
                 <option value='' selected>Diameter x Width (inches)</option>
@@ -155,8 +166,7 @@
             <label for='part_mounted_date'>Mounted On Date</label>
             <input
                 id='part_mounted_date'
-                name='mounted_on'
-                placeholder='09/13/2016'
+                name='mountedOn'
                 type='date'
                 ng-model='partsFormCtrl.part.mounted_on'
                 required>
