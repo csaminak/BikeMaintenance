@@ -1,0 +1,12 @@
+.siteHeader {
+    background-color: $themeColorMainGreen;
+    h1, p {
+        margin: 0;
+        text-align: center;
+        color: $themeColorDarkGreen;
+        @include headerShadow();
+    }
+    h1 {
+        font-weight: bold;
+    }
+}

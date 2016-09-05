@@ -1,0 +1,32 @@
+.viewTitle {
+    text-align: center;
+}
+
+
+
+
+
+@media screen and (max-width: 480px) {
+
+    .view {
+        @include viewMargin(10%, 20%);
+    }
+
+
+}
+
+//Display on all screens that are not mobile
+@media screen and (min-width: 481px) {
+
+    .view {
+        @include viewMargin(5%, 10%);
+    }
+}
+
+// @media screen and (min-width: 481px) and (max-width: 800px) {
+//
+// }
+//
+// @media screen and (min-width: 801px) {
+//
+// }

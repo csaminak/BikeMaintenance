@@ -1,5 +1,5 @@
-@mixin viewMargin($side) {
-    margin: 0 $side $viewMarginBottom;
+@mixin viewMargin($side, $marginBottom) {
+    margin: 0 $side $marginBottom;
 }
 
 @mixin headerShadow($x:1px, $y:1px, $blur:3px) {
