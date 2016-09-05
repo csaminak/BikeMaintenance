@@ -3,7 +3,7 @@
     <h2 class='viewTitle'>Log In</h2>
 
     <form>
-        <p class='errorMsg alert alert-danger' ng-show='loginCtrl.message'>{{loginCtrl.message}}</p>
+        <p class='errorMsgs' ng-show='loginCtrl.message'>{{loginCtrl.message}}</p>
         <a ng-click='loginCtrl.login()'>
             <img class='stravaButton' src='/images/LogInWithStrava.png'>
         </a>
