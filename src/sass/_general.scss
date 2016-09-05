@@ -4,16 +4,47 @@
     font-weight: bold;
 }
 
+
+input, select {
+    background-color: $inputBackgroundColor;
+    border: none;
+    @include inputBorder();
+    font-style: italic;
+    color: $themeColorDarkGreen;
+    display: block;
+    width: 100%;
+}
+
+
+[placeholder] {
+    color: $themeColorDarkGreen;
+}
+::-webkit-input-placeholder {
+   color: $themeColorDarkGreen;
+}
+:-moz-placeholder {
+   color: $themeColorDarkGreen;
+}
+::-moz-placeholder {
+   color: $themeColorDarkGreen;
+}
+:-ms-input-placeholder {
+   color: $themeColorDarkGreen;
+}
+
 .sendButton {
     font-family: 'Abel', sans-serif;
     background-color: $themeColorDarkGreen;
     border-radius: $submitButtonRadius;
     color: $themeColorMainGreen;
+    font-style: normal;
     @include submitButton();
-
+    width: 50%;
+    margin: 5% 25%;
 }
 .sendButton:hover {
     box-shadow: inset 0px 0px 3px $themeColorMainGreen;
+    font-style: normal;
 }
 
 
@@ -38,6 +69,11 @@
 
     .viewTitle {
         @include viewTitleMargin(5%, 5%);
+    }
+
+    .sendButton {
+        width: 20%;
+        margin: 5% 40%;
     }
 }
 

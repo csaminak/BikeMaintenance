@@ -18,3 +18,7 @@
     border: 1px solid $themeColorMainGreen;
     box-shadow: 0px 0px 2px $themeColorShadow;
 }
+@mixin inputBorder() {
+    box-shadow: 0px 0px 2px $themeColorShadow;
+    border-radius: 3px;
+}
