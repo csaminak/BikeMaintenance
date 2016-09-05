@@ -3,9 +3,14 @@
 }
 
 @mixin headerShadow($x:1px, $y:1px, $blur:3px) {
-    text-shadow: $x $y $blur $themeColorTeal;
+    text-shadow: $x $y $blur $themeColorShadow;
 }
 
 @mixin viewTitleMargin($top:0, $bottom:0) {
     margin: $top 0 $bottom;
+}
+@mixin stravaButtonShadow() {
+    background-color: #fc4c02;
+    box-shadow: 0px 0px 10px 2px $themeColorShadow;
+    border-radius: 5px;
 }

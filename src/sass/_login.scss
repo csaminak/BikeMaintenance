@@ -1,4 +1,13 @@
+.login form {
+    text-align: center;
+}
 
+.stravaButton {
+    @include stravaButtonShadow();
+}
+.stravaButton:hover {
+    box-shadow: none;
+}
 
 // @media screen and (min-width: 481px) and (max-width: 800px) {
 //
