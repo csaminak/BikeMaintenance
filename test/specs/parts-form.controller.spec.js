@@ -79,7 +79,7 @@
             $rootScope.$digest();
         });
 
-        test('sendPart executes', function(done) {
+        test('sendPart executes when correct data is given', function(done) {
             var part = {
                 bike_id: 1,
                 part_type: 'Brakes',
@@ -98,6 +98,9 @@
                 });
             $rootScope.$digest();
         });
+
+        // test('');
+
 
     });
 
