@@ -83,8 +83,8 @@
             var result = maintenance.login();
 
             result
-                .then(function(done) {
-
+                .then(function() {
+                    assert.fail('should not be then if no code is provided.');
                     done();
                 })
                 .catch(function(err) {
