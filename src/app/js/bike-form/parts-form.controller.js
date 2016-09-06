@@ -52,7 +52,7 @@
                 return $q.reject(new Error(that.errorMsg));
             }
             if(!part.bike_id) {
-                return $q.reject(new Error('Sorry, what is the name of this part?'));
+                return $q.reject(new Error('No bike id was provided'));
             }
             console.log(part);
             return maintenance.sendParts(part)
