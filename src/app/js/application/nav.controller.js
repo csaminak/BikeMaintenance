@@ -10,8 +10,12 @@
         this.isLoggedIn = maintenance.isLoggedIn;
         this.logout = logout;
 
-
-        function logout() { //TODO will know what to do when function is complete
+        /**
+         * Goes to the service function logout to log user out of application
+         * and then redirects them to the home page.
+         * @return {Void}
+         */
+        function logout() {
             maintenance.logout();
             $state.go('home');
         }
