@@ -23,7 +23,7 @@
             };
 
             mockMaintenanceService.logout = function() {
-                return; //TODO When logout function is compelte
+                return;
             };
 
             mockState.go = function(stateName) {
