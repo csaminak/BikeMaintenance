@@ -101,7 +101,7 @@
 
             result
                 .then(function() {
-                    assert.fail('should not be in then if no params are given');
+                    assert.fail('should not be in then if there is no name for bike');
                     done();
                 })
                 .catch(function(err) {
@@ -121,7 +121,7 @@
 
             result
                 .then(function() {
-                    assert.fail('should not be in then if no params are given');
+                    assert.fail('should not be in then if no model for bike is given');
                     done();
                 })
                 .catch(function(err) {
