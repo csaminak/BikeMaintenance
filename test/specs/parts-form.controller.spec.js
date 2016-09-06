@@ -33,6 +33,19 @@
                 };
             };
 
+            mockMaintenanceService.sendParts = function(part) {
+                if(!part) {
+                    return $q.reject('No parts to add.');
+                }
+                if(!part.part_type) {
+                    return $q.reject('Need the type of part to save part.');
+                }
+                if(!part.description) {
+                    return $q.reject('Need the specfic description for selected part.');
+                }
+                return $q.resolve({data:{}});
+            };
+
             mockState.go = function(stateName) {
                 mockState.go.called++;
                 mockState.go.argument = stateName;
@@ -75,14 +88,15 @@
             var result = partsCtrl.sendPart(part);
 
             result
-                .then(function() {
-
+                .then(function(response) {
+                    assert.isObject(response);
+                    done();
                 })
                 .catch(function() {
                     assert.fail('should not be in fail if the correct data is passed');
                     done();
                 });
-
+            $rootScope.$digest();
         });
 
     });
