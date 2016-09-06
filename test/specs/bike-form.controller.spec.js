@@ -37,12 +37,40 @@
                 return {id: 5, email: 'email@email.com', name: {}};
             };
 
+            mockState.go = function(stateName) {
+                mockState.go.called++;
+                mockState.go.argument = stateName;
+            };
+            mockState.go.called = 0;
+
             bfCtrl = $controller('BikeFormController');
 
         }));
 
         test('addBike is a function', function() {
             assert.isFunction(bfCtrl.addBike, 'addBike is a function');
+        });
+
+        test('addBike can be called and will return data', function(done) {
+            var bikeData = {
+                client_id: 5,
+                name: 'My Cool Bike',
+                model: 'Model Bike'
+            };
+
+            var result = bfCtrl.addBike(bikeData);
+
+            result
+                .then(function() {
+                    assert.strictEqual(mockState.go.called, 1);
+                    assert.strictEqual(mockState.go.argument, 'parts-form');
+                    done();
+                })
+                .catch(function() {
+                    assert.fail('should not be in fail if all data is correct');
+                    done();
+                });
+            $rootScope.$digest();
         });
 
         test('addBike is not called when there is no data', function(done) {
@@ -54,6 +82,7 @@
                 })
                 .catch(function(err) {
                     assert.instanceOf(err, Error, 'err should be a type of Error');
+                    assert.strictEqual(err.message, 'No information about bike to submit.');
                     done();
                 });
 
@@ -61,6 +90,45 @@
             $rootScope.$digest();
         });
 
+        test('addBike won\'t run if there is no name in bikeData', function(done) {
+            var bikeData = {
+                client_id: 5,
+                model: 'Model Test'
+            };
+            var result = bfCtrl.addBike(bikeData);
+
+            result
+                .then(function() {
+                    assert.fail('should not be in then if no params are given');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err should be a type of Error');
+                    assert.strictEqual(err.message, 'Please name your bike to easily identify it.');
+                    done();
+                });
+            $rootScope.$digest();
+        });
+
+        test('addBike won\'t run if there is no model in bikeData', function(done) {
+            var bikeData = {
+                client_id: 5,
+                name: 'Bike Test'
+            };
+            var result = bfCtrl.addBike(bikeData);
+
+            result
+                .then(function() {
+                    assert.fail('should not be in then if no params are given');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err should be a type of Error');
+                    assert.strictEqual(err.message, 'Need to know the type of bike.');
+                    done();
+                });
+            $rootScope.$digest();
+        });
 
     });
 
