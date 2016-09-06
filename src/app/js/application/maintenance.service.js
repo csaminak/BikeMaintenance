@@ -101,19 +101,20 @@
         }
 
         /**
-         * Logs cyclist out.
-         * @return {Void} [description]
+         * Logs cyclist out of application.
+         * @return {Void}
          */
         function logout() {
             stravaToken = null;
             currentCyclist = null;
             stravaUser = null;
             localStorage.removeItem('currentCyclist');
+            return;
         }
 
         /**
          * Returns the current logged in cyclist info.
-         * @return      {Object}     Includes id, name, email of cyclist
+         * @return  {Object}     Includes id, name, email of cyclist
          */
         function user() {
             return currentCyclist;
