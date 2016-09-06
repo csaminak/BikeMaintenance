@@ -4,9 +4,9 @@
     angular.module('cyclist')
         .controller('PartsFormController', PartsFormController);
 
-    PartsFormController.$inject = ['maintenance'];
+    PartsFormController.$inject = ['$q', 'maintenance'];
 
-    function PartsFormController(maintenance) {
+    function PartsFormController($q, maintenance) {
         var that = this;
         this.allBikes = [];
         this.part = {};
@@ -36,20 +36,23 @@
         /**
          * Takes a part and sends it to the service function to get added into db.
          * @param  {Object}          part    The part user adds
-         * @return  {Promise Object}
+         * @return {Promise Object}
          */
         function sendPart(part) {
             if(!part) {
                 that.errorMsg = 'Sorry, you have not selected any parts to add.';
-                return;
+                return $q.reject(new Error(that.errorMsg));
             }
             if(!part.part_type) {
                 that.errorMsg = 'Sorry, must select a part-type to add.';
-                return;
+                return $q.reject(new Error(that.errorMsg));
             }
             if(!part.description) {
                 that.errorMsg = 'Sorry, what is the name of this part?';
-                return;
+                return $q.reject(new Error(that.errorMsg));
+            }
+            if(!part.bike_id) {
+                return $q.reject(new Error('Sorry, what is the name of this part?'));
             }
             console.log(part);
             return maintenance.sendParts(part)
