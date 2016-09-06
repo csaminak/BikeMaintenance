@@ -4,17 +4,13 @@
     font-weight: bold;
 }
 
-
 input, select {
     background-color: $inputBackgroundColor;
     border: none;
     @include inputBorder();
     font-style: italic;
-    font-size: 1em;
     color: $themeColorShadow;
     display: block;
-    width: 100%;
-    margin-bottom: 5%;
 }
 
 
@@ -41,12 +37,15 @@ input, select {
     color: $themeColorMainGreen;
     font-style: normal;
     @include submitButton();
-    width: 50%;
-    margin: 5% 25%;
 }
 .sendButton:hover {
     box-shadow: inset 0px 0px 3px $themeColorMainGreen;
     font-style: normal;
+}
+
+[type='radio'] {
+    box-shadow: none;
+    display: inline-block;
 }
 
 
@@ -58,6 +57,17 @@ input, select {
 
     .viewTitle {
         @include viewTitleMargin(5%, 10%);
+    }
+
+    .sendButton {
+        width: 50%;
+        margin: 5% 25% 35%;
+    }
+
+    input, select {
+        font-size: 1em;
+        width: 100%;
+        margin-bottom: 5%;
     }
 
 }
@@ -75,8 +85,15 @@ input, select {
 
     .sendButton {
         width: 20%;
-        margin: 5% 40%;
+        margin: 5% 40% 5%;
     }
+
+    input, select {
+        font-size: 1.25em;
+        width: 50%;
+        margin: 0 25% 5%;
+    }
+
 }
 
 // @media screen and (min-width: 481px) and (max-width: 800px) {

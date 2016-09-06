@@ -1,0 +1,63 @@
+.partsForm, .bikeForm {
+   font-family: 'Lato', sans-serif;
+}
+
+
+.partType {
+    text-align: center;
+}
+
+
+input, select {
+    background-color: $inputBackgroundColor;
+    border: none;
+    @include inputBorder();
+    font-style: italic;
+    color: $themeColorShadow;
+    display: block;
+}
+
+//Multiple rules for each web browser b.c if one selector is false the entire rule gets cancelled
+[placeholder] {
+    color: $themeColorShadow;
+}
+::-webkit-input-placeholder {
+   color: $themeColorShadow;
+}
+:-moz-placeholder {
+   color: $themeColorShadow;
+}
+::-moz-placeholder {
+   color: $themeColorShadow;
+}
+:-ms-input-placeholder {
+   color: $themeColorShadow;
+}
+
+
+[type='radio'] {
+    box-shadow: none;
+    display: inline-block;
+}
+
+//Display on mobile phones or smaller only
+@media screen and (max-width: 480px) {
+
+    input, select {
+        font-size: 1em;
+        width: 100%;
+        margin-bottom: 5%;
+    }
+
+}
+
+//Display on all screens that are not mobile
+@media screen and (min-width: 481px) {
+
+    input, select {
+        font-size: 1.25em;
+        width: 50%;
+        margin: 0 25% 5%;
+    }
+
+}

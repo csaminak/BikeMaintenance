@@ -43,7 +43,7 @@
             </select>
         </div>
 
-        <div ng-show='partsFormCtrl.part.part_type === "Brake"'>
+        <div class='partType' ng-show='partsFormCtrl.part.part_type === "Brake"'>
             <label>Brake Type</label>
             <div>
                 <input
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div ng-show='partsFormCtrl.part.part_type === "Derailer"'>
+        <div class='partType' ng-show='partsFormCtrl.part.part_type === "Derailer"'>
             <label>Derailer</label>
             <div>
                 <label for='derailer_brand'>Brand Name</label>
@@ -89,7 +89,7 @@
             </div>
         </div>
 
-        <div ng-show='partsFormCtrl.part.part_type === "Pedal"'>
+        <div class='partType' ng-show='partsFormCtrl.part.part_type === "Pedal"'>
             <label>Pedals Type</label>
             <div>
                 <input
@@ -105,18 +105,18 @@
                     value='Slide-Into'
                     type='radio'
                     ng-model='partsFormCtrl.part.description'>
-                <label for='slide_pedals'>Slide_Into</label>
+                <label for='slide_pedals'>Slide Into</label>
                 <input
                     id='open_pedals'
                     name='pedals'
                     value='Open'
                     type='radio'
                     ng-model='partsFormCtrl.part.description'>
-                <label for='open_pedals'>Open_Top</label>
+                <label for='open_pedals'>Open Top</label>
             </div>
         </div>
 
-        <div ng-show='partsFormCtrl.part.part_type === "Innertube"'>
+        <div class='partType' ng-show='partsFormCtrl.part.part_type === "Innertube"'>
             <label for='inner_tubes'>Inner Tubes</label>
             <select id='inner_tubes' name='tube' ng-model='partsFormCtrl.part.description'>
                 <option value='' selected>Diameter x Width (inches)</option>
@@ -139,7 +139,7 @@
             </select>
         </div>
 
-        <div ng-show='partsFormCtrl.part.part_type === "Tire"'>
+        <div class='partType' ng-show='partsFormCtrl.part.part_type === "Tire"'>
             <label for='tires'>Tires</label>
             <select id='tires' name='tires' ng-model='partsFormCtrl.part.description'>
                 <option value='' selected>Diameter x Width (inches)</option>
