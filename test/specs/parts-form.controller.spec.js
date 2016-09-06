@@ -12,7 +12,6 @@
         setup(module('cyclist'));
 
         setup(module(function($provide) {
-            $provide.value('$state', mockState);
             $provide.value('maintenance', mockMaintenanceService);
         }));
 
@@ -163,6 +162,5 @@
         });
 
     });
-
 
 })();
