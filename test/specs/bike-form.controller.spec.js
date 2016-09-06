@@ -62,6 +62,9 @@
 
             var result = bfCtrl.addBike(bikeData);
 
+            assert.isFunction(result.then, 'result has a then method.');
+            assert.isFunction(result.catch, 'result has a catch method.');
+
             result
                 .then(function() {
                     assert.strictEqual(mockState.go.called, 1);

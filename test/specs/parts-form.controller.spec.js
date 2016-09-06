@@ -87,6 +87,9 @@
             };
             var result = partsCtrl.sendPart(part);
 
+            assert.isFunction(result.then, 'result has a then method.');
+            assert.isFunction(result.catch, 'result has a catch method.');
+
             result
                 .then(function(response) {
                     assert.isObject(response);
