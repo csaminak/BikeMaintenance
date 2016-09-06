@@ -3,7 +3,7 @@
 
     var assert = chai.assert;
 
-    suite('maintenance service functions', function() {
+    suite('maintenance service functions (login, isLoggedIn, logout, user, addBike)', function() {
         var maintenance, $httpBackend, $rootScope;
 
         setup(module('cyclist'));
@@ -51,10 +51,6 @@
             assert.isFunction(maintenance.logout, 'logout fn exists!');
             assert.isFunction(maintenance.user, 'user fn exists!');
             assert.isFunction(maintenance.addBike, 'addBike fn exists!');
-            assert.isFunction(maintenance.sendParts, 'sendParts fn exists!');
-            assert.isFunction(maintenance.getParts, 'getParts fn exists!');
-            assert.isFunction(maintenance.getBikes, 'getBikes fn exists!');
-            assert.isFunction(maintenance.getABike, 'getABike fn exists!');
         });
 
         test('login sends a code and gets back user data', function(done) {

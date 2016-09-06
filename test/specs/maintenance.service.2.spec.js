@@ -3,7 +3,7 @@
 
     var assert = chai.assert;
 
-    suite('maintenance service functions', function() {
+    suite('maintenance service functions (sendParts, getParts, getBikes, getABike)', function() {
         var maintenance, $httpBackend, $rootScope;
 
         setup(module('cyclist'));
@@ -17,14 +17,17 @@
                 .whenGET('/app/templates/general-info/home.template.html')
                 .respond('<h2>Home Page for Cycling App</h2>');
 
-            
+
 
 
         }));
 
 
-        test('', function() {
-
+        test('maintenance service functions exist', function() {
+            assert.isFunction(maintenance.sendParts, 'sendParts fn exists!');
+            assert.isFunction(maintenance.getParts, 'getParts fn exists!');
+            assert.isFunction(maintenance.getBikes, 'getBikes fn exists!');
+            assert.isFunction(maintenance.getABike, 'getABike fn exists!');
         });
 
 
