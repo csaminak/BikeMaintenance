@@ -47,8 +47,10 @@
 
         }));
 
-        test('addBike is a function', function() {
+        test('BikeFormController has expected data', function() {
             assert.isFunction(bfCtrl.addBike, 'addBike is a function');
+            assert.isObject(bfCtrl.bike, 'bike is an object');
+            assert.isString(bfCtrl.errorMsg, 'errorMsg is a string');
         });
 
         test('addBike can be called and will return data', function(done) {
