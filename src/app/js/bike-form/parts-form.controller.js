@@ -11,8 +11,9 @@
         this.allBikes = [];
         this.part = {};
         this.errorMsg = '';
-        this.user = maintenance.user();
         this.sendPart = sendPart;
+        this.user = maintenance.user();
+
 
         /**
          * Gets all the bikes for a user.
@@ -32,10 +33,10 @@
                 console.log(err);
             });
 
-        /** //TODO WHAT SHOULD THE BLOCK BE?
-         * [sendPart description]
-         * @param  {[type]} part [description]
-         * @return {[type]}      [description]
+        /**
+         * Takes a part and sends it to the service function to get added into db.
+         * @param  {Object}          part    The part user adds
+         * @return  {Promise Object}
          */
         function sendPart(part) {
             if(!part) {
@@ -55,8 +56,8 @@
                 .then(function() {
                     that.part = {};
                 })
-                .catch(function() {
-
+                .catch(function(err) {
+                    console.log(err);
                 });
         }
 
