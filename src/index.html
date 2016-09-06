@@ -2,10 +2,10 @@
 <html lang='en' ng-app='cyclist'>
     <head>
         <meta charset='utf-8'>
-        <title>Cycling App<!-- WHAT IS THE APP NAME? --></title>
+        <title>Bike Memo</title>
 
-        <meta name='description' content='Bike maintenance app'> <!-- Is this description right? -->
-        <meta name='author' content='co-authors: Samina Chhatwal, Alex Shelton!'>
+        <meta name='description' content='Bike tune up notification app'>
+        <meta name='author' content='co-authors: Samina Chhatwal, Alex Shelton'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>
 
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' type='text/css'>
@@ -14,20 +14,20 @@
     <body>
 
         <header class='siteHeader'>
-            <h1>Cycling App</h1> <!-- Change when we have one -->
-            <p>Slogan</p> <!-- Change when we have one -->
+            <h1>Bike Memo</h1>
+            <p>We'll notify you when it is time to get your bike tuned up.</p>
         </header>
 
         <section>
             <nav class='navMenu' ng-controller='NavController as nav'>
-                <ul class='nav nav-tabs'> <!-- Need better tab names -->
+                <ul class='nav nav-tabs'>
                     <li><a ui-sref='home'>Home</a></li>
-                    <li ng-hide='nav.isLoggedIn()'><a ui-sref='about'>About Us</a></li> <!---->
-                    <li ng-show='nav.isLoggedIn()'><a ui-sref='bike-stats'>Bike/Parts Stats</a></li> <!--  -->
-                    <li ng-show='nav.isLoggedIn()'><a ui-sref='bike-form'>Add Bike Info</a></li> <!--  -->
-                    <li ng-show='nav.isLoggedIn()'><a ui-sref='parts-form'>Add Parts Info</a></li> <!--  -->
-                    <li ng-hide='nav.isLoggedIn()'><a ui-sref='login'>Login</a></li> <!--  -->
-                    <li ng-show='nav.isLoggedIn()' ng-click='nav.logout()'><a>Logout</a></li> <!--  -->
+                    <li ng-hide='nav.isLoggedIn()'><a ui-sref='about'>About Us</a></li>
+                    <li ng-show='nav.isLoggedIn()'><a ui-sref='bike-stats'>View Bike Parts</a></li>
+                    <li ng-show='nav.isLoggedIn()'><a ui-sref='bike-form'>Add Bike</a></li>
+                    <li ng-show='nav.isLoggedIn()'><a ui-sref='parts-form'>Add Parts</a></li>
+                    <li ng-hide='nav.isLoggedIn()'><a ui-sref='login'>Login</a></li>
+                    <li ng-show='nav.isLoggedIn()' ng-click='nav.logout()'><a>Logout</a></li>
                 </ul>
             </nav>
         </section>
@@ -36,10 +36,10 @@
 
         <footer class='navbar-fixed-bottom siteFooter'>
             <ul class='nav nav-pills'>
-                <li class='footerItem'><a ui-sref='about'>About Us</a></li> <!-- Section about authors and github account -->
+                <li class='footerItem'><a ui-sref='about'>About Us</a></li>
                 <li class='footerItem'><a href='https://www.strava.com/'>Strava</a></li>
             </ul>
-            <p>&copy; 2016 Cycling App.</p>
+            <p>&copy; 2016 Bike Memo.</p>
         </footer>
 
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
