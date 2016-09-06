@@ -52,7 +52,6 @@
          * @return {XHR Object}              An object that holds promise methods
          */
         function login(stravaCode) {
-            console.log('stravaCode', stravaCode); //TODO DELETE
             if(!stravaCode) {
                 return $q.reject(new Error('no code obtained to send.'));
             }
