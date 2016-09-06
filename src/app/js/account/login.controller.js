@@ -22,7 +22,7 @@
             // $location would not redirect properly because '#' was being removed
             $window.location = 'https://www.strava.com/oauth/authorize?client_id=' +
                         encodeURIComponent(clientId) + '&response_type=code&redirect_uri=' +
-                        encodeURIComponent(redirect) + '&scope=view_private' +
+                        redirect + '&scope=view_private' +
                         '&state=loggedin&approval_prompt=auto';
         }
 
