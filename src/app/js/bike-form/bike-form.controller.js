@@ -9,8 +9,8 @@
     function BikeFormController($state, $q, maintenance) {
         var that = this;
         this.bike = {};
-        this.addBike = addBike;
         this.errorMsg = '';
+        this.addBike = addBike;
         this.user = maintenance.user();
 
         /**
