@@ -75,11 +75,20 @@
             $rootScope.$digest();
         });
 
-        test('', function() {
-
+        test('getParts does not execute if no bikeId has been provided', function(done) {
+            var result = bsCtrl.getParts();
+            result
+                .then(function() {
+                    assert.fail('should not be in then if id provided.');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of Error');
+                    assert.strictEqual(err.message, 'no bike id provided');
+                    done();
+                });
+            $rootScope.$digest();
         });
-
-
 
     });
 
