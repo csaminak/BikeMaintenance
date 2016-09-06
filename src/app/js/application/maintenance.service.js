@@ -65,7 +65,6 @@
                 data: angular.toJson({'code': stravaCode})
             })
             .then(function(response) {
-                console.log(stravaCode);
                 stravaToken = response.data.access_token;
                 stravaUser = response.data.athlete;
                 currentCyclist = {
@@ -83,7 +82,6 @@
                 return currentCyclist;
             })
             .catch(function(err) {
-                console.log(stravaCode);
                 console.log('sendStravaCode err', err);
                 return err;
             });
@@ -234,7 +232,6 @@
                 return err;
             });
         }
-
 
         /**
          * Gets all bikes for a specified cyclist
