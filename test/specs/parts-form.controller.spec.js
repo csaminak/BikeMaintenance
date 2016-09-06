@@ -99,8 +99,65 @@
             $rootScope.$digest();
         });
 
-        // test('');
+        test('sendPart does not execute if no bike_id is passed', function(done) {
+            var part = {
+                part_type: 'Brakes',
+                description: 'clip'
+            };
+            var result = partsCtrl.sendPart(part);
 
+            result
+                .then(function() {
+                    assert.fail('should not be in then if no bike id is given');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of Error.');
+                    assert.strictEqual(err.message, 'No bike id was provided.');
+                    done();
+                });
+            $rootScope.$digest();
+        });
+
+        test('sendPart does not execute if no part_type is passed', function(done) {
+            var part = {
+                bike_id: 4,
+                description: 'clip'
+            };
+            var result = partsCtrl.sendPart(part);
+
+            result
+                .then(function() {
+                    assert.fail('should not be in then if no part_id is given');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of Error.');
+                    assert.strictEqual(err.message, 'Sorry, must select a part-type to add.');
+                    done();
+                });
+            $rootScope.$digest();
+        });
+
+        test('sendPart does not execute if no description is passed', function(done) {
+            var part = {
+                bike_id: 4,
+                part_type: 'disc'
+            };
+            var result = partsCtrl.sendPart(part);
+
+            result
+                .then(function() {
+                    assert.fail('should not be in then if no description is given');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of Error.');
+                    assert.strictEqual(err.message, 'Sorry, what is the name of this part?');
+                    done();
+                });
+            $rootScope.$digest();
+        });
 
     });
 
