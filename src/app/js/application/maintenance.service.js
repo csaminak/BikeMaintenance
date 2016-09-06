@@ -247,19 +247,24 @@
             }
             return $http({
                 method: 'GET',
-                url: 'https://cycling-app.herokuapp.com/bikes/' + cyclistId + '.json',
+                url: 'https://cycling-app.herokuapp.com/bikes.json',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                // data: {
-                //     'client_id': cyclistId
-                // }
+                data: {
+                    'client_id': cyclistId
+                }
             })
             .then(function(response) {
                 console.log('Retrieve all Bikes call: ', response);
-                // var bikes = [];
-                return response.data;
+                var bikes = [];
+                response.data.forEach(function(bike) {
+                    if(bike.client_id === parseInt(cyclistId)) {
+                        bikes.push(bike);
+                    }
+                });
+                return bikes;
             })
             .catch(function(err) {
                 console.log('getBikes error: ', err);
