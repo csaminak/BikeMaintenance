@@ -60,7 +60,7 @@
                 url: 'https://cycling-app.herokuapp.com/oauth/strava',
                 headers: {
                     'Content-Type': 'application/json',
-                    'accept': 'json'
+                    'Accept': 'application/json'
                 },
                 data: angular.toJson({'code': stravaCode})
             })
@@ -142,7 +142,7 @@
                 url: 'https://cycling-app.herokuapp.com/bikes.json',
                 headers: {
                     'Content-Type': 'application/json',
-                    'accept': 'json'
+                    'Accept': 'application/json'
                 },
                 data: angular.toJson({
                     'brand': bikeData.bike_brand,
@@ -183,7 +183,7 @@
                 url: 'https://cycling-app.herokuapp.com/parts.json',
                 headers: {
                     'Content-Type': 'application/json',
-                    'accept': 'json'
+                    'Accept': 'application/json'
                 },
                 data: angular.toJson({
                     'part_type': partsData.part_type,
@@ -216,7 +216,7 @@
                 url: 'https://cycling-app.herokuapp.com/parts',
                 headers: {
                     'Content-Type': 'application/json',
-                    'accept': 'json'
+                    'Accept': 'application/json'
                 }
             })
             .then(function(response) {
@@ -250,7 +250,7 @@
                 url: 'https://cycling-app.herokuapp.com/bikes.json',
                 headers: {
                     'Content-Type': 'application/json',
-                    'accept': 'json'
+                    'Accept': 'application/json'
                 },
                 data: {
                     'client_id': cyclistId
@@ -280,7 +280,7 @@
                 url: 'https://cycling-app.herokuapp.com/bikes/' + bikeId,
                 headers: {
                     'Content-Type': 'application/json',
-                    'accept': 'json'
+                    'Accept': 'application/json'
                 }
             })
             .then(function(response) {
