@@ -17,14 +17,14 @@
                     if(response.status === 500) {
                         that.errorMsg = 'Sorry, we seem to have some difficulty connecting\
                                             to the site, please try again later?';
-                        return;
+                        return response;
                     }
                     $state.go('bike-form');
                 })
                 .catch(function(err) {
                     console.log(err);
                     that.errorMsg = 'Sorry, we are unable to connect with Strava.';
-                    return;
+                    return err;
                 });
 
 
