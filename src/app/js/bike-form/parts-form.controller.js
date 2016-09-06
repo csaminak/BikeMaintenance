@@ -56,11 +56,13 @@
             }
             console.log(part);
             return maintenance.sendParts(part)
-                .then(function() {
+                .then(function(response) {
                     that.part = {};
+                    return response;
                 })
                 .catch(function(err) {
                     console.log(err);
+                    return err;
                 });
         }
 
