@@ -39,6 +39,7 @@
             if(!bikeId) {
                 return $q.reject(new Error('no bike id provided'));
             }
+            that.message = '';
             return maintenance.getParts(bikeId)
                 .then(function(parts) {
                     console.log(parts);
@@ -58,12 +59,12 @@
         function deletePart(partId) {
             return maintenance.deletePart(partId)
                 .then(function() {
-                    that.message = 'Your part was deleted';
                     that.allParts.forEach(function(part) {
                         if(part.id === Number(partId)) {
                             that.allParts.splice(that.allParts.indexOf(part), 1);
                         }
                     });
+                    that.message = 'Your part was deleted';
                     return that.allParts;
                 })
                 .catch(function(err) {
