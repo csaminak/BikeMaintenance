@@ -133,7 +133,7 @@
                 return $q.reject(new Error('Need a model/type of bike to save.'));
             }
             if(!bikeData.client_id) {
-                return $q.reject(new Error('Need user to store bike to.'));
+                return $q.reject(new Error('Need user id to identify bike ownership.'));
             }
             return $http({
                 method: 'POST',
