@@ -18,7 +18,7 @@
 
             mockMaintenanceService.getBikes = function(clientId) {
                 if(!clientId) {
-                    return $q.reject('no cyclist Id provided');
+                    return $q.reject('No cyclist Id provided');
                 }
                 return $q.resolve({data: {}});
             };
@@ -32,11 +32,18 @@
 
             mockMaintenanceService.getParts = function(bikeId) {
                 if(!bikeId) {
-                    return $q.reject(new Error('no bike id provided'));
+                    return $q.reject(new Error('No bike id provided'));
                 }
                 return $q.resolve([
                     {'bike_id': '5'}, {'bike_id': '7'}
                 ]);
+            };
+
+            mockMaintenanceService.deletePart = function(partId) {
+                if(!partId) {
+                    return $q.reject(new Error('No part id provided'));
+                }
+                return $q.resolve();
             };
 
             bsCtrl = $controller('BikeStatsController');
@@ -84,12 +91,40 @@
                 })
                 .catch(function(err) {
                     assert.instanceOf(err, Error, 'err is a type of Error');
-                    assert.strictEqual(err.message, 'no bike id provided');
+                    assert.strictEqual(err.message, 'No bike id provided');
                     done();
                 });
             $rootScope.$digest();
         });
 
+        test('deletePart is executed when partId is provided', function(done) {
+            bsCtrl.allParts = [{}];
+            var result = bsCtrl.deletePart('2');
+            result
+                .then(function() {
+                    assert.instanceOf(bsCtrl.allParts, Array, 'allParts is an array');
+                    done();
+                })
+                .catch(function() {
+                    assert.fail('should not be in catch if data provided is correct.');
+                    done();
+                });
+            $rootScope.$digest();
+        });
+
+        test('deletePart does not execute if partId is not provided', function(done) {
+            var result = bsCtrl.deletePart();
+            result
+                .then(function() {
+                    assert.fail('should not be in then if no part id is given.');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.strictEqual(err.message, 'No part id provided');
+                    done();
+                });
+            $rootScope.$digest();
+        });
     });
 
 })();

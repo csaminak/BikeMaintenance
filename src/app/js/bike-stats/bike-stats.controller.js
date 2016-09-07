@@ -37,7 +37,7 @@
          */
         function getParts(bikeId) {
             if(!bikeId) {
-                return $q.reject(new Error('no bike id provided'));
+                return $q.reject(new Error('No bike id provided'));
             }
             that.message = '';
             return maintenance.getParts(bikeId)
@@ -59,7 +59,15 @@
                 });
         }
 
+        /**
+         * Deletes a part and removes it from the current array.
+         * @param  {String}  partId     Passed in when user click delete button
+         * @return {Array}              The parts array
+         */
         function deletePart(partId) {
+            if(!partId) {
+                return $q.reject(new Error('No part id provided'));
+            }
             return maintenance.deletePart(partId)
                 .then(function() {
                     that.allParts.forEach(function(part) {
