@@ -33,15 +33,13 @@
                 return $q.reject(new Error(that.errorMsg));
             }
             bikeInfo.client_id = that.user.id;
-            console.log(bikeInfo);
             return maintenance.addBike(bikeInfo)
                 .then(function() {
                     that.bike = {};
                     $state.go('parts-form');
                 })
                 .catch(function(err) {
-                    that.message = 'Sorry unable to connect, try again?';
-                    console.log(err);
+                    that.message = err.message;
                 });
         }
 
