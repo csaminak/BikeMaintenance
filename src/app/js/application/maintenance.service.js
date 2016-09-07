@@ -228,7 +228,7 @@
                 console.log(response);
                 var parts = [];
                 response.data.forEach(function(part) {
-                    if(part.bike_id === parseInt(bikeId)) {
+                    if(part.bike_id === Number(bikeId)) {
                         parts.push(part);
                     }
                 });
