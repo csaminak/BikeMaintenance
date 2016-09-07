@@ -23,7 +23,7 @@
                 })
                 .respond({
                     client: {
-                        id: '5',
+                        id: 5,
                         first_name: 'firstname',
                         last_name: 'lastname',
                         email: 'email@email.com'
@@ -36,7 +36,7 @@
                 .when('POST', 'https://cycling-app.herokuapp.com/bikes.json', {
                     'model': 'Road',
                     'name': 'Coolest Bike Ever',
-                    'client_id': '4'
+                    'client_id': 4
                 })
                 .respond({});
         }));
@@ -63,7 +63,7 @@
                 .then(function(client) {
                     assert.isObject(client);
                     assert.strictEqual(client.name.first, 'firstname');
-                    assert.strictEqual(client.id, '5');
+                    assert.strictEqual(client.id, 5);
                     done();
                 })
                 .catch(function() {
@@ -117,7 +117,7 @@
             var result = maintenance.addBike({
                 'model': 'Road',
                 'name': 'Coolest Bike Ever',
-                'client_id': '4'
+                'client_id': 4
             });
             assert.isObject(result);
             assert.isFunction(result.then, 'result has a then method');
@@ -138,7 +138,7 @@
         test('addBike function does not execute if name is not provided', function(done) {
             var result = maintenance.addBike({
                 'model': 'No Name Bike',
-                'client_id': '4'
+                'client_id': 4
             });
             result
                 .then(function() {
@@ -157,7 +157,7 @@
         test('addBike function does not execute if model is not provided', function(done) {
             var result = maintenance.addBike({
                 'name': 'No Model Bike',
-                'client_id': '4'
+                'client_id': 4
             });
             result
                 .then(function() {
