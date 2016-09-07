@@ -187,7 +187,8 @@
                     'part_type': partsData.part_type,
                     'description': partsData.description,
                     'bike_id': partsData.bike_id,
-                    'mounted_on': partsData.mounted_on
+                    'mounted_on': partsData.mounted_on,
+                    'purchased_on': partsData.purchased_on
                 })
             })
             .then(function(response) {
