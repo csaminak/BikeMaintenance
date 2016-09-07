@@ -3,7 +3,7 @@
 
     var assert = chai.assert;
 
-    suite('bike-form controller', function() {
+    suite('parts form controller', function() {
 
         var partsCtrl, $rootScope;
         var mockMaintenanceService = {};
@@ -44,6 +44,16 @@
                 }
                 return $q.resolve({data:{}});
             };
+
+            mockMaintenanceService.isLoggedIn = function() {
+                return {
+                    id: 5,
+                    first_name: 'firstname',
+                    last_name: 'lastname',
+                    email: 'email@email.com'
+                };
+            };
+
 
             mockState.go = function(stateName) {
                 mockState.go.called++;
