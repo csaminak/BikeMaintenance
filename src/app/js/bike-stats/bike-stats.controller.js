@@ -43,6 +43,10 @@
             return maintenance.getParts(bikeId)
                 .then(function(parts) {
                     console.log(parts);
+                    if(parts.length < 1) {
+                        that.message = 'There are no parts for this bike.';
+                        return;
+                    }
                     that.allParts = parts;
                     return parts;
                 })
