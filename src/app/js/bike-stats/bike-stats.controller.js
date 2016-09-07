@@ -11,6 +11,7 @@
         this.bikeId = null;
         this.allParts = null;
         this.allBikes = [];
+        this.message = '';
         this.getParts = getParts;
         this.user = maintenance.user();
         this.deletePart = deletePart;
@@ -56,8 +57,9 @@
 
         function deletePart(partId) {
             return maintenance.deletePart(partId)
-                .then(function(response) {
-                    console.log(response);
+                .then(function() {
+                    that.message = 'Your part was deleted';
+                    $state.go('bike-stats');
                 })
                 .catch(function(err) {
                     if(err.status >= 500) {

@@ -2,6 +2,8 @@
 
     <h2 class='viewTitle'>Current Bike and Parts Info</h2>
 
+    <p class='message'>{{bsCtrl.message}}</p>
+
     <form ng-submit='bsCtrl.getParts(bsCtrl.bikeId)'>
         <label for='select_bike'>Select a Bike to View it's Parts</label>
         <select id='select_bike' name='select_bike' ng-model='bsCtrl.bikeId' required>
