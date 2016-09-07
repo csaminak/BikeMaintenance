@@ -18,9 +18,14 @@
 
 
         maintenance.getBikes(this.user.id)
-            .then(function(allBikes) {
-                console.log(allBikes);
-                that.allBikes = allBikes;
+            .then(function(bikes) {
+                if(bikes.length < 1) {
+                    that.message = 'Sorry, you don\'t have any bikes.\
+                                        Please add a bike before adding a part.';
+                    that.allBikes = null;
+                    return;
+                }
+                that.allBikes = bikes;
             })
             .catch(function(err) {
                 if(err.status >= 500) {
