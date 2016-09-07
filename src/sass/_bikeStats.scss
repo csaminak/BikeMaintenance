@@ -1,3 +1,9 @@
 .bikeStatsTable, .bike-stats form {
     font-family: 'Lato', sans-serif;
 }
+
+.deleteButton {
+    @include submitButton();
+    width: 60%;
+    margin: 0 20%;
+}
