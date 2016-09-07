@@ -35,8 +35,8 @@
             try {
                 currentCyclist = JSON.parse(localStorage.getItem('currentCyclist'));
             } catch(err) {
-                //does not matter if loggedInUser does not exist or is invalid
-                //because user will just log in with form
+                //does not matter if currentCyclist does not exist or is invalid
+                //because user will just reauthorize through strava and then login
             }
 
             if (currentCyclist) {
