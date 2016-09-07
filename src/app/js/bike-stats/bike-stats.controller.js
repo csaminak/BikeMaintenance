@@ -59,7 +59,12 @@
             return maintenance.deletePart(partId)
                 .then(function() {
                     that.message = 'Your part was deleted';
-                    $state.go('bike-stats');
+                    that.allParts.forEach(function(part) {
+                        if(part.id === Number(partId)) {
+                            that.allParts.splice(that.allParts.indexOf(part), 1);
+                        }
+                    });
+                    return that.allParts;
                 })
                 .catch(function(err) {
                     if(err.status >= 500) {
