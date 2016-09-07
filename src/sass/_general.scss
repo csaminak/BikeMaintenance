@@ -30,7 +30,7 @@ input, select {
    color: $themeColorShadow;
 }
 
-.sendButton {
+.sendButton, .deleteButton {
     font-family: 'Abel', sans-serif;
     background-color: $themeColorDarkGreen;
     border-radius: $submitButtonRadius;

@@ -3,7 +3,6 @@
 }
 
 .deleteButton {
-    @include submitButton();
     width: 60%;
     margin: 0 20%;
 }
