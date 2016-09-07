@@ -221,10 +221,6 @@
                     }
                 });
                 return parts;
-            })
-            .catch(function(err) {
-                console.log(err);
-                return err;
             });
         }
 
@@ -257,10 +253,6 @@
                     }
                 });
                 return bikes;
-            })
-            .catch(function(err) {
-                console.log('getBikes error: ', err);
-                return err;
             });
         }
 
@@ -284,10 +276,6 @@
             .then(function(response) {
                 console.log(response);
                 return response.data;
-            })
-            .catch(function(err) {
-                console.log(err);
-                return err;
             });
         }
 
