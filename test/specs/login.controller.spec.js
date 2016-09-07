@@ -13,7 +13,7 @@
             loginCtrl = $controller('LoginController');
         }));
 
-        test('login function redirects user', function() {
+        test('login is a function', function() {
             assert.isFunction(loginCtrl.login, 'login is a fn');
         });
 
