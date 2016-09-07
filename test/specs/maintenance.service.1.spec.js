@@ -3,7 +3,7 @@
 
     var assert = chai.assert;
 
-    suite('maintenance service functions (login, isLoggedIn, logout, user, addBike)', function() {
+    suite('maintenance service functions (login, isLoggedIn, user, addBike)', function() {
         var maintenance, $httpBackend, $rootScope;
 
         setup(module('cyclist'));
@@ -40,7 +40,40 @@
                     err: {message: 'no code obtained to send.'}
                 });
 
+            $httpBackend
+                .when('POST', 'https://cycling-app.herokuapp.com/bikes.json', {
+                    'model': 'Road',
+                    'name': 'Coolest Bike Ever',
+                    'client_id': '4'
+                })
+                .respond({});
 
+            $httpBackend
+                .when('POST', 'https://cycling-app.herokuapp.com/bikes.json', {
+                    'name': 'No Model Bike',
+                    'client_id': '4'
+                })
+                .respond({
+                    err: {message: 'Need a model/type of bike to save.'}
+                });
+
+            $httpBackend
+                .when('POST', 'https://cycling-app.herokuapp.com/bikes.json', {
+                    'model': 'No Name Bike',
+                    'client_id': '4'
+                })
+                .respond({
+                    err: {message: 'Need a name for bike to identify bike.'}
+                });
+
+            $httpBackend
+                .when('POST', 'https://cycling-app.herokuapp.com/bikes.json', {
+                    'name': 'No Client Id',
+                    'model': 'Bike Model'
+                })
+                .respond({
+                    err: {message: 'Need user id to identify bike ownership.'}
+                });
         }));
 
 
@@ -91,11 +124,19 @@
             $rootScope.$digest();
         });
 
+        test('isLoggedIn returns a function', function() {
+            assert.isBoolean(maintenance.isLoggedIn());
+        });
 
+        test('user returns an object with data', function() {
+            var result = maintenance.user();
+            assert.isObject(result);
+            assert.isString(result.id);
+        });
 
+        test('addBike return expected data', function() {
 
-
-
+        });
 
 
     });
