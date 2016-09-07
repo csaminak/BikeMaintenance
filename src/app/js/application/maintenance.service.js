@@ -292,6 +292,9 @@
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 }
+            })
+            .then(function(response) {
+                console.log(response);
             });
         }
 
