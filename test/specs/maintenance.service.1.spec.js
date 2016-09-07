@@ -91,7 +91,6 @@
             assert.isObject(result);
             assert.isFunction(result.then, 'result has a then method');
             assert.isFunction(result.catch, 'result has a catch method');
-
             result
                 .then(function(client) {
                     assert.isObject(client);
@@ -103,14 +102,12 @@
                     assert.fail('should not be in catch if all info is submitting');
                     done();
                 });
-
             $httpBackend.flush();
             $rootScope.$digest();
         });
 
         test('login function does not execute if no strava code is provided', function(done) {
             var result = maintenance.login();
-
             result
                 .then(function() {
                     assert.fail('should not be then if no code is provided.');
@@ -121,6 +118,7 @@
                     assert.strictEqual(err.message, 'no code obtained to send.');
                     done();
                 });
+            $httpBackend.flush();
             $rootScope.$digest();
         });
 
@@ -134,10 +132,84 @@
             assert.isString(result.id);
         });
 
-        test('addBike return expected data', function() {
-
+        test('addBike returns expected data when given correct params', function(done) {
+            var result = maintenance.addBike({
+                'model': 'Road',
+                'name': 'Coolest Bike Ever',
+                'client_id': '4'
+            });
+            assert.isObject(result);
+            assert.isFunction(result.then, 'result has a then method');
+            assert.isFunction(result.catch, 'result has a catch method');
+            result
+                .then(function(response) {
+                    assert.isObject(response);
+                    done();
+                })
+                .catch(function() {
+                    assert.fail('should not be in fail if correct data is passed');
+                    done();
+                });
+            $httpBackend.flush();
+            $rootScope.$digest();
         });
 
+        test('addBike function does not execute if name is not provided', function(done) {
+            var result = maintenance.addBike({
+                'model': 'No Name Bike',
+                'client_id': '4'
+            });
+            result
+                .then(function() {
+                    assert.fail('should not be then if name is not provided.');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of Error');
+                    assert.strictEqual(err.message, 'Need a name for bike to identify bike.');
+                    done();
+                });
+            $httpBackend.flush();
+            $rootScope.$digest();
+        });
+
+        test('addBike function does not execute if model is not provided', function(done) {
+            var result = maintenance.addBike({
+                'name': 'No Model Bike',
+                'client_id': '4'
+            });
+            result
+                .then(function() {
+                    assert.fail('should not be then if model is not provided.');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of Error');
+                    assert.strictEqual(err.message, 'Need a model/type of bike to save.');
+                    done();
+                });
+            $httpBackend.flush();
+            $rootScope.$digest();
+        });
+
+        test('addBike function does not execute if client id is not provided', function(done) {
+            var result = maintenance.addBike({
+                'name': 'No Client Id',
+                'model': 'Bike Model'
+            });
+            result
+                .then(function() {
+                    assert.fail('should not be then if client id is not provided.');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of Error');
+                    assert.strictEqual(err.message, 'Need user id to identify bike ownership.');
+                    done();
+                });
+            $httpBackend.flush();
+            $rootScope.$digest();
+        });
 
     });
 
