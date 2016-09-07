@@ -23,7 +23,7 @@
                 })
                 .respond({
                     client: {
-                        id: '5',
+                        id: 5,
                         first_name: 'firstname',
                         last_name: 'lastname',
                         email: 'email@email.com'
@@ -36,15 +36,26 @@
                 .when('POST', 'https://cycling-app.herokuapp.com/parts.json', {
                     'part_type': 'Brake',
                     'description': 'Disc',
-                    'bike_id': '2',
+                    'bike_id': 2,
                     'mounted_on': '09/01/2015'
                 })
                 .respond({});
 
+            $httpBackend
+                .whenGET('https://cycling-app.herokuapp.com/parts')
+                .respond([
+                    {
+                        'bike_id': 4,
+                        'part_type': 'Brake',
+                        'description': 'Disc',
+                        'mounted_on': '09/01/2015'
+                    }
+                ]);
+
             maintenance.login('32twehdtu8')
                 .then(function() {
                     return {
-                        id: '5',
+                        id: 5,
                         first_name: 'firstname',
                         last_name: 'lastname',
                         email: 'email@email.com'
@@ -71,7 +82,7 @@
             var result = maintenance.sendParts({
                 'part_type': 'Brake',
                 'description': 'Disc',
-                'bike_id': '2',
+                'bike_id': 2,
                 'mounted_on': '09/01/2015'
             });
 
@@ -92,7 +103,7 @@
         test('sendParts does not execute when part_type is not passed', function(done) {
             var result = maintenance.sendParts({
                 'description': 'Disc',
-                'bike_id': '2',
+                'bike_id': 2,
                 'mounted_on': '09/01/2015'
             });
 
@@ -114,7 +125,7 @@
         test('sendParts does not execute when description is not passed', function(done) {
             var result = maintenance.sendParts({
                 'part_type': 'Brake',
-                'bike_id': '2',
+                'bike_id': 2,
                 'mounted_on': '09/01/2015'
             });
 
@@ -160,7 +171,7 @@
             var result = maintenance.sendParts({
                 'part_type': 'Brake',
                 'description': 'Disc',
-                'bike_id': '2'
+                'bike_id': 2
             });
 
             result
@@ -177,6 +188,29 @@
             $httpBackend.flush();
             $rootScope.$digest();
         });
+
+        test('getParts returns expected data', function(done) {
+            var result = maintenance.getParts(4);
+            assert.isObject(result, 'result is an object.');
+            assert.isFunction(result.then, 'result has a then method.');
+            assert.isFunction(result.catch, 'result has a catch method.');
+
+            result
+                .then(function(parts) {
+                    console.log('parts', parts);
+                    assert.instanceOf(parts, Array, 'the returned value is an array.');
+                    assert.isObject(parts[0], 'data inside parts is an object.');
+                    assert.strictEqual(parts[0].bike_id, 4, 'each part has a bike id');
+                    done();
+                })
+                .catch(function() {
+                    assert.fail('should not be in catch if correct data in passed.');
+                    done();
+                });
+            $httpBackend.flush();
+            $rootScope.$digest();
+        });
+
 
     });
 
