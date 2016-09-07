@@ -17,11 +17,48 @@
                 .whenGET('/app/templates/general-info/home.template.html')
                 .respond('<h2>Home Page for Cycling App</h2>');
 
+            $httpBackend
+                .when('POST', 'https://cycling-app.herokuapp.com/oauth/strava', {
+                    code: '32twehdtu8'
+                })
+                .respond({
+                    client: {
+                        id: '5',
+                        first_name: 'firstname',
+                        last_name: 'lastname',
+                        email: 'email@email.com'
+                    },
+                    athlete: {},
+                    access_token: '54657o8iyugi'
+                });
 
+            $httpBackend
+                .when('POST', 'https://cycling-app.herokuapp.com/parts.json', {
+                    'part_type': 'Brake',
+                    'description': 'Disc',
+                    'bike_id': '2',
+                    'mounted_on': '09/01/2015'
+                })
+                .respond({});
 
+            maintenance.login('32twehdtu8')
+                .then(function() {
+                    return {
+                        id: '5',
+                        first_name: 'firstname',
+                        last_name: 'lastname',
+                        email: 'email@email.com'
+                    };
+                })
+                .catch(function(err) {
+                    return err;
+                });
 
         }));
 
+        teardown(function() {
+            maintenance.logout();
+        });
 
         test('maintenance service functions exist', function() {
             assert.isFunction(maintenance.sendParts, 'sendParts fn exists!');
@@ -30,6 +67,116 @@
             assert.isFunction(maintenance.getABike, 'getABike fn exists!');
         });
 
+        test('sendParts executes when correct data is passed', function(done) {
+            var result = maintenance.sendParts({
+                'part_type': 'Brake',
+                'description': 'Disc',
+                'bike_id': '2',
+                'mounted_on': '09/01/2015'
+            });
+
+            result
+                .then(function(response) {
+                    assert.isObject(response);
+                    done();
+                })
+                .catch(function() {
+                    assert.fail('should not be in fail if correct data is passed');
+                    done();
+                });
+
+            $httpBackend.flush();
+            $rootScope.$digest();
+        });
+
+        test('sendParts does not execute when part_type is not passed', function(done) {
+            var result = maintenance.sendParts({
+                'description': 'Disc',
+                'bike_id': '2',
+                'mounted_on': '09/01/2015'
+            });
+
+            result
+                .then(function() {
+                    assert.fail('should not be in then if there is no part_type for part.');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of error.');
+                    assert.strictEqual(err.message, 'Need the type of part to save part.');
+                    done();
+                });
+
+            $httpBackend.flush();
+            $rootScope.$digest();
+        });
+
+        test('sendParts does not execute when description is not passed', function(done) {
+            var result = maintenance.sendParts({
+                'part_type': 'Brake',
+                'bike_id': '2',
+                'mounted_on': '09/01/2015'
+            });
+
+            result
+                .then(function() {
+                    assert.fail('should not be in then if there is no description for part.');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of error.');
+                    assert.strictEqual(err.message,
+                                'Need the specfic description for selected part.');
+                    done();
+                });
+
+            $httpBackend.flush();
+            $rootScope.$digest();
+        });
+
+        test('sendParts does not execute when bike_id is not passed', function(done) {
+            var result = maintenance.sendParts({
+                'part_type': 'Brake',
+                'description': 'Disc',
+                'mounted_on': '09/01/2015'
+            });
+
+            result
+                .then(function() {
+                    assert.fail('should not be in then if there is no bike_id for part.');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of error.');
+                    assert.strictEqual(err.message, 'Need to know the bike to attach part to.');
+                    done();
+                });
+
+            $httpBackend.flush();
+            $rootScope.$digest();
+        });
+
+        test('sendParts does not execute when mounted_on data is not passed', function(done) {
+            var result = maintenance.sendParts({
+                'part_type': 'Brake',
+                'description': 'Disc',
+                'bike_id': '2'
+            });
+
+            result
+                .then(function() {
+                    assert.fail('should not be in then if there is no mounted_on date for part.');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of error.');
+                    assert.strictEqual(err.message, 'Need to know when part was attached to bike.');
+                    done();
+                });
+
+            $httpBackend.flush();
+            $rootScope.$digest();
+        });
 
     });
 
