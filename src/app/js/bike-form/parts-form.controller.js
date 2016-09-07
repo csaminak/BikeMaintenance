@@ -30,7 +30,11 @@
                 that.allBikes = bikes;
             })
             .catch(function(err) {
-                console.log(err);
+                if(err.status >= 500) {
+                    $state.go('server', {
+                        message: 'Sorry, we were unable to retrieve your bikes right now.'
+                    });
+                }
             });
 
         /**
@@ -60,10 +64,12 @@
                     that.part = {};
                     return response;
                 })
-                .catch(function() {
-                    $state.go('server', {
-                        message: 'Sorry, we were unable to add a part right now.'
-                    });
+                .catch(function(err) {
+                    if(err.status >= 500) {
+                        $state.go('server', {
+                            message: 'Sorry, we were unable to add a part right now.'
+                        });
+                    }
                 });
         }
 

@@ -37,10 +37,12 @@
                 .then(function() {
                     $state.go('parts-form');
                 })
-                .catch(function() {
-                    $state.go('server', {
-                        message: 'Sorry, we are unable to add your bike right now.'
-                    });
+                .catch(function(err) {
+                    if(err.status >= 500) {
+                        $state.go('server', {
+                            message: 'Sorry, we are unable to add your bike right now.'
+                        });
+                    }
                 });
         }
 

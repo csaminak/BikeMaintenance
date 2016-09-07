@@ -14,10 +14,12 @@
                 .then(function() {
                     $state.go('bike-form');
                 })
-                .catch(function() {
-                    $state.go('server', {
-                        message: 'Sorry, we were unable to authorize your account.'
-                    });
+                .catch(function(err) {
+                    if(err.status >= 500) {
+                        $state.go('server', {
+                            message: 'Sorry, we were unable to authorize your account.'
+                        });
+                    }
                 });
 
     }

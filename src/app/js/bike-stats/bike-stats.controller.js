@@ -21,7 +21,11 @@
                 that.allBikes = allBikes;
             })
             .catch(function(err) {
-                console.log(err);
+                if(err.status >= 500) {
+                    $state.go('server', {
+                        message: 'Sorry, we were unable to retrieve your bikes right now.'
+                    });
+                }
             });
 
         /**
@@ -39,10 +43,13 @@
                     that.allParts = parts;
                     return parts;
                 })
-                .catch(function() {
-                    $state.go('server', {
-                        message: 'Sorry, we were unable to retrieve your bikes right now.'
-                    });
+                .catch(function(err) {
+                    if(err.status >= 500) {
+                        $state.go('server', {
+                            message: 'Sorry, we were unable to retrieve parts for\
+                                            your bike right now.'
+                        });
+                    }
                 });
         }
 
