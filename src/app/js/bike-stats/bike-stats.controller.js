@@ -13,6 +13,7 @@
         this.allBikes = [];
         this.getParts = getParts;
         this.user = maintenance.user();
+        this.deletePart = deletePart;
 
 
         maintenance.getBikes(this.user.id)
@@ -48,6 +49,20 @@
                         $state.go('server', {
                             message: 'Sorry, we were unable to retrieve parts for\
                                             your bike right now.'
+                        });
+                    }
+                });
+        }
+
+        function deletePart(partId) {
+            return maintenance.deletePart(partId)
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(err) {
+                    if(err.status >= 500) {
+                        $state.go('server', {
+                            message: 'Sorry, we were unable to expire your part right now.'
                         });
                     }
                 });

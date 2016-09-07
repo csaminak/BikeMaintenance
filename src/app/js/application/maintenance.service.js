@@ -23,7 +23,8 @@
             sendParts: sendParts,
             getParts: getParts,
             getBikes: getBikes,
-            getABike: getABike
+            getABike: getABike,
+            deletePart: deletePart
         };
 
         /**
@@ -216,7 +217,7 @@
                 console.log(response);
                 var parts = [];
                 response.data.forEach(function(part) {
-                    if(part.bike_id === Number(bikeId)) {
+                    if((part.bike_id === Number(bikeId)) && (!part.is_expired)) {
                         parts.push(part);
                     }
                 });
@@ -268,6 +269,25 @@
             return $http({
                 method: 'GET',
                 url: 'https://cycling-app.herokuapp.com/bikes/' + bikeId,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(function(response) {
+                console.log(response);
+                return response.data;
+            });
+        }
+
+
+        function deletePart(partId) {
+            if(!partId) {
+                return $q.reject(new Error('no part id provided'));
+            }
+            return $http({
+                method: 'DELETE',
+                url: 'https://cycling-app.herokuapp.com/parts/:' + partId,
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'

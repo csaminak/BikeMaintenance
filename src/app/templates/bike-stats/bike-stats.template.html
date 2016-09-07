@@ -22,12 +22,14 @@
                 <th>Part Type</th>
                 <th>Distance Traveled (km)</th>
                 <th>Lifetime Limit (km)</th>
+                <th>Part No Longer Used</th>
             </tr>
             <tr ng-repeat='part in bsCtrl.allParts'>
                 <td>{{part.part_type}}</td>
                 <td>{{part.description}}</td>
                 <td>{{part.distance_in_km}} km</td>
                 <td>{{part.expected_lifetime_in_km}} km</td>
+                <td><button ng-click='bsCtrl.deletePart(part.id)'>Delete Part</button></td>
             </tr>
         </table>
     </section>
