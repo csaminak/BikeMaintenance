@@ -52,6 +52,21 @@
                     }
                 ]);
 
+            $httpBackend
+                .whenGET('https://cycling-app.herokuapp.com/bikes.json')
+                .respond([
+                    {
+                        'bike_id': 4,
+                        'model': 'Road',
+                        'name': 'Coolest Bike Ever',
+                        'client_id': 6
+                    }
+                ]);
+
+            $httpBackend
+                .whenGET('https://cycling-app.herokuapp.com/bikes/1')
+                .respond({});
+
             maintenance.login('32twehdtu8')
                 .then(function() {
                     return {
@@ -211,6 +226,85 @@
             $rootScope.$digest();
         });
 
+        test('getParts returns an error when bikeId isn\'t passed', function(done) {
+            var result = maintenance.getParts();
+
+            result
+                .then(function() {
+                    assert.fail('should not be in then if no bikeId is given');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'error is a type of error');
+                    assert.strictEqual(err.message, 'no bike id provided');
+                    done();
+                });
+
+            $httpBackend.flush();
+            $rootScope.$digest();
+        });
+
+        test('getBikes returns expected data', function(done) {
+            var result = maintenance.getBikes(6);
+            result
+                .then(function(bikes) {
+                    assert.instanceOf(bikes, Array, 'getBikes returns an array of bikes');
+                    assert.isObject(bikes[0], 'bikes array has object');
+                    done();
+                })
+                .catch(function() {
+                    assert.fail('should not be in catch if correct data is passed');
+                    done();
+                });
+            $httpBackend.flush();
+            $rootScope.digest();
+        });
+
+        test('getBikes returns an error if no cyclistId is provided', function(done) {
+            var result = maintenance.getBikes();
+            result
+                .then(function() {
+                    assert.fail('should not be in then if no cyclistId is provided');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.instanceOf(err, Error, 'err is a type of error');
+                    assert.strictEqual(err.message, 'no cyclist Id provided');
+                    done();
+                });
+            $httpBackend.flush();
+            $rootScope.digest();
+        });
+
+        test('getABike returns expected data when called', function(done) {
+            var result = maintenance.getABike(1);
+            result
+                .then(function(response) {
+                    assert.isObject(response);
+                    done();
+                })
+                .catch(function() {
+                    assert.fail('should not be in catch if provided a bikeId');
+                    done();
+                });
+            $httpBackend.flush();
+            $rootScope.digest();
+        });
+
+        test('getABike returns an err when bikeId is not provided', function(done) {
+            var result = maintenance.getABike();
+            result
+                .then(function() {
+                    assert.fail('should not be in catch if bikeId is not provided');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.strictEqual(err.message, 'no bike id provided');
+                    done();
+                });
+            $httpBackend.flush();
+            $rootScope.digest();
+        });
 
     });
 
