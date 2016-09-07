@@ -76,6 +76,9 @@
                 });
         }));
 
+        teardown(function() {
+            maintenance.logout();
+        });
 
         //TESTS
         test('maintenance service functions exist', function() {
@@ -122,17 +125,30 @@
             $rootScope.$digest();
         });
 
-        test('isLoggedIn returns a function', function() {
+        test('isLoggedIn returns a boolean', function() {
             assert.isBoolean(maintenance.isLoggedIn());
         });
 
-        test('user returns an object with data', function() {
-            var result = maintenance.user();
-            assert.isObject(result);
-            assert.isString(result.id);
+        test('user returns an object with data when user is logged in', function() {
+            var result = maintenance.login('32twehdtu8');
+            result
+                .then(function() {
+                    var user = maintenance.user();
+                    assert.isObject(user);
+                    assert.isString(user.id);
+                })
+                .catch(function() {
+                    assert.fail('should not be in catch if logged in');
+                });
+        });
+
+        test('user returns null when user is not logged in', function() {
+            var user = maintenance.user();
+            assert.strictEqual(user, null, 'user returns undefined');
         });
 
         test('addBike returns expected data when given correct params', function(done) {
+
             var result = maintenance.addBike({
                 'model': 'Road',
                 'name': 'Coolest Bike Ever',
