@@ -7,12 +7,10 @@
 
         var tokenCtrl, $rootScope;
         var mockMaintenanceService = {};
-        var mockState = {};
 
         setup(module('cyclist'));
 
         setup(module(function($provide) {
-            $provide.value('$state', mockState);
             $provide.value('maintenance', mockMaintenanceService);
         }));
 
@@ -25,19 +23,11 @@
                     return $q.reject(new Error('no code obtained to send.'));
                 }
             };
-
-            mockState.go = function(stateName) {
-                mockState.go.called++;
-                mockState.go.argument = stateName;
-            };
-            mockState.go.called = 0;
-
             tokenCtrl = $controller('TokenController');
         }));
 
-        //TODO Create a test or delete if not needed
-        test('', function() {
-
+        test('errorMsg exists', function() {
+            assert.isString(tokenCtrl.errorMsg);
         });
 
     });
