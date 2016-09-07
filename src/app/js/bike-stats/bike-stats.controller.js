@@ -45,10 +45,9 @@
                     console.log(parts);
                     if(parts.length < 1) {
                         that.message = 'There are no parts for this bike.';
-                        return;
+                        return parts;
                     }
                     that.allParts = parts;
-                    return parts;
                 })
                 .catch(function(err) {
                     if(err.status >= 500) {
