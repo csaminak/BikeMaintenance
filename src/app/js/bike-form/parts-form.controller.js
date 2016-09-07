@@ -25,7 +25,7 @@
                     that.errorMsg = 'Sorry, you don\'t have any bikes.\
                                         Please add a bike before adding a part.';
                     that.allBikes = null;
-                    $state.go('bike-stats');
+                    return;
                 }
                 that.allBikes = bikes;
             })
@@ -62,6 +62,7 @@
             return maintenance.sendParts(part)
                 .then(function(response) {
                     that.part = {};
+                    $state.go('bike-stats');
                     return response;
                 })
                 .catch(function(err) {
