@@ -20,8 +20,7 @@
         maintenance.getBikes(this.user.id)
             .then(function(bikes) {
                 if(bikes.length < 1) {
-                    that.message = 'Sorry, you don\'t have any bikes.\
-                                        Please add a bike before adding a part.';
+                    that.message = 'Sorry, you don\'t have any bikes to view parts.';
                     that.allBikes = null;
                     return;
                 }
