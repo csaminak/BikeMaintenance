@@ -4,9 +4,9 @@
     angular.module('cyclist')
         .controller('BikeStatsController', BikeStatsController);
 
-    BikeStatsController.$inject = ['$q', 'maintenance'];
+    BikeStatsController.$inject = ['$q', '$state', 'maintenance'];
 
-    function BikeStatsController($q, maintenance) {
+    function BikeStatsController($q, $state, maintenance) {
         var that = this;
         this.bikeId = null;
         this.allParts = null;
@@ -39,9 +39,10 @@
                     that.allParts = parts;
                     return parts;
                 })
-                .catch(function(err) {
-                    console.log(err);
-                    return err;
+                .catch(function() {
+                    $state.go('server', {
+                        message: 'Sorry, we were unable to retrieve your bikes right now.'
+                    });
                 });
         }
 

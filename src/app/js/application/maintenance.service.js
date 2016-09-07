@@ -80,10 +80,6 @@
                     id: currentCyclist.id
                 }));
                 return currentCyclist;
-            })
-            .catch(function(err) {
-                console.log('sendStravaCode err', err);
-                return err;
             });
         }
 
@@ -154,10 +150,6 @@
             .then(function(response) {
                 console.log('Bike added": ', response);
                 return response.data;
-            })
-            .catch(function(err) {
-                console.log('addBike error', err);
-                return err;
             });
         }
 
@@ -200,10 +192,6 @@
             .then(function(response) {
                 console.log('part added: ', response.data);
                 return response.data;
-            })
-            .catch(function(err) {
-                console.log(err);
-                return err;
             });
         }
 

@@ -35,11 +35,12 @@
             bikeInfo.client_id = that.user.id;
             return maintenance.addBike(bikeInfo)
                 .then(function() {
-                    that.bike = {};
                     $state.go('parts-form');
                 })
-                .catch(function(err) {
-                    that.message = err.message;
+                .catch(function() {
+                    $state.go('server', {
+                        message: 'Sorry, we are unable to add your bike right now.'
+                    });
                 });
         }
 

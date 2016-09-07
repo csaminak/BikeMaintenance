@@ -7,26 +7,18 @@
     TokenController.$inject = ['$state', 'maintenance'];
 
     function TokenController($state, maintenance) {
-        var that = this;
         this.errorMsg = '';
         this.code = window.location.hash.split('code=')[1];
 
         maintenance.login(this.code)
-                .then(function(response) {
-                    console.log(response);
-                    if(response.status >= 500) {
-                        that.errorMsg = 'Sorry, we seem to have some difficulty connecting\
-                                            to the site, please try again later?';
-                        return response;
-                    }
+                .then(function() {
                     $state.go('bike-form');
                 })
-                .catch(function(err) {
-                    console.log(err);
-                    that.errorMsg = 'Sorry, we were unable to authorize your account.';
-                    return err;
+                .catch(function() {
+                    $state.go('server', {
+                        message: 'Sorry, we were unable to authorize your account.'
+                    });
                 });
-
 
     }
 

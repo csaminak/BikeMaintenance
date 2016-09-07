@@ -4,9 +4,9 @@
     angular.module('cyclist')
         .controller('PartsFormController', PartsFormController);
 
-    PartsFormController.$inject = ['$q', 'maintenance'];
+    PartsFormController.$inject = ['$q', '$state', 'maintenance'];
 
-    function PartsFormController($q, maintenance) {
+    function PartsFormController($q, $state, maintenance) {
         var that = this;
         this.allBikes = [];
         this.part = {};
@@ -60,9 +60,10 @@
                     that.part = {};
                     return response;
                 })
-                .catch(function(err) {
-                    console.log(err);
-                    return err;
+                .catch(function() {
+                    $state.go('server', {
+                        message: 'Sorry, we were unable to add a part right now.'
+                    });
                 });
         }
 

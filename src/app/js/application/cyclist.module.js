@@ -65,6 +65,15 @@
                 templateUrl: '/app/templates/application/404.template.html',
                 controller: '',
                 controllerAs: ''
+            })
+            .state('server', {
+                url: '/issue',
+                templateUrl: '/app/templates/application/serverIssue.template.html',
+                controller: 'ServerIssueController',
+                controllerAs: 'siCtrl',
+                params: {
+                    message: null
+                }
             });
     }
 
