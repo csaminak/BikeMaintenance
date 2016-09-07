@@ -287,7 +287,7 @@
             }
             return $http({
                 method: 'DELETE',
-                url: 'https://cycling-app.herokuapp.com/parts/:' + partId,
+                url: 'https://cycling-app.herokuapp.com/parts/' + partId,
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
