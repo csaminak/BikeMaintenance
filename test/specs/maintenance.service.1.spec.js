@@ -83,7 +83,7 @@
                 })
                 .catch(function(err) {
                     assert.instanceOf(err, Error, 'err is a type of Error');
-                    assert.strictEqual(err.message, 'no code obtained to send.');
+                    assert.strictEqual(err.message, 'No code obtained to send.');
                     done();
                 });
             $httpBackend.flush();
