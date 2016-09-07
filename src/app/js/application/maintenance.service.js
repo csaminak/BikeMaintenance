@@ -149,7 +149,7 @@
                 })
             })
             .then(function(response) {
-                console.log('Bike added": ', response);
+                console.log('Bike added: ', response);
                 return response.data;
             });
         }
@@ -214,7 +214,7 @@
                 }
             })
             .then(function(response) {
-                console.log(response);
+                console.log('getParts: ', response);
                 var parts = [];
                 response.data.forEach(function(part) {
                     if((part.bike_id === Number(bikeId)) && (!part.is_expired)) {
@@ -275,12 +275,16 @@
                 }
             })
             .then(function(response) {
-                console.log(response);
+                console.log('getABike: ', response);
                 return response.data;
             });
         }
 
-
+        /**
+         * Deletes a part from database.
+         * @param  {String}     partId  Passed in part id
+         * @return {XHR Object}         An object that holds promise methods
+         */
         function deletePart(partId) {
             if(!partId) {
                 return $q.reject(new Error('no part id provided'));
@@ -292,9 +296,6 @@
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 }
-            })
-            .then(function(response) {
-                console.log(response);
             });
         }
 
