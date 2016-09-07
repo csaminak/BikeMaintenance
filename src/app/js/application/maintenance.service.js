@@ -53,7 +53,7 @@
          */
         function login(stravaCode) {
             if(!stravaCode) {
-                return $q.reject(new Error('no code obtained to send.'));
+                return $q.reject(new Error('No code obtained to send.'));
             }
             return $http({
                 method: 'POST',

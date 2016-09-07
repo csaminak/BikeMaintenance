@@ -14,7 +14,7 @@
         maintenance.login(this.code)
                 .then(function(response) {
                     console.log(response);
-                    if(response.status === 500) {
+                    if(response.status >= 500) {
                         that.errorMsg = 'Sorry, we seem to have some difficulty connecting\
                                             to the site, please try again later?';
                         return response;
@@ -23,7 +23,7 @@
                 })
                 .catch(function(err) {
                     console.log(err);
-                    that.errorMsg = 'Sorry, we are unable to connect with Strava.';
+                    that.errorMsg = 'Sorry, we were unable to authorize your account.';
                     return err;
                 });
 
