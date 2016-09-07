@@ -33,47 +33,12 @@
                 });
 
             $httpBackend
-                .when('POST', 'https://cycling-app.herokuapp.com/oauth/strava', {
-                    code: null
-                })
-                .respond({
-                    err: {message: 'no code obtained to send.'}
-                });
-
-            $httpBackend
                 .when('POST', 'https://cycling-app.herokuapp.com/bikes.json', {
                     'model': 'Road',
                     'name': 'Coolest Bike Ever',
                     'client_id': '4'
                 })
                 .respond({});
-
-            $httpBackend
-                .when('POST', 'https://cycling-app.herokuapp.com/bikes.json', {
-                    'name': 'No Model Bike',
-                    'client_id': '4'
-                })
-                .respond({
-                    err: {message: 'Need a model/type of bike to save.'}
-                });
-
-            $httpBackend
-                .when('POST', 'https://cycling-app.herokuapp.com/bikes.json', {
-                    'model': 'No Name Bike',
-                    'client_id': '4'
-                })
-                .respond({
-                    err: {message: 'Need a name for bike to identify bike.'}
-                });
-
-            $httpBackend
-                .when('POST', 'https://cycling-app.herokuapp.com/bikes.json', {
-                    'name': 'No Client Id',
-                    'model': 'Bike Model'
-                })
-                .respond({
-                    err: {message: 'Need user id to identify bike ownership.'}
-                });
         }));
 
         teardown(function() {
