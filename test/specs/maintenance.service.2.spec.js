@@ -3,7 +3,7 @@
 
     var assert = chai.assert;
 
-    suite('maintenance service functions (sendParts, getParts, getBikes, getABike)', function() {
+    suite('maintenance service: (sendParts, getParts, getBikes, getABike, deletePart)', function() {
         var maintenance, $httpBackend, $rootScope;
 
         setup(module('cyclist'));
@@ -67,6 +67,10 @@
                 .whenGET('https://cycling-app.herokuapp.com/bikes/1')
                 .respond({});
 
+            $httpBackend
+                .when('DELETE', 'https://cycling-app.herokuapp.com/parts/2')
+                .respond();
+
             maintenance.login('32twehdtu8')
                 .then(function() {
                     return {
@@ -91,6 +95,7 @@
             assert.isFunction(maintenance.getParts, 'getParts fn exists!');
             assert.isFunction(maintenance.getBikes, 'getBikes fn exists!');
             assert.isFunction(maintenance.getABike, 'getABike fn exists!');
+            assert.isFunction(maintenance.deletePart, 'deletePart fn exists!');
         });
 
         test('sendParts executes when correct data is passed', function(done) {
@@ -236,7 +241,7 @@
                 })
                 .catch(function(err) {
                     assert.instanceOf(err, Error, 'error is a type of error');
-                    assert.strictEqual(err.message, 'no bike id provided');
+                    assert.strictEqual(err.message, 'No bike id provided');
                     done();
                 });
 
@@ -269,7 +274,7 @@
                 })
                 .catch(function(err) {
                     assert.instanceOf(err, Error, 'err is a type of error');
-                    assert.strictEqual(err.message, 'no cyclist Id provided');
+                    assert.strictEqual(err.message, 'No cyclist Id provided');
                     done();
                 });
             $httpBackend.flush();
@@ -299,7 +304,22 @@
                     done();
                 })
                 .catch(function(err) {
-                    assert.strictEqual(err.message, 'no bike id provided');
+                    assert.strictEqual(err.message, 'No bike id provided');
+                    done();
+                });
+            $httpBackend.flush();
+            $rootScope.digest();
+        });
+
+        test('deletePart does not execute if partId is not passed', function(done) {
+            var result = maintenance.deletePart();
+            result
+                .then(function() {
+                    assert.fail('should not be in then with no partId');
+                    done();
+                })
+                .catch(function(err) {
+                    assert.strictEqual(err.message, 'No part id provided');
                     done();
                 });
             $httpBackend.flush();

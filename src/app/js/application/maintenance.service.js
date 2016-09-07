@@ -203,7 +203,7 @@
          */
         function getParts(bikeId) {
             if(!bikeId) {
-                return $q.reject(new Error('no bike id provided'));
+                return $q.reject(new Error('No bike id provided'));
             }
             return $http({
                 method: 'GET',
@@ -232,7 +232,7 @@
          */
         function getBikes(cyclistId) {
             if(!cyclistId) {
-                return $q.reject(new Error('no cyclist Id provided'));
+                return $q.reject(new Error('No cyclist Id provided'));
             }
             return $http({
                 method: 'GET',
@@ -264,7 +264,7 @@
          */
         function getABike(bikeId) {
             if(!bikeId) {
-                return $q.reject(new Error('no bike id provided'));
+                return $q.reject(new Error('No bike id provided'));
             }
             return $http({
                 method: 'GET',
@@ -287,7 +287,7 @@
          */
         function deletePart(partId) {
             if(!partId) {
-                return $q.reject(new Error('no part id provided'));
+                return $q.reject(new Error('No part id provided'));
             }
             return $http({
                 method: 'DELETE',
