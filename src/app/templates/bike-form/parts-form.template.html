@@ -16,7 +16,7 @@
     <form
         name='addParts'
         ng-show='partsFormCtrl.allBikes'
-        ng-submit='partsFormCtrl.sendPart(partsFormCtrl.part)'
+        ng-submit='partsFormCtrl.sendPart(partsFormCtrl.part); addParts.$setPristine()'
         novalidate>
 
         <div>

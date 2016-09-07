@@ -25,7 +25,7 @@
                     that.errorMsg = 'Sorry, you don\'t have any bikes.\
                                         Please add a bike before adding a part.';
                     that.allBikes = null;
-                    $state.go('bike-stats');
+                    // $state.go('bike-stats');
                 }
                 that.allBikes = bikes;
             })
