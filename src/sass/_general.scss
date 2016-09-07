@@ -61,7 +61,7 @@ input, select {
 
     .sendButton {
         width: 50%;
-        margin: 5% 25% 35%;
+        margin: 5% 25%;
     }
 
     input, select {
@@ -76,7 +76,7 @@ input, select {
 @media screen and (min-width: 481px) {
 
     .view {
-        @include viewMargin(5%, 10%);
+        @include viewMargin(5%, 15%);
     }
 
     .viewTitle {
@@ -85,7 +85,7 @@ input, select {
 
     .sendButton {
         width: 20%;
-        margin: 5% 40% 5%;
+        margin: 5% 40%;
     }
 
     input, select {
