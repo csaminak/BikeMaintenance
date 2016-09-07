@@ -176,6 +176,12 @@
             if(!partsData.description) {
                 return $q.reject(new Error('Need the specfic description for selected part.'));
             }
+            if(!partsData.bike_id) {
+                return $q.reject(new Error('Need to know the bike to attach part to.'));
+            }
+            if(!partsData.mounted_on) {
+                return $q.reject(new Error('Need to know when part was attached to bike.'));
+            }
             return $http({
                 method: 'POST',
                 url: 'https://cycling-app.herokuapp.com/parts.json',
