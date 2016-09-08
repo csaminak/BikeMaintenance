@@ -1,1 +1,7 @@
-A web application that notifies a cyclist when it is time to get their bike tuned up. Uses data that is either manually inputted into the site or gathered from Strava. Using a cyclist's bike and parts information, along with their daily bike activity, this site is able to know when it is time to notify a cyclist to get their biked checked out.
+# Bike Memo
+
+A web application that notifies a cyclist when it is time to get their bike tuned up.
+
+We use an app called Strava, which tracks and logs all user biking and running activity. A cyclist will login into the site using Strava and then input information about their bike and it's individual parts.
+
+By pulling the mileage from Strava, we can calculate when a part has reached its limit. At which point, our user will get an email notification to get their bike checked out.
