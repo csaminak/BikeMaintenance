@@ -59,8 +59,11 @@ input, select {
     .part, .formLabel {
         font-size: 1em;
     }
+    .choices {
+        display: inline-block;
+    }
     .choice {
-        display: inline;
+        width: 20%;
     }
 
 }
