@@ -1,6 +1,12 @@
 .aboutUs aside {
     display: inline-block;
     width: 40%;
+    margin: auto 5%;
+    text-align: center;
+
+    img {
+        border-radius: 10px;
+    }
 }
 .headshot {
     width: 100%;
