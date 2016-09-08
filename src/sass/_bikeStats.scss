@@ -10,12 +10,15 @@
     }
 }
 
+.deleteButton {
+    @include submitButton();
+}
+
 //Display on mobile phones or smaller only
 @media screen and (max-width: 480px) {
 
     .deleteButton {
         width: 100%;
-        @include submitButton();
     }
 
     .bikeStatsTable table {
@@ -28,7 +31,6 @@
     .deleteButton {
         width: 60%;
         margin: 0 20%;
-        @include submitButton();
     }
 
 }
