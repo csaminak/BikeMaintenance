@@ -1,7 +1,7 @@
 .siteHeader {
     background-color: $themeColorMainGreen;
     padding: 1.5em 0;
-    
+
     h1, p {
         margin: 0;
         text-align: center;
@@ -12,6 +12,10 @@
     }
     h1 {
         font-weight: bold;
+        font-size: 3em;
+    }
+    p {
+        font-size: $textSizeAllScreens
     }
 }
 
@@ -25,5 +29,17 @@
         color: $themeColorDarkGreen;
     }
 
+}
+
+
+@media screen and (min-width: 481px) {
+
+    .siteHeader {
+        padding: 1em 0;
+
+        p {
+            font-size: $textSizeMobile;
+        }
+    }
 
 }

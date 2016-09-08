@@ -24,7 +24,7 @@
 @media screen and (max-width: 480px) {
 
     .view {
-        @include viewMargin(10%, 20%);
+        @include viewMargin(10%, 25%);
     }
 
     .viewTitle {
