@@ -20,5 +20,14 @@
     p {
         font-family: 'Roboto', sans-serif;
         margin: 10% auto;
+        text-align: justify;
     }
+}
+
+@media screen and (min-width: 481px) {
+
+    .aboutUs p {
+        margin: 5% auto;
+    }
+
 }
