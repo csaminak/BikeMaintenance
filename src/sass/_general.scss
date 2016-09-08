@@ -30,15 +30,7 @@ input, select {
    color: $themeColorShadow;
 }
 
-.sendButton, .deleteButton {
-    font-family: 'Abel', sans-serif;
-    background-color: $themeColorDarkGreen;
-    border-radius: $submitButtonRadius;
-    color: $themeColorMainGreen;
-    font-style: normal;
-    @include submitButton();
-}
-.sendButton:hover {
+.sendButton:hover, .deleteButton:hover {
     box-shadow: inset 0px 0px 3px $themeColorMainGreen;
     font-style: normal;
 }
@@ -56,7 +48,7 @@ input, select {
     color: $errorFont;
 }
 
-
+//Display on all mobile only screens
 @media screen and (max-width: 480px) {
 
     .view {
@@ -70,6 +62,7 @@ input, select {
     .sendButton {
         width: 50%;
         margin: 5% 25%;
+        @include submitButton();
     }
 
     input, select {
@@ -94,6 +87,7 @@ input, select {
     .sendButton {
         width: 20%;
         margin: 5% 40%;
+        @include submitButton();
     }
 
     input, select {

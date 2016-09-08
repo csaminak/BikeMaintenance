@@ -17,6 +17,11 @@
 @mixin submitButton() {
     border: 1px solid $themeColorMainGreen;
     box-shadow: 0px 0px 2px $themeColorShadow;
+    font-family: 'Abel', sans-serif;
+    background-color: $themeColorDarkGreen;
+    border-radius: $submitButtonRadius;
+    color: $themeColorMainGreen;
+    font-style: normal;
 }
 @mixin inputBorder() {
     box-shadow: 0px 0px 2px $themeColorShadow;

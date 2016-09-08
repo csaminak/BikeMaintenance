@@ -15,6 +15,7 @@
 
     .deleteButton {
         width: 100%;
+        @include submitButton();
     }
 
     .bikeStatsTable table {
@@ -28,6 +29,7 @@
     .deleteButton {
         width: 60%;
         margin: 0 20%;
+        @include submitButton();
     }
 
 }
