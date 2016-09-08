@@ -2,8 +2,8 @@
     'use strict';
 
     angular.module('cyclist', ['ui.router'])
-        .config(cyclistConfig);
-        // .run(cyclistStartup);
+        .config(cyclistConfig)
+        .run(cyclistStartup);
 
     cyclistConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
@@ -25,21 +25,21 @@
                 templateUrl: '/app/templates/bike-stats/bike-stats.template.html',
                 controller: 'BikeStatsController',
                 controllerAs: 'bsCtrl',
-                // secure: true
+                secure: true
             })
             .state('bike-form', {
                 url: '/bike-info',
                 templateUrl: '/app/templates/bike-form/bike-form.template.html',
                 controller: 'BikeFormController',
                 controllerAs: 'bikeFormCtrl',
-                // secure: true
+                secure: true
             })
             .state('parts-form', {
                 url: '/parts-info',
                 templateUrl: '/app/templates/bike-form/parts-form.template.html',
                 controller: 'PartsFormController',
                 controllerAs: 'partsFormCtrl',
-                // secure: true
+                secure: true
             })
             .state('login', {
                 url: '/authenticate',
@@ -71,19 +71,19 @@
             });
     }
 
-    // cyclistStartup.$inject = ['$rootScope', '$state', 'maintenance'];
-    //
-    // function cyclistStartup($rootScope, $state, maintenance) {
-    //     $rootScope.$on('$stateChangeStart', function(e, toState) {
-    //         if(toState.secure && !maintenance.isLoggedIn()) {
-    //             e.preventDefault();
-    //
-    //             $state.go('login', {
-    //                 message: 'Please login first.'
-    //             });
-    //         }
-    //     });
-    // }
+    cyclistStartup.$inject = ['$rootScope', '$state', 'maintenance'];
+
+    function cyclistStartup($rootScope, $state, maintenance) {
+        $rootScope.$on('$stateChangeStart', function(e, toState) {
+            if(toState.secure && !maintenance.isLoggedIn()) {
+                e.preventDefault();
+
+                $state.go('login', {
+                    message: 'Please login first.'
+                });
+            }
+        });
+    }
 
 
 
