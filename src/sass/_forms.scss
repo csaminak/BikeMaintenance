@@ -65,17 +65,19 @@ input, select {
     .part, .formLabel {
         font-size: 1.25em;
         font-weight: 500;
+        display: block;
     }
     .choiceLabel {
-        font-weight: 400;
-        margin: 0;
+        font-weight: 300;
     }
     [type='radio'] {
-        width: 5%;
+        width: 20%;
+    }
+    #brake_pads {
+        margin: 0;
     }
     .choices {
-        text-align: center;
-        display: inline;
+        display: inline-block;
     }
 
 }
