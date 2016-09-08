@@ -46,6 +46,7 @@
         <div class='partType' ng-show='partsFormCtrl.part.part_type === "Brake"'>
             <label class='part'>Brake Type:</label>
             <div class='choices'>
+                <label class='choiceLabel' for='brake_pads'>Brake Pads</label>
                 <input
                     class='choice'
                     id='brake_pads'
@@ -53,7 +54,7 @@
                     value='Brake Pads'
                     type='radio'
                     ng-model='partsFormCtrl.part.description'>
-                <label class='choiceLabel' for='brake_pads'>Brake Pads</label>
+                <label class='choiceLabel' for='disc_brakes'>Disc Brake</label>
                 <input
                     class='choice'
                     id='disc_brakes'
@@ -61,7 +62,6 @@
                     value='Disc Brakes'
                     type='radio'
                     ng-model='partsFormCtrl.part.description'>
-                <label class='choiceLabel' for='disc_brakes'>Disc Brake</label>
             </div>
         </div>
 
@@ -78,6 +78,7 @@
         <div class='partType' ng-show='partsFormCtrl.part.part_type === "Pedal"'>
             <label class='part'>Pedal Type:</label>
             <div class='choices'>
+                <label class='choiceLabel'for='clip_pedals'>Clip</label>
                 <input
                     class='choice'
                     id='clip_pedals'
@@ -85,7 +86,7 @@
                     value='Clip'
                     type='radio'
                     ng-model='partsFormCtrl.part.description'>
-                <label class='choiceLabel'for='clip_pedals'>Clip</label>
+                <label class='choiceLabel' for='slide_pedals'>Slide Into</label>
                 <input
                     class='choice'
                     id='slide_pedals'
@@ -93,7 +94,7 @@
                     value='Slide-Into'
                     type='radio'
                     ng-model='partsFormCtrl.part.description'>
-                <label class='choiceLabel' for='slide_pedals'>Slide Into</label>
+                <label class='choiceLabel' for='open_pedals'>Open Top</label>
                 <input
                     class='choice'
                     id='open_pedals'
@@ -101,7 +102,6 @@
                     value='Open'
                     type='radio'
                     ng-model='partsFormCtrl.part.description'>
-                <label class='choiceLabel' for='open_pedals'>Open Top</label>
             </div>
         </div>
 
