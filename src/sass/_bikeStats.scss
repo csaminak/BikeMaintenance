@@ -2,7 +2,17 @@
     font-family: 'Lato', sans-serif;
 }
 
-.deleteButton {
-    width: 60%;
-    margin: 0 20%;
+//Display on mobile phones or smaller only
+@media screen and (max-width: 480px) {
+
+}
+
+//Display on all screens that are not mobile
+@media screen and (min-width: 481px) {
+
+    .deleteButton {
+        width: 60%;
+        margin: 0 20%;
+    }
+
 }
