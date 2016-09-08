@@ -66,6 +66,9 @@ input, select {
     .part, .formLabel {
         font-size: 1.25em;
     }
+    .part {
+        font-weight: 400;
+    }
     [type='radio'] {
         width: 0;
     }
