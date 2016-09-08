@@ -20,7 +20,7 @@
         novalidate>
 
         <div>
-            <label for='selectBike'>Select Bike</label>
+            <label class='formLabel' for='selectBike'>Select Bike</label>
             <select id='selectBike' name='selectBike' ng-model='partsFormCtrl.part.bike_id' required>
                 <option value='' selected>Bike Name</option>
                 <option
@@ -31,7 +31,7 @@
         </div>
 
         <div>
-            <label for='partType'>What type of part would you like to add?</label>
+            <label class='formLabel' for='partType'>What type of part would you like to add?</label>
             <select
                 id='partType' name='partType' ng-model='partsFormCtrl.part.part_type' required>
                 <option value='' selected>Part Type</option>
@@ -147,7 +147,7 @@
         </div>
 
         <div>
-            <label for='part_mounted_date'>Mounted On Date</label>
+            <label class='formLabel' for='part_mounted_date'>Mounted On Date</label>
             <input
                 id='part_mounted_date'
                 name='mountedOn'
@@ -157,7 +157,7 @@
         </div>
 
         <div>
-            <label for='part_purchased_date'>Purchase Date</label>
+            <label class='formLabel' for='part_purchased_date'>Purchase Date</label>
             <input
                 id='part_purchased_date'
                 name='purchased_on'
