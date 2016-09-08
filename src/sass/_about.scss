@@ -21,6 +21,7 @@
         font-family: 'Roboto', sans-serif;
         margin: 10% auto;
         text-align: justify;
+        font-size: $textSizeAllScreens;
     }
 }
 
@@ -28,6 +29,7 @@
 
     .aboutUs p {
         margin: 5% auto;
+        font-size: $textSizeMobile;
     }
 
 }
