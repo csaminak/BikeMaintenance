@@ -59,11 +59,15 @@ input, select {
     input, select {
         font-size: 1.25em;
         width: 50%;
+        margin: 0 25% 5%;
     }
     .part, .formLabel {
         font-size: 1.25em;
         font-weight: 500;
         display: block;
+    }
+    .choice {
+        width: 5%;
     }
     .choiceLabel {
         font-weight: 300;
