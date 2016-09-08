@@ -3,39 +3,8 @@
     font-family: 'Abel', sans-serif;
 }
 
-input, select {
-    background-color: $inputBackgroundColor;
-    border: none;
-    @include inputBorder();
-    font-style: italic;
-    color: $themeColorShadow;
-    display: block;
-}
-
-
-[placeholder] {
-    color: $themeColorShadow;
-}
-::-webkit-input-placeholder {
-   color: $themeColorShadow;
-}
-:-moz-placeholder {
-   color: $themeColorShadow;
-}
-::-moz-placeholder {
-   color: $themeColorShadow;
-}
-:-ms-input-placeholder {
-   color: $themeColorShadow;
-}
-
 .sendButton:hover, .deleteButton:hover {
     box-shadow: inset 0px 0px 3px $themeColorMainGreen;
-}
-
-[type='radio'] {
-    box-shadow: none;
-    display: inline-block;
 }
 
 .errorMsgs {
@@ -63,12 +32,6 @@ input, select {
         @include submitButton();
     }
 
-    input, select {
-        font-size: 1em;
-        width: 100%;
-        margin-bottom: 5%;
-    }
-
 }
 
 //Display on all screens that are not mobile
@@ -86,12 +49,6 @@ input, select {
         width: 20%;
         margin: 5% 40%;
         @include submitButton();
-    }
-
-    input, select {
-        font-size: 1.25em;
-        width: 50%;
-        margin: 0 25% 5%;
     }
 
 }

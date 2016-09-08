@@ -8,9 +8,9 @@ input, select {
     border: none;
     @include inputBorder();
     font-style: italic;
+    font-weight: 300;
     color: $themeColorShadow;
     display: block;
-    font-style: normal;
 }
 
 //Multiple rules for each web browser b.c if one selector is false the entire rule gets cancelled
