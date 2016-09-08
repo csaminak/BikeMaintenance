@@ -21,7 +21,6 @@
     background-color: $themeColorDarkGreen;
     border-radius: $submitButtonRadius;
     color: $themeColorMainGreen;
-    font-style: normal;
 }
 @mixin inputBorder() {
     box-shadow: 0px 0px 2px $themeColorShadow;
