@@ -13,7 +13,7 @@
         ng-show='bsCtrl.allBikes'
         ng-submit='bsCtrl.getParts(bsCtrl.bikeId)'
         novalidate>
-        <label for='select_bike'>Select a Bike to View it's Parts</label>
+        <label class='formLabel' for='select_bike'>Select a Bike to View it's Parts</label>
         <select id='select_bike' name='select_bike' ng-model='bsCtrl.bikeId' required>
             <option value='' selected>Bike Name</option>
             <option
