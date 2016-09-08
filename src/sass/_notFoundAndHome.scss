@@ -1,5 +1,13 @@
 .notFound p, .home p, .serverIssue p {
     font-family: 'Roboto', sans-serif;
     text-align: justify;
-    font-size: $textSizeMobile;
+    font-size: $textSizeAllScreens;
+}
+
+@media screen and (max-width: 480px) {
+
+    .notFound p, .home p, .serverIssue p {
+        font-size: $textSizeMobile;
+    }
+
 }
