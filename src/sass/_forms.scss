@@ -1,12 +1,7 @@
-.partsForm, .bikeForm {
+.partsForm, .bikeForm, .partType {
    font-family: 'Lato', sans-serif;
+   text-align: center;
 }
-
-
-.partType {
-    text-align: center;
-}
-
 
 input, select {
     background-color: $inputBackgroundColor;
@@ -40,7 +35,7 @@ input, select {
 }
 
 .part {
-    font-weight: bold;
+    font-weight: 700;
 }
 
 
