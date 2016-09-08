@@ -40,6 +40,10 @@ input, select {
     display: inline-block;
 }
 
+.part {
+    font-weight: bold;
+}
+
 
 //Display on mobile phones or smaller only
 @media screen and (max-width: 480px) {
