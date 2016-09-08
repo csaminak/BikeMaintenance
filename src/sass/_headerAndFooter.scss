@@ -15,7 +15,7 @@
         font-size: 3em;
     }
     p {
-        font-size: $textSizeAllScreens
+        font-size: $textSizeAllScreens;
     }
 }
 
@@ -36,10 +36,6 @@
 
     .siteHeader {
         padding: 1em 0;
-
-        p {
-            font-size: $textSizeMobile;
-        }
     }
 
 }
