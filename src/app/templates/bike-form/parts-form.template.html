@@ -44,7 +44,7 @@
         </div>
 
         <div class='partType' ng-show='partsFormCtrl.part.part_type === "Brake"'>
-            <label class='part'>Brake Type</label>
+            <label class='part'>Brake Type:</label>
             <div>
                 <input
                     id='brake_pads'
@@ -59,12 +59,12 @@
                     value='Disc Brakes'
                     type='radio'
                     ng-model='partsFormCtrl.part.description'>
-                <label for='disc_brakes'>Disc Brakes</label>
+                <label for='disc_brakes'>Disc Brake</label>
             </div>
         </div>
 
         <div class='partType' ng-show='partsFormCtrl.part.part_type === "Derailer"'>
-            <label class='part' for='derailer'>Derailer</label>
+            <label class='part' for='derailer'>Derailer:</label>
             <input
                 id='derailer'
                 name='derailer_brand'
@@ -74,25 +74,25 @@
         </div>
 
         <div class='partType' ng-show='partsFormCtrl.part.part_type === "Pedal"'>
-            <label class='part'>Pedal Type</label>
+            <label class='part'>Pedal Type:</label>
             <div>
                 <input
                     id='clip_pedals'
-                    name='pedals'
+                    name='pedal'
                     value='Clip'
                     type='radio'
                     ng-model='partsFormCtrl.part.description'>
                 <label for='clip_pedals'>Clip</label>
                 <input
                     id='slide_pedals'
-                    name='pedals'
+                    name='pedal'
                     value='Slide-Into'
                     type='radio'
                     ng-model='partsFormCtrl.part.description'>
                 <label for='slide_pedals'>Slide Into</label>
                 <input
                     id='open_pedals'
-                    name='pedals'
+                    name='pedal'
                     value='Open'
                     type='radio'
                     ng-model='partsFormCtrl.part.description'>
@@ -101,7 +101,7 @@
         </div>
 
         <div class='partType' ng-show='partsFormCtrl.part.part_type === "Innertube"'>
-            <label class='part' for='inner_tubes'>Inner Tube</label>
+            <label class='part' for='inner_tubes'>Inner Tube:</label>
             <select id='inner_tubes' name='tube' ng-model='partsFormCtrl.part.description'>
                 <option value='' selected>Diameter x Width (inches)</option>
                 <option value='20" x 1 3/4"'>20" x 1 3/4"</option>
@@ -124,7 +124,7 @@
         </div>
 
         <div class='partType' ng-show='partsFormCtrl.part.part_type === "Tire"'>
-            <label class='part' for='tires'>Tire</label>
+            <label class='part' for='tires'>Tire:</label>
             <select id='tires' name='tires' ng-model='partsFormCtrl.part.description'>
                 <option value='' selected>Diameter x Width (inches)</option>
                 <option value='20" x 1 3/4"'>20" x 1 3/4"</option>
