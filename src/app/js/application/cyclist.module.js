@@ -14,15 +14,11 @@
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: '/app/templates/general-info/home.template.html',
-                controller: '',
-                controllerAs: ''
+                templateUrl: '/app/templates/general-info/home.template.html'
             })
             .state('about', {
                 url: '/about-us',
-                templateUrl: '/app/templates/general-info/about-us.template.html',
-                controller: '',
-                controllerAs: ''
+                templateUrl: '/app/templates/general-info/about-us.template.html'
             })
             .state('bike-stats', {
                 url: '/bike-stats',
@@ -62,9 +58,7 @@
             })
             .state('404', {
                 url: '/not-found',
-                templateUrl: '/app/templates/application/404.template.html',
-                controller: '',
-                controllerAs: ''
+                templateUrl: '/app/templates/application/404.template.html'
             })
             .state('server', {
                 url: '/issue',
