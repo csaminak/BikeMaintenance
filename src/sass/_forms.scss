@@ -34,10 +34,19 @@ input, select {
     box-shadow: none;
 }
 
-.part {
-    font-weight: 700;
+.part, .formLabel {
+    font-size: 1.25em;
+    font-weight: 500;
+    display: block;
 }
 
+.choiceLabel {
+    font-weight: 300;
+}
+
+.choices {
+    margin: 0 auto 5%;
+}
 
 //Display on mobile phones or smaller only
 @media screen and (max-width: 480px) {
@@ -46,9 +55,6 @@ input, select {
         font-size: 1em;
         width: 100%;
         margin-bottom: 5%;
-    }
-    .part {
-        font-size: 1.25em;
     }
 
 }
@@ -61,19 +67,8 @@ input, select {
         width: 50%;
         margin: 0 25% 5%;
     }
-    .part, .formLabel {
-        font-size: 1.25em;
-        font-weight: 500;
-        display: block;
-    }
     .choice {
         width: 5%;
-    }
-    .choiceLabel {
-        font-weight: 300;
-    }
-    .choices {
-        margin-bottom: 5%;
     }
 
 }
