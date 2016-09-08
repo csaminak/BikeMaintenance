@@ -61,6 +61,11 @@ input, select {
         font-size: 1.25em;
         width: 50%;
         margin: 0 25% 5%;
+        display: inline;
+    }
+
+    input [type='radio'] {
+        padding: 0;
     }
 
 }
