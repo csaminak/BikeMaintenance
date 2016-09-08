@@ -49,7 +49,7 @@ input, select {
         margin-bottom: 5%;
     }
     .part {
-        font-size: 1em;
+        font-size: 1.25em;
     }
 
 }
@@ -63,9 +63,8 @@ input, select {
         margin: 0 25% 5%;
         display: inline;
     }
-
-    input [type='radio'] {
-        padding: 0;
+    .part, label {
+        font-size: 1.25em;
     }
 
 }
