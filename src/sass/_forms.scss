@@ -10,6 +10,7 @@ input, select {
     font-style: italic;
     color: $themeColorShadow;
     display: block;
+    font-style: normal;
 }
 
 //Multiple rules for each web browser b.c if one selector is false the entire rule gets cancelled
