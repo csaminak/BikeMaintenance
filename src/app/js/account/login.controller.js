@@ -17,7 +17,8 @@
          */
         function authorizeCyclist() {
             var clientId = '13165';
-            var redirect = 'https://bike-memo.herokuapp.com/#/get-token';
+            var redirect = 'localhost:8080/#/get-token';
+            //https://bike-memo.herokuapp.com/#/get-token
 
             // $location would not redirect properly because '#' was being removed
             $window.location = 'https://www.strava.com/oauth/authorize?client_id=' +
