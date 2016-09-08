@@ -1,7 +1,6 @@
 .viewTitle {
     text-align: center;
     font-family: 'Abel', sans-serif;
-    font-weight: bold;
 }
 
 input, select {
@@ -32,7 +31,6 @@ input, select {
 
 .sendButton:hover, .deleteButton:hover {
     box-shadow: inset 0px 0px 3px $themeColorMainGreen;
-    font-style: normal;
 }
 
 [type='radio'] {
@@ -43,8 +41,8 @@ input, select {
 .errorMsgs {
     text-align: center;
     font-style: italic;
-    font-weight: 700;
-    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
     color: $errorFont;
 }
 
