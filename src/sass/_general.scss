@@ -48,6 +48,13 @@ input, select {
     display: inline-block;
 }
 
+.errorMsgs {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-family: 'Abel', sans-serif;;
+}
+
 
 @media screen and (max-width: 480px) {
 
