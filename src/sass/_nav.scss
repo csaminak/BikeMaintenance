@@ -1,6 +1,5 @@
 .navMenu {
     background-color: $themeColorMainGreen;
-    border-bottom-color: $themeColorDarkGreen;
 
     a {
         color: $themeColorDarkGreen;
@@ -13,8 +12,9 @@
         color: $themeColorMainGreen;
         border: 1px solid $themeColorMainGreen
     }
-    .nav>li {
-        text-align: center;
+
+    .nav {
+        border: 1px solid $themeColorDarkGreen;
     }
 
 }
