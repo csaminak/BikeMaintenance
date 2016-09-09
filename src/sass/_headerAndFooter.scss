@@ -36,8 +36,12 @@
     .nav {
         border-top: 1px solid $themeColorDarkGreen;
     }
+    a {
+        float: left;
+    }
     p {
         float: right;
+        margin-right: 2em;
     }
 }
 
