@@ -8,11 +8,12 @@
         font-size: $textSizeAllScreens;
     }
 
+    .nav {
+        border-bottom: 1px solid $themeColorDarkGreen;
+    }
+
 }
 
-.nav {
-    border-bottom: 1px solid $themeColorDarkGreen;
-}
 .nav>li>a:hover {
     background-color: $themeColorDarkGreen;
     color: $themeColorMainGreen;
