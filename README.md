@@ -7,3 +7,6 @@ We use an app called Strava, which tracks and logs all user biking and running a
 By pulling the mileage from Strava, we can calculate when a part has reached its limit. At which point, our user will get an email notification to get their bike checked out.
 
 Site: [Bike-Memo](https://bike-memo.herokuapp.com)
+
+
+## Technology Used in Building Bike-Memo Site

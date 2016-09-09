@@ -11,10 +11,10 @@ body {
 }
 
 .token, .login, .notFound, .serverIssue, .bikeForm, .partsForm, .bike-stats, .aboutUs, .home {
-    background-color: rgba(#ffffff, 0.7);
+    background-color: rgba(#ffffff, 0.8);
     border: 2px solid $themeColorDarkGreen;
     box-shadow: 0px 0px 2px $themeColorShadow;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 0 1em 5%;
 }
 
