@@ -48,12 +48,13 @@ body {
         @include viewTitleMargin(5%, 10%);
     }
 
+}
+@media screen and (max-width: 640px) {
     .sendButton {
         width: 50%;
         margin: 0 25% 5%;
         @include submitButton();
     }
-
 }
 
 //Display on all screens that are not mobile
@@ -66,7 +67,6 @@ body {
     .viewTitle {
         @include viewTitleMargin(5%, 5%);
     }
-
     .sendButton {
         width: 20%;
         margin: 0 40% 5%;
