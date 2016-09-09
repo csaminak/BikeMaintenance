@@ -8,11 +8,11 @@
         font-family: 'Abel', sans-serif;
         font-weight: bold;
         color: $themeColorDarkGreen;
-        @include headerShadow();
     }
     h1 {
         font-weight: bold;
         font-size: 3em;
+        @include headerShadow();
     }
     p {
         font-size: $textSizeAllScreens;
