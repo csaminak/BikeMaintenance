@@ -70,7 +70,7 @@ body {
     }
 
     .viewTitle {
-        @include viewTitleMargin(5%, 5%);
+        @include viewTitleMargin(0, 5%);
     }
     .sendButton {
         width: 20%;
