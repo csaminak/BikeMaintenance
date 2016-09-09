@@ -21,6 +21,7 @@
 
 .siteFooter {
     background-color: rgba(155, 195, 81, 0.8);
+    border-top: 1px solid $themeColorDarkGreen;
 
     a, p {
         color: $themeColorDarkGreen;
@@ -33,15 +34,13 @@
         background-color: $themeColorDarkGreen;
         color: $themeColorMainGreen;
     }
-    .nav {
-        border-top: 1px solid $themeColorDarkGreen;
-    }
+
     ul {
         float: left;
     }
     p {
         float: right;
-        margin-right: 2em;
+        margin: 0.25em 2em;
     }
 }
 
