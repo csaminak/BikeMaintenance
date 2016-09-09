@@ -15,6 +15,7 @@ body {
     border: 2px solid $themeColorDarkGreen;
     box-shadow: 0px 0px 2px $themeColorShadow;
     border-radius: 5px;
+    padding: 5% 1em;
 }
 
 .viewTitle {
@@ -41,11 +42,6 @@ body {
 
     .view {
         @include viewMargin(10%, 10%, 25%);
-
-        .login, .home, .bikeForm, .partsForm, .notFound, .serverIssue, .bike-stats {
-            margin: auto 15%;
-            padding: 1em;
-        }
     }
 
     .viewTitle {
