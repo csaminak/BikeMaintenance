@@ -22,21 +22,22 @@
 .siteFooter {
     background-color: rgba(155, 195, 81, 0.8);
 
-    a {
+    a, p {
         color: $themeColorDarkGreen;
         font-family: 'Abel', sans-serif;
         font-weight: 700;
         font-size: $textSizeAllScreens;
+        margin: 0px;
     }
     .nav>li>a:hover {
         background-color: $themeColorDarkGreen;
         color: $themeColorMainGreen;
     }
-    p, a {
-        margin: 0px;
-    }
     .nav {
         border-top: 1px solid $themeColorDarkGreen;
+    }
+    p {
+        float: left;
     }
 }
 
