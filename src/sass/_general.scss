@@ -72,7 +72,7 @@ body {
         margin: 0 40% 5%;
         @include submitButton();
     }
-    .view .login {
+    .view .login, .view .home {
         margin: auto 20%;
     }
 
