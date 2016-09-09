@@ -9,6 +9,16 @@
     }
     .nav>li>a:hover {
         background-color: $themeColorDarkGreen;
-        color: $themeColorMainGreen;    
+        color: $themeColorMainGreen;
     }
+}
+
+.nav-tabs {
+    border-bottom-color: $themeColorDarkGreen;
+    display: inline-block;
+    float: none;
+}
+
+.nav .nav-collapse {
+    text-align: center;
 }
