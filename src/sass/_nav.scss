@@ -1,6 +1,14 @@
-.navMenu a {
+.navMenu {
     background-color: $themeColorMainGreen;
-    color: $themeColorDarkGreen;
-    font-family: 'Abel', sans-serif;
-    font-weight: bold;
+
+    a {
+        color: $themeColorDarkGreen;
+        font-family: 'Abel', sans-serif;
+        font-weight: bold;
+        font-size: $textSizeAllScreens;
+    }
+    .nav>li>a:hover {
+        background-color: $themeColorDarkGreen;
+        color: $themeColorMainGreen;    
+    }
 }
