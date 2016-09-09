@@ -18,6 +18,7 @@ body {
 
         .token, .login, .notFound, .serverIssue, .bikeForm, .partsForm, .bike-stats, .aboutUs, .home {
             opacity: 1;
+            padding: 0 1em;
         }
 }
 
@@ -43,7 +44,7 @@ body {
 @media screen and (max-width: 480px) {
 
     .view {
-        @include viewMargin(25%, 10%, 25%);
+        @include viewMargin(15%, 10%, 25%);
     }
 
     .viewTitle {
@@ -62,7 +63,7 @@ body {
 @media screen and (min-width: 481px) {
 
     .view {
-        @include viewMargin(15%, 5%, 15%);
+        @include viewMargin(10%, 5%, 15%);
     }
 
     .viewTitle {
