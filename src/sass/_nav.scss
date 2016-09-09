@@ -7,14 +7,15 @@
         font-weight: 500;
         font-size: $textSizeAllScreens;
     }
-    .nav>li>a:hover {
-        background-color: $themeColorDarkGreen;
-        color: $themeColorMainGreen;
-        border: 1px solid $themeColorMainGreen
-    }
 
     .nav {
         border: 1px solid $themeColorDarkGreen;
     }
 
+}
+
+.nav>li>a:hover {
+    background-color: $themeColorDarkGreen;
+    color: $themeColorMainGreen;
+    border: 1px solid $themeColorMainGreen
 }
