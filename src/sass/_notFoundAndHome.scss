@@ -8,7 +8,8 @@
 
     .notFound p, .home p, .serverIssue p {
         font-size: $textSizeMobile;
-        padding: 0 1em 2em;
+        padding: 0.5em;
+        margin: 0;
     }
     .notFound, .serverIssue {
         text-align: center;
