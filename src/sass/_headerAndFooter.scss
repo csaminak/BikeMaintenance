@@ -23,10 +23,18 @@
 .siteFooter {
     background-color: $themeColorMainGreen;
 
-    p, a {
-        font-family: 'Abel', sans-serif;
-        margin: 0px;
+    a {
         color: $themeColorDarkGreen;
+        font-family: 'Abel', sans-serif;
+        font-weight: bold;
+        font-size: $textSizeAllScreens;
+    }
+    .nav>li>a:hover {
+        background-color: $themeColorDarkGreen;
+        color: $themeColorMainGreen;
+    }
+    p, a {
+        margin: 0px;
     }
 
 }
@@ -39,8 +47,9 @@
 
         p {
             margin: 0 4em;
-            font-size: $textSizeMobile;
         }
+        a, p {
+            font-size: $textSizeMobile;        }
     }
 
 }
