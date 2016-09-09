@@ -14,5 +14,8 @@
         font-size: $textSizeMobile;
         padding: 0 1em 2em;
     }
+    .notFound, .serverIssue {
+        text-align: center;
+    }
 
 }
