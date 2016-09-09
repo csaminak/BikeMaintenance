@@ -11,7 +11,7 @@ body {
 }
 
 .view {
-    background-color: rgba(#ffffff, 0.5);
+    background-color: rgba(#ffffff, 0.4);
     border: 2px solid $themeColorMainGreen;
     box-shadow: 0px 0px 2px $themeColorShadow;
 }
@@ -42,7 +42,7 @@ body {
 @media screen and (max-width: 480px) {
 
     .view {
-        @include viewMargin(15%, 10%, 25%);
+        @include viewMargin(10%, 10%, 25%);
     }
 
     .viewTitle {
@@ -61,7 +61,7 @@ body {
 @media screen and (min-width: 481px) {
 
     .view {
-        @include viewMargin(10%, 5%, 15%);
+        @include viewMargin(5%, 5%, 15%);
     }
 
     .viewTitle {
