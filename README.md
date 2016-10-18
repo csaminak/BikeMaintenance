@@ -6,7 +6,7 @@ We used a fitness app called Strava, which tracks and logs an athlete's biking a
 
 By pulling the mileage from Strava, we can calculate when a part has reached its limit and send the cyclist an email notification to get their bike checked out.
 
-### Technology Needed to Build Bike-Memo Site
+#### Technology Needed to Build Bike-Memo Site
 - Angular
 - Angular-ui-router
 - Sass
