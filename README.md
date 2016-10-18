@@ -1,20 +1,17 @@
-# Bike Memo
+# [Bike Memo](https://bike-memo.herokuapp.com)
 
-A responsive web application that notifies a cyclist when it is time to get their bike tuned up.
+This is my final project for the Front-End Engineering course at The Iron Yard. Working with a back-end engineering student, I created a responsive web application, built with Angular, that notifies a cyclist when it is time to get their bike tuned up.
 
-We use an app called Strava, which tracks and logs all user biking and running activity. A cyclist will login into the site using Strava and then input information about their bike and it's individual parts.
+We used a fitness app called Strava, which tracks and logs an athlete's biking and running activities. A cyclist will login to Bike Memo through an oAuth process using their Strava account. Once logged in, the cyclist will be directed to input information about their bike and it's individual parts.
 
-By pulling the mileage from Strava, we can calculate when a part has reached its limit. At which point, our user will get an email notification to get their bike checked out.
+By pulling the mileage from Strava, we can calculate when a part has reached its limit and send the cyclist an email notification to get their bike checked out.
 
-Site: [Bike-Memo](https://bike-memo.herokuapp.com)
-
-
-## Technology Needed to Build Bike-Memo Site
+### Technology Needed to Build Bike-Memo Site
 - Angular
 - Angular-ui-router
 - Sass
 - oAuth with Strava
-- [Back-End database to call to](https://github.com/csaminak/cycling-main)
+- [Back-End database to call to](https://github.com/Cycling-app/cycling-main)
 For Testing:
 - Karma
 - Mocha
