@@ -6,14 +6,13 @@ We used a fitness app called Strava, which tracks and logs an athlete's biking a
 
 By pulling the mileage from Strava, we can calculate when a part has reached its limit and send the cyclist an email notification to get their bike checked out.
 
-#### Technology Needed to Build Bike-Memo Site
-- Angular
-- Angular-ui-router
-- Sass
-- oAuth with Strava
-- [Back-End database to call to](https://github.com/Cycling-app/cycling-main)
-For Testing:
-- Karma
-- Mocha
-- Chai
-- Angular-mock
+#### In Order to Run App:
+- Clone the application
+- A working Ruby 2.3.1 environment
+- A working Rails 5.0 environment
+- A working Node 6.5 environment
+- A Strava account
+- A Heroku account
+- [Back-End database to call](https://github.com/Cycling-app/cycling-main)
+- run `npm install`
+- run `grunt`
